@@ -28,6 +28,8 @@ The scripts generate a number of different representations for the 122 magnetic 
 - *polar* [the object is a polar vector]
 - *axial* [the object is an axial vector; available for all 122 magnetic point groups]
 
+Note that the script will generate the left and right eye frames for the anaglyphs, but does not at this time generate the actual anaglyph file; this will need to be done using a package like ImageMagick, or programs such as Adobe Photoshop or the Interactive Data Language (IDL).  Instructions are provided in a separate README-anaglyph file in the anaglyph folder.
+
 For details on the underlying math and physics, please refer to the following paper: M. De Graef, [*Visualization of time-reversal symmetry in magnetic point groups*](https://link.springer.com/article/10.1007/s11661-010-0171-0), Met. Mat. Trans. A, vol. 41, pp.1321-1329 (2010). A similar article was published as [Teaching Pamphlet #23](https://www.iucr.org/education/pamphlets/23) by the International Union of Crystallography.
 
 ## Things to do
