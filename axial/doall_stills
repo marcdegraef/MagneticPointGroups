@@ -1,0 +1,28 @@
+#!/bin/sh
+echo "Point group axial vector stills generator starting"
+#
+# each subfolder corresponds to one point group, so loop through all folders
+#
+for FILE in *; do 
+	if [ -d $FILE ]; then 
+		./doone_still $FILE
+	fi
+done
+# 
+# combine all jpeg images into an archive
+#
+for FILE in *; do
+	if [ -d $FILE ]; then
+		if [ -e $FILE/$FILE-1.jpeg ]; then 
+			cp $FILE/$FILE-*.jpeg .
+		fi
+	fi
+done
+tar -cf axial_stills.tar *.jpeg
+gzip axial_stills.tar
+/bin/rm *.jpeg
+#
+# That's it !
+#
+echo "Point group axial vector stills generator quitting"
+exit

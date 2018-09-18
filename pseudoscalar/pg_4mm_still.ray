@@ -1,0 +1,17 @@
+#include "preface_still.ray"
+
+
+name point_group
+list
+	object axis_four
+	object mirrorplane rotate 1 0 0 90.0
+	object mirrorplane rotate 0 1 0 90.0
+	object mirrorplane rotate 0 1 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 45.0
+	object refaxis
+end
+
+#include "4mm.pos"
+#include "tail_still.ray"
+
+

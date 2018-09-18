@@ -1,0 +1,29 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object axis_two
+	object axis_two rotate 1 0 0 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 90.0
+	object mirrorplane rotate 0 1 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 45.0
+
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate ( px) (mpy) (mpz) 
+	object ylwpoint translate (mpx) (mpy) ( pz) 
+	object ylwpoint translate (mpx) ( py) (mpz) 
+	object ylwpoint translate ( py) (mpx) (mpz) 
+	object ylwpoint translate (mpy) (mpx) ( pz) 
+	object ylwpoint translate (mpy) ( px) (mpz) 
+	object ylwpoint translate ( py) ( px) ( pz) 
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+#include "tail.ray"
+
+

@@ -1,0 +1,97 @@
+#include "preface.ray"
+
+/* same as pg_235.ray but now every 2-fold axis has a mirror plane perpendicular to it */
+
+name point_group
+list
+	object axis_two 
+	object axis_two rotate 1.0 0.0 0.0  90.0
+	object axis_two rotate 0.0 1.0 0.0  90.0
+	object axis_two rotate 0.0 -0.5271 0.85066 72.0
+	object axis_two rotate 0.0 -0.5271 0.85066 144.0
+	object axis_two rotate 0.0 -0.5271 0.85066 -72.0
+	object axis_two rotate 0.0 -0.5271 0.85066 -144.0
+	object axis_two rotate 0.0 0.5271 0.85066 72.0
+	object axis_two rotate 0.0 0.5271 0.85066 144.0
+	object axis_two rotate 0.0 0.5271 0.85066 -72.0
+	object axis_two rotate 0.0 0.5271 0.85066 -144.0
+	object axis_two rotate 0.0 1.0 0.0 90.0 rotate -0.85066 0.0 0.52571 -72.0
+	object axis_two rotate 0.0 1.0 0.0 90.0 rotate -0.85066 0.0 0.52571 72.0
+	object axis_two rotate 0.0 1.0 0.0 90.0 rotate 0.85066 0.0 0.52571 -72.0
+	object axis_two rotate 0.0 1.0 0.0 90.0 rotate 0.85066 0.0 0.52571 72.0
+
+	object axis_three rotate 0.0 1.0 0.0 20.90 
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 -0.5271 0.85066 72.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 -0.5271 0.85066 -72.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 -0.5271 0.85066 144.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 -0.5271 0.85066 -144.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 0.5271 0.85066 72.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 0.5271 0.85066 144.0
+	object axis_three rotate 0.0 1.0 0.0 20.90 rotate 0.0 0.5271 0.85066 -144.0
+	object axis_three rotate 0.0 1.0 0.0  90.0 rotate 0.0 0.0 1.0 20.90
+	object axis_three rotate 0.0 1.0 0.0  90.0 rotate 0.0 0.0 1.0 -20.90
+
+	object axis_five rotate 1 0 0 31.716
+	object axis_five rotate 1 0 0 -31.716
+	object axis_five rotate 0 1 0 58.284
+	object axis_five rotate 0 1 0 -58.284
+	object axis_five rotate 1.0 0.0 0.0 90.0  rotate 0.0 0.0 1.0 31.716
+	object axis_five rotate 1.0 0.0 0.0 90.0  rotate 0.0 0.0 1.0 -31.716
+
+/* mirror planes */
+
+	object mirrorplane 
+        object mirrorplane rotate 1 0 0 90.0
+        object mirrorplane rotate 0 1 0 90.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 -0.52571 0.85056 36.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 -0.52571 0.85056 72.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 -0.52571 0.85056 108.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 -0.52571 0.85056 144.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 0.52571 0.85056 36.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 0.52571 0.85056 72.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 0.52571 0.85056 108.0
+        object mirrorplane rotate 0 1 0 90.0 rotate 0.0 0.52571 0.85056 144.0
+        object mirrorplane rotate 0.52571 0.85056 0.0 36.0 
+        object mirrorplane rotate 0.52571 0.85056 0.0 -36.0 
+        object mirrorplane rotate -0.52571 0.85056 0.0 36.0 
+        object mirrorplane rotate -0.52571 0.85056 0.0 -36.0 
+
+        object sympoint
+
+/*
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate (mpx) (mpy) ( pz) 
+	object ylwpoint translate (mpx) ( py) (mpz) 
+	object ylwpoint translate ( px) (mpy) (mpz) 
+	object ylwpoint translate ( px) (mpz) ( py) 
+	object ylwpoint translate (mpx) (mpz) (mpy) 
+	object ylwpoint translate (mpx) ( pz) ( py) 
+	object ylwpoint translate ( px) ( pz) (mpy) 
+
+	object ylwpoint translate ( pz) ( px) ( py) 
+	object ylwpoint translate (mpz) (mpx) ( py) 
+	object ylwpoint translate (mpz) ( px) (mpy) 
+	object ylwpoint translate ( pz) (mpx) (mpy) 
+	object ylwpoint translate ( pz) (mpy) ( px) 
+	object ylwpoint translate (mpz) (mpy) (mpx) 
+	object ylwpoint translate (mpz) ( py) ( px) 
+	object ylwpoint translate ( pz) ( py) (mpx) 
+
+	object ylwpoint translate ( py) ( pz) ( px) 
+	object ylwpoint translate (mpy) (mpz) ( px) 
+	object ylwpoint translate (mpy) ( pz) (mpx) 
+	object ylwpoint translate ( py) (mpz) (mpx) 
+	object ylwpoint translate ( py) (mpx) ( pz) 
+	object ylwpoint translate (mpy) (mpx) (mpz) 
+	object ylwpoint translate (mpy) ( px) ( pz) 
+	object ylwpoint translate ( py) ( px) (mpz) 
+*/
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+#include "tail.ray"
+
+

@@ -1,0 +1,95 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object axis_four rotate 1.0 0.0 0.0  90.0
+	object axis_four rotate 0.0 1.0 0.0  90.0
+        object sympoint
+
+
+        object axis_two rotate 1 0 0 45.0
+        object axis_two rotate 1 0 0 -45.0
+        object axis_two rotate 0 0 1 90.0 rotate 0 1 0 45.0
+        object axis_two rotate 0 0 1 90.0 rotate 0 1 0 -45.0
+        object axis_two rotate 0 0 1 45.0 rotate 1 1 0 90.0
+        object axis_two rotate 0 0 1 -45.0 rotate 1 -1 0 90.0
+
+	object axis_three rotate 0 0 1 -30 rotate 1.0 0.0 0.0 54.7333 rotate 0.0 0.0 1.0 45.0
+	object axis_three rotate 0 0 1 -30 rotate 1.0 0.0 0.0 54.7333 rotate 0.0 0.0 1.0 -45.0
+	object axis_three rotate 0 0 1  30 rotate 1.0 0.0 0.0 -54.7333 rotate 0.0 0.0 1.0 45.0
+	object axis_three rotate 0 0 1  30 rotate 1.0 0.0 0.0 -54.7333 rotate 0.0 0.0 1.0 -45.0
+
+	object mirrorplane
+	object mirrorplane rotate 1 0 0 90.0 
+	object mirrorplane rotate 0 1 0 90.0 
+	object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 -45.0
+	object mirrorplane rotate 1 0 0 45.0 
+	object mirrorplane rotate 1 0 0 -45.0 
+	object mirrorplane rotate 0 1 0 45.0 
+	object mirrorplane rotate 0 1 0 -45.0 
+
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate (mpx) ( py) ( pz) 
+	object ylwpoint translate ( px) (mpy) ( pz) 
+	object ylwpoint translate ( px) ( py) (mpz) 
+	object ylwpoint translate (mpx) (mpy) ( pz) 
+	object ylwpoint translate ( px) (mpy) (mpz) 
+	object ylwpoint translate (mpx) ( py) (mpz) 
+	object ylwpoint translate (mpx) (mpy) (mpz) 
+
+	object ylwpoint translate ( px) ( pz) ( py) 
+	object ylwpoint translate (mpx) ( pz) ( py) 
+	object ylwpoint translate ( px) (mpz) ( py) 
+	object ylwpoint translate ( px) ( pz) (mpy) 
+	object ylwpoint translate (mpx) (mpz) ( py) 
+	object ylwpoint translate ( px) (mpz) (mpy) 
+	object ylwpoint translate (mpx) ( pz) (mpy) 
+	object ylwpoint translate (mpx) (mpz) (mpy) 
+
+	object ylwpoint translate ( pz) ( py) ( px) 
+	object ylwpoint translate (mpz) ( py) ( px) 
+	object ylwpoint translate ( pz) (mpy) ( px) 
+	object ylwpoint translate ( pz) ( py) (mpx) 
+	object ylwpoint translate (mpz) (mpy) ( px) 
+	object ylwpoint translate ( pz) (mpy) (mpx) 
+	object ylwpoint translate (mpz) ( py) (mpx) 
+	object ylwpoint translate (mpz) (mpy) (mpx) 
+
+	object ylwpoint translate ( py) ( px) ( pz) 
+	object ylwpoint translate (mpy) ( px) ( pz) 
+	object ylwpoint translate ( py) (mpx) ( pz) 
+	object ylwpoint translate ( py) ( px) (mpz) 
+	object ylwpoint translate (mpy) (mpx) ( pz) 
+	object ylwpoint translate ( py) (mpx) (mpz) 
+	object ylwpoint translate (mpy) ( px) (mpz) 
+	object ylwpoint translate (mpy) (mpx) (mpz) 
+
+	object ylwpoint translate ( pz) ( px) ( py) 
+	object ylwpoint translate (mpz) ( px) ( py) 
+	object ylwpoint translate ( pz) (mpx) ( py) 
+	object ylwpoint translate ( pz) ( px) (mpy) 
+	object ylwpoint translate (mpz) (mpx) ( py) 
+	object ylwpoint translate ( pz) (mpx) (mpy) 
+	object ylwpoint translate (mpz) ( px) (mpy) 
+	object ylwpoint translate (mpz) (mpx) (mpy) 
+
+	object ylwpoint translate ( py) ( pz) ( px) 
+	object ylwpoint translate (mpy) ( pz) ( px) 
+	object ylwpoint translate ( py) (mpz) ( px) 
+	object ylwpoint translate ( py) ( pz) (mpx) 
+	object ylwpoint translate (mpy) (mpz) ( px) 
+	object ylwpoint translate ( py) (mpz) (mpx) 
+	object ylwpoint translate (mpy) ( pz) (mpx) 
+	object ylwpoint translate (mpy) (mpz) (mpx) 
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+#include "tail.ray"
+
+

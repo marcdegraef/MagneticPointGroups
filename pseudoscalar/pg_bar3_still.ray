@@ -1,0 +1,14 @@
+#include "preface_still.ray"
+
+
+name point_group
+list
+	object axis_three
+        object sympoint
+	object refaxis
+end
+
+#include "bar3.pos"
+#include "tail_still.ray"
+
+

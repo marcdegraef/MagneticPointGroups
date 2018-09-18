@@ -1,0 +1,26 @@
+#!/bin/sh
+echo "Point group raw generator starting"
+#
+# loop through all point groups
+#
+for FILE in pg_*.ray; do 
+	echo 'starting raw image for point group file ' $FILE `date`
+	if [ -e $FILE ]; then 
+		echo $FILE >/tmp/play
+		sed -i s/pg_// /tmp/play
+		sed -i s/\.ray// /tmp/play
+		read short </tmp/play
+		rayshade  <$FILE >/tmp/pg.mtv  2>/dev/null
+		convert -colorspace RGB /tmp/pg.mtv pg_$short\_raw\.jpeg
+		rm -f /tmp/pg.mtv
+	fi
+done
+#
+# That's it !
+#
+rm -f raw_pg.tar
+tar -cf raw_pg.tar *.jpeg
+gzip raw_pg.tar
+rm -f *.jpeg
+echo "Point group raw generator quitting"
+exit

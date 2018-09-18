@@ -1,0 +1,24 @@
+/* point group representation using Rayshade 4.0
+   tail file (sets observation variables for movie)
+   Author: M. De Graef
+   Date:  06/05/2008
+*/
+
+
+object point_group 
+
+screen 1200 1200
+maxdepth 10
+eyep 2.6 3.1 1.1
+lookp 0 0 0.0 
+up 0 0 1
+fov 45
+sample 2
+light 1.5 point -6 3 6
+light 0.5 extended 2.0 6  -4 1
+background 0.3 0.3 0.3
+shutter 0
+framelength 1
+starttime 0
+
+/* end of tail file */

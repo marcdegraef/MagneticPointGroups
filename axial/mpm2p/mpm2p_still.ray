@@ -1,0 +1,23 @@
+#include "../preface_still.ray"
+
+define sy (2.5*py)
+
+name point_group
+list
+	object anti_axis_two 
+	object anti_mirrorplane rotate 1.0 0.0 0.0  -90.0
+	object mirrorplane rotate 0.0 1.0 0.0  90.0
+
+/* mpm2p */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) 
+	object pmarrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 0 1  180 translate (mpx) (-sy) ( pz) 
+	object mparrow scale 1 1 -1 rotate 0 1 0 (-theta) scale 1 -1 1 translate (mpx) ( sy) ( pz) 
+	object mmarrow rotate 0 1 0 (-theta) scale -1 1 1 translate ( px) (-sy) ( pz) 
+
+	object refaxis
+end
+
+
+#include "../tail_still.ray"
+

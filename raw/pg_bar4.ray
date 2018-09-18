@@ -1,0 +1,14 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object axis_two
+	object refaxis
+end
+
+#include "bar4.pos"
+#include "tail.ray"
+
+

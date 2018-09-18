@@ -1,0 +1,16 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object axis_two rotate 1 0 0 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 45.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 135.0
+	object refaxis
+end
+
+#include "422.pos"
+#include "tail.ray"
+

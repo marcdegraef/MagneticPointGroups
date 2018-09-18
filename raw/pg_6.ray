@@ -1,0 +1,13 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_six
+	object refaxis
+end
+
+#include "6.pos"
+#include "tail.ray"
+
+

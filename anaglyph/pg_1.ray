@@ -1,0 +1,15 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object ylwpoint translate ( px) ( py) ( pz) 
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+#include "tail.ray"
+
+

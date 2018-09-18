@@ -1,0 +1,47 @@
+ /* Atom coordinates : m.pos        */
+  
+ name orbit
+ list
+ 	sphere blumirror  0.030   0.5173  -0.1939   0.7000
+ 	sphere blumirror  0.030   0.5173  -0.1939  -0.7000
+ 	sphere blumirror  0.030   0.5034  -0.2030   0.7258
+ 	sphere blumirror  0.030   0.5034  -0.2030  -0.7258
+ 	sphere blumirror  0.030   0.4794  -0.2121   0.7407
+ 	sphere blumirror  0.030   0.4794  -0.2121  -0.7407
+ 	sphere blumirror  0.030   0.4524  -0.2212   0.7385
+ 	sphere blumirror  0.030   0.4524  -0.2212  -0.7385
+ 	sphere blumirror  0.030   0.4304  -0.2303   0.7200
+ 	sphere blumirror  0.030   0.4304  -0.2303  -0.7200
+ 	sphere blumirror  0.030   0.4196  -0.2394   0.6931
+ 	sphere blumirror  0.030   0.4196  -0.2394  -0.6931
+ 	sphere blumirror  0.030   0.4212  -0.2485   0.6691
+ 	sphere blumirror  0.030   0.4212  -0.2485  -0.6691
+ 	sphere blumirror  0.030   0.4314  -0.2576   0.6581
+ 	sphere blumirror  0.030   0.4314  -0.2576  -0.6581
+ 	sphere blumirror  0.030   0.4426  -0.2667   0.6648
+ 	sphere blumirror  0.030   0.4426  -0.2667  -0.6648
+ 	sphere blumirror  0.030   0.4470  -0.2758   0.6864
+ 	sphere blumirror  0.030   0.4470  -0.2758  -0.6864
+ 	sphere blumirror  0.030   0.4393  -0.2849   0.7136
+ 	sphere blumirror  0.030   0.4393  -0.2849  -0.7136
+ 	sphere blumirror  0.030   0.4197  -0.2940   0.7352
+ 	sphere blumirror  0.030   0.4197  -0.2940  -0.7352
+ 	sphere blumirror  0.030   0.3932  -0.3031   0.7419
+ 	sphere blumirror  0.030   0.3932  -0.3031  -0.7419
+ 	sphere blumirror  0.030   0.3677  -0.3122   0.7309
+ 	sphere blumirror  0.030   0.3677  -0.3122  -0.7309
+ 	sphere blumirror  0.030   0.3508  -0.3213   0.7069
+ 	sphere blumirror  0.030   0.3508  -0.3213  -0.7069
+ 	sphere blumirror  0.030   0.3464  -0.3304   0.6800
+ 	sphere blumirror  0.030   0.3464  -0.3304  -0.6800
+ 	sphere blumirror  0.030   0.3531  -0.3395   0.6615
+ 	sphere blumirror  0.030   0.3531  -0.3395  -0.6615
+ 	sphere blumirror  0.030   0.3649  -0.3486   0.6593
+ 	sphere blumirror  0.030   0.3649  -0.3486  -0.6593
+ 	sphere blumirror  0.030   0.3735  -0.3577   0.6742
+ 	sphere blumirror  0.030   0.3735  -0.3577  -0.6742
+ 	sphere blumirror  0.030   0.3722  -0.3668   0.7000
+ 	sphere blumirror  0.030   0.3722  -0.3668  -0.7000
+ end
+ define spin 0.0
+  

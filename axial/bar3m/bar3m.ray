@@ -1,0 +1,53 @@
+#include "../preface.ray"
+
+define sy (2.0*py)
+define msy (-sy)
+
+name point_group
+list
+	object axis_three
+	object mirrorplane rotate 1 0 0 -90.0
+	object mirrorplane rotate 1 0 0 -90.0 rotate 0 0 1 -60.0
+	object mirrorplane rotate 1 0 0 -90.0 rotate 0 0 1 -120.0
+	object axis_two rotate 1 0 0 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 60.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 -60.0
+        object sympoint
+
+/* -3m */
+
+/* 1 */
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) 
+/* 3 */
+	object pparrow rotate 0 1 0 ( theta) rotate 0 0 1 120 translate ( -0.5 * px - 0.866 * sy ) ( 0.866 * px - 0.5 * sy ) ( pz) 
+/* 3^2 */
+	object pparrow rotate 0 1 0 ( theta) rotate 0 0 1 240 translate ( -0.5 * px + 0.866 * sy ) (-0.866 * px - 0.5 * sy ) ( pz) 
+
+/* m */
+	object mparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) (msy) ( pz) 
+/* m */
+	object mparrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 0 1 120 translate ( -0.5 * px - 0.866 *msy ) ( 0.866 * px - 0.5 *msy ) ( pz) 
+/* m */
+	object mparrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 0 1 240 translate ( -0.5 * px + 0.866 *msy ) (-0.866 * px - 0.5 *msy ) ( pz) 
+
+/* 2 */
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate (mpx) ( sy) (mpz) 
+/* 2 */
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 0 1 120 translate ( -0.5 *mpx - 0.866 * sy ) ( 0.866 *mpx - 0.5 * sy ) (mpz) 
+/* 2 */
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 0 1 240 translate ( -0.5 *mpx + 0.866 * sy ) (-0.866 *mpx - 0.5 * sy ) (mpz) 
+
+/* -1 */
+	object mparrow rotate 0 1 0 ( theta) translate (mpx) (msy) (mpz) 
+/* -1 */
+	object mparrow rotate 0 1 0 ( theta) rotate 0 0 1 120 translate ( -0.5 *mpx - 0.866 *msy ) ( 0.866 *mpx - 0.5 *msy ) (mpz) 
+/* -1 */
+	object mparrow rotate 0 1 0 ( theta) rotate 0 0 1 240 translate ( -0.5 *mpx + 0.866 *msy ) (-0.866 *mpx - 0.5 *msy ) (mpz) 
+
+
+	object refaxis
+end
+
+
+#include "../tail_movies.ray"
+

@@ -1,0 +1,69 @@
+echo "Starting main point group script"
+echo " "
+echo "Make sure you have a lot of time and diskspace..."
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory raw to create 32 jpeg images"
+cd raw
+./doall
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
+cd scalar
+./doall
+./doall_stills
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
+cd pseudoscalar
+./doall
+./doall_stills
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory anaglyph to create 2*32 jpeg images"
+echo "Note that these images then need to be combined into true"
+echo "anaglyphs by means of a program like Photoshop ... "
+cd anaglyph
+./doall
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory special_positions to create 1 movie"
+cd special_positions
+./doall
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory axial to create 122 movies and 366 hi-res stills"
+cd movieaxial
+./doall
+./doall_stills
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo " "
+echo "Switching to directory polar to create 32 movies and 96 hi-res stills"
+cd moviepolar
+./doall
+./doall_stills
+cd ..
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+echo "All is well that ends well ..."
+date
+exit

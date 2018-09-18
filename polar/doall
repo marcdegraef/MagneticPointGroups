@@ -1,0 +1,30 @@
+#!/bin/sh
+echo "Point group polar vector movie generator starting"
+#
+# each subfolder corresponds to one point group, so loop through all folders
+#
+for FILE in *; do 
+	if [ -d $FILE ]; then 
+		./doone $FILE
+	fi
+done
+#
+# and next, combine all the mpg files into a single archive file
+# we'll delete the mpg files, but keep the individual archives with 
+# the movie frames in each subfolder...
+#
+for FILE in *; do
+	if [ -d $FILE ]; then
+		if [ -e $FILE/polar_$FILE.mpg ]; then 
+			cp $FILE/polar_$FILE.mpg .
+		fi	
+	fi
+done
+tar -cf polar_movies.tar polar_*.mpg
+gzip polar_movies.tar
+/bin/rm -f polar_*.mpg
+#
+# That's it !
+#
+echo "Point group polar vector movie generator quitting"
+exit

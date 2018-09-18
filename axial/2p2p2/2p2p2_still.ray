@@ -1,0 +1,24 @@
+#include "../preface_still.ray"
+
+
+name point_group
+list
+	object axis_two 
+	object anti_axis_two  rotate 1.0 0.0 0.0  90.0
+	object anti_axis_two  rotate 1.0 0.0 0.0  90.0  rotate 0.0 0.0 1.0  90.0
+
+/* 222 */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( py) ( pz) 
+	object pparrow rotate 0 1 0 ( theta) rotate 0 0 1 180 translate (mpx) (mpy) ( pz) 
+	object pmarrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 0 1 0 180 translate (mpx) ( py) (mpz) 
+	object pmarrow scale 1 1 -1 rotate 0 1 0 ( theta) rotate 1 0 0 180 translate ( px) (mpy) (mpz) 
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+
+#include "../tail_still.ray"
+

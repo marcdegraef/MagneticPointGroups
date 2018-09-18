@@ -1,0 +1,17 @@
+#include "../preface_still.ray"
+
+
+name point_group
+list
+
+/* 1 */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( py) ( pz) 
+
+	object refaxis
+	object refaxis rotate 1 0 0 90
+	object refaxis rotate 0 1 0 90
+end
+
+
+#include "../tail_still.ray"

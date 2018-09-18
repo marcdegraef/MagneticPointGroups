@@ -1,0 +1,16 @@
+#include "../preface_still.ray"
+
+
+name point_group
+list
+	object mirrorplane
+
+/* m */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( py) ( pz) 
+	object mparrow rotate 0 1 0 (-theta) translate ( px) ( py) (mpz) 
+
+end
+
+
+#include "../tail_still.ray"

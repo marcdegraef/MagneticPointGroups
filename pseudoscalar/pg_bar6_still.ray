@@ -1,0 +1,15 @@
+#include "preface_still.ray"
+
+
+name point_group
+list
+	object axis_six
+	object axis_three
+	object hexmirrorplane
+	object refaxis
+end
+
+#include "bar6.pos"
+#include "tail_still.ray"
+
+

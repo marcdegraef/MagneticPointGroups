@@ -1,0 +1,43 @@
+#!/bin/sh
+echo "Start special positions movie for point group 4/mmm " `date`
+rayshade -v <pg_special1.ray >/tmp/out.mtv 2>/dev/null
+convert -colorspace RGB /tmp/out.mtv out.jpeg
+mv out-0.jpeg out1-1.jpeg
+mv out-1.jpeg out1-2.jpeg
+mv out-2.jpeg out1-3.jpeg
+mv out-3.jpeg out1-4.jpeg
+mv out-4.jpeg out1-5.jpeg
+mv out-5.jpeg out1-6.jpeg
+mv out-6.jpeg out1-7.jpeg
+mv out-7.jpeg out1-8.jpeg
+mv out-8.jpeg out1-9.jpeg
+rayshade -v <pg_special2.ray >/tmp/out.mtv 2>/dev/null
+convert -colorspace RGB /tmp/out.mtv out.jpeg
+mv out-0.jpeg out2-1.jpeg
+mv out-1.jpeg out2-2.jpeg
+mv out-2.jpeg out2-3.jpeg
+mv out-3.jpeg out2-4.jpeg
+mv out-4.jpeg out2-5.jpeg
+mv out-5.jpeg out2-6.jpeg
+mv out-6.jpeg out2-7.jpeg
+mv out-7.jpeg out2-8.jpeg
+mv out-8.jpeg out2-9.jpeg
+rayshade -v <pg_special3.ray >/tmp/out.mtv 2>/dev/null
+convert -colorspace RGB /tmp/out.mtv out.jpeg
+mv out-0.jpeg out3-1.jpeg
+mv out-1.jpeg out3-2.jpeg
+mv out-2.jpeg out3-3.jpeg
+mv out-3.jpeg out3-4.jpeg
+mv out-4.jpeg out3-5.jpeg
+mv out-5.jpeg out3-6.jpeg
+mv out-6.jpeg out3-7.jpeg
+mv out-7.jpeg out3-8.jpeg
+mv out-8.jpeg out3-9.jpeg
+tar -cf specialpositions.tar *.jpeg
+/bin/rm -f /tmp/out.mtv
+gzip specialpositions.tar
+echo "  --> creating movie " `date`
+image2ppm -v 0 -j 1 -n PAL -f 7 -F 25 -w 704 -h 576 -t 0.125 -T 0.0 -o - out1-1.jpeg out1-2.jpeg out1-3.jpeg out1-4.jpeg out1-5.jpeg out1-6.jpeg out1-7.jpeg out1-8.jpeg out1-9.jpeg out2-1.jpeg out2-2.jpeg out2-3.jpeg out2-4.jpeg out2-5.jpeg out2-6.jpeg out2-7.jpeg out2-8.jpeg out2-9.jpeg out3-1.jpeg out3-2.jpeg out3-3.jpeg out3-4.jpeg out3-5.jpeg out3-6.jpeg out3-7.jpeg out3-8.jpeg out3-9.jpeg 2>/dev/null | ppmtoy4m -v 0 -F 25:1 | mpeg2enc -v 0 -T 50 -f 6 -a 2 -n p -b 1152 -V 46 -q 1 -r 16 -o special_positions.mpg 
+/bin/rm -f out*-*.jpeg *.log
+echo "End special positions movie for point group 4/mmm " `date`
+exit

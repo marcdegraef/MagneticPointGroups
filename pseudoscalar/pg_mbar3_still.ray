@@ -1,0 +1,29 @@
+#include "preface_still.ray"
+
+
+name point_group
+list
+	object axis_two 
+	object axis_two  rotate 1.0 0.0 0.0  90.0
+	object axis_two  rotate 1.0 0.0 0.0  90.0 rotate 0 0 1 90.0
+        object sympoint
+
+
+	object axis_three rotate 0 0 1 -30 rotate 1.0 0.0 0.0 54.7333 rotate 0.0 0.0 1.0 45.0
+	object axis_three rotate 0 0 1 -30 rotate 1.0 0.0 0.0 54.7333 rotate 0.0 0.0 1.0 -45.0
+	object axis_three rotate 0 0 1  30 rotate 1.0 0.0 0.0 -54.7333 rotate 0.0 0.0 1.0 45.0
+	object axis_three rotate 0 0 1  30 rotate 1.0 0.0 0.0 -54.7333 rotate 0.0 0.0 1.0 -45.0
+
+	object mirrorplane	
+	object mirrorplane rotate 1 0 0 90.0
+	object mirrorplane rotate 0 1 0 90.0
+
+	object refaxis
+	object refaxis rotate 1.0 0.0 0.0 90.0
+	object refaxis rotate 0.0 1.0 0.0 90.0
+end
+
+#include "mbar3.pos"
+#include "tail_still.ray"
+
+

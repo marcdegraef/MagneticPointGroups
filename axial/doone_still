@@ -1,0 +1,16 @@
+echo "Start axial stills for point group " $1 `date`
+cd $1
+rayshade <$1_still.ray >/tmp/$1.mtv 2>/dev/null
+convert -colorspace RGB /tmp/$1.mtv /tmp/$1.jpeg
+mv /tmp/$1-2.jpeg /tmp/$1-3.jpeg
+mv /tmp/$1-1.jpeg /tmp/$1-2.jpeg
+mv /tmp/$1-0.jpeg /tmp/$1-1.jpeg
+/bin/rm -f $1_stills.tar $1_stills.tar.gz
+/bin/rm -f /tmp/$1.mtv
+/bin/mv /tmp/$1-*.jpeg .
+tar -cf $1_stills.tar $1-*.jpeg
+gzip $1_stills.tar
+/bin/rm -f $1-*.jpeg
+cd ..
+echo "End axial stills for point group " $1 `date`
+exit

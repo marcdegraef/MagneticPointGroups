@@ -1,0 +1,12 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object mirrorplane
+end
+
+#include "m.pos"
+#include "tail.ray"
+
+

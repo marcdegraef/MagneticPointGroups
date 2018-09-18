@@ -1,0 +1,20 @@
+#include "preface_still.ray"
+
+
+name point_group
+list
+	object axis_two 
+	object mirrorplane rotate 1.0 0.0 0.0  90.0
+	object mirrorplane rotate 0.0 1.0 0.0  90.0
+
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate (mpx) (mpy) ( pz) 
+	object ylwpoint translate (mpx) ( py) ( pz) 
+	object ylwpoint translate ( px) (mpy) ( pz) 
+
+	object refaxis
+end
+
+#include "tail_still.ray"
+
+

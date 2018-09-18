@@ -1,0 +1,23 @@
+/* point group representation using Rayshade 4.0
+   tail file 
+   Author: M. De Graef
+   Date:   6/24/2008
+*/
+
+object point_group rotate 0 0 1 (theta)
+
+screen 704 576
+maxdepth 20
+eyep 2.7 3.2 2.1
+lookp 0.5 0.6 0.4
+up 0 0 1
+fov 45
+sample 4
+light 1.5 point -6 3 6
+light 0.5 extended 2.0 6  -4 1
+background 0.3 0.3 0.3
+shutter 0
+framelength 1
+starttime 0
+
+/* end of tail file */

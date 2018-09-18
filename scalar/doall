@@ -1,0 +1,40 @@
+#!/bin/sh
+echo "Point group scalar movie generator starting"
+#
+# loop through all point groups
+#
+for FILE in pg_*.ray; do 
+	if [ -e $FILE ]; then 
+		echo $FILE >/tmp/play
+		sed -i s/pg_// /tmp/play
+		sed -i s/\.ray// /tmp/play
+		read short </tmp/play
+		declare short=${short%%_still}
+		if [ $FILE != pg_$short\_still.ray ]; then 
+		  echo 'starting scalar movie for point group file ' $FILE `date`
+		  rayshade  <$FILE >/tmp/pg.mtv  2>/dev/null
+		  convert -colorspace RGB /tmp/pg.mtv $short.jpeg
+		  mv $short-0.jpeg $short-00.jpeg
+		  mv $short-1.jpeg $short-01.jpeg
+		  mv $short-2.jpeg $short-02.jpeg
+		  mv $short-3.jpeg $short-03.jpeg
+		  mv $short-4.jpeg $short-04.jpeg
+		  mv $short-5.jpeg $short-05.jpeg
+		  mv $short-6.jpeg $short-06.jpeg
+		  mv $short-7.jpeg $short-07.jpeg
+		  mv $short-8.jpeg $short-08.jpeg
+		  mv $short-9.jpeg $short-09.jpeg
+		  /bin/rm -f $short.tar $short.tar.gz
+		  tar -cf $short.tar $short-*.jpeg
+		  gzip $short.tar
+		  echo "  --> creating movie " `date`
+		  image2ppm -v 0 -j 1 -n PAL -f 7 -F 25 -w 704 -h 576 -t 0.125 -T 0.0 -o - $short-00.jpeg $short-01.jpeg $short-02.jpeg $short-03.jpeg $short-04.jpeg $short-05.jpeg $short-06.jpeg $short-07.jpeg $short-08.jpeg $short-09.jpeg $short-10.jpeg $short-11.jpeg $short-12.jpeg $short-13.jpeg $short-14.jpeg $short-15.jpeg $short-16.jpeg $short-17.jpeg $short-18.jpeg $short-19.jpeg $short-20.jpeg $short-21.jpeg $short-22.jpeg $short-23.jpeg $short-24.jpeg $short-25.jpeg $short-26.jpeg $short-27.jpeg $short-28.jpeg $short-29.jpeg $short-30.jpeg $short-31.jpeg $short-32.jpeg $short-33.jpeg $short-34.jpeg $short-35.jpeg $short-36.jpeg $short-37.jpeg $short-38.jpeg $short-39.jpeg $short-40.jpeg $short-41.jpeg $short-42.jpeg $short-43.jpeg $short-44.jpeg $short-45.jpeg $short-46.jpeg $short-47.jpeg $short-48.jpeg $short-49.jpeg $short-50.jpeg $short-51.jpeg $short-52.jpeg $short-53.jpeg $short-54.jpeg $short-55.jpeg $short-56.jpeg $short-57.jpeg $short-58.jpeg $short-59.jpeg 2>/dev/null | ppmtoy4m -v 0 -F 25:1 | mpeg2enc -v 0 -T 50 -f 6 -a 2 -n p -b 1152 -V 46 -q 1 -r 16 -o scalar_$short.mpg 
+		  /bin/rm -f /tmp/pg.mtv $short-*.jpeg *.log
+		fi
+	fi
+done
+rm -f scalar_movies.tar
+tar -cf scalar_movies.tar *.mpg
+gzip scalar_movies.tar
+echo "Point group scalar movie generator quitting"
+exit

@@ -1,0 +1,38 @@
+#!/bin/sh
+echo "Point group polar vector stills generator starting"
+#
+# each subfolder corresponds to one point group, so loop through all folders
+#
+for FILE in *; do 
+	if [ -d $FILE ]; then 
+		./doone_still $FILE
+	fi
+done
+# 
+# combine all jpeg images into an archive
+#
+for FILE in *; do
+	if [ -d $FILE ]; then
+		if [ -e $FILE/$FILE-1.jpeg ]; then 
+			cp $FILE/$FILE-1.jpeg polar_$FILE-1.jpeg
+			cp $FILE/$FILE-2.jpeg polar_$FILE-2.jpeg
+			cp $FILE/$FILE-3.jpeg polar_$FILE-3.jpeg
+		else
+			#gunzip $FILE/$FILE\_stills.tar.gz
+			tar -xf $FILE/$FILE\_stills.tar
+			mv $FILE-1.jpeg polar_$FILE-1.jpeg
+			mv $FILE-2.jpeg polar_$FILE-2.jpeg
+			mv $FILE-3.jpeg polar_$FILE-3.jpeg
+			gzip $FILE/$FILE\_stills.tar
+		fi
+	fi
+done
+/bin/rm -f polar_stills.tar polar_stills.tar.gz
+tar -cf polar_stills.tar *.jpeg
+gzip polar_stills.tar
+/bin/rm *.jpeg
+#
+# That's it !
+#
+echo "Point group polar vector stills generator quitting"
+exit

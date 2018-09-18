@@ -1,0 +1,14 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object mirrorplane
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate ( px) ( py) (mpz) 
+
+end
+
+#include "tail.ray"
+
+

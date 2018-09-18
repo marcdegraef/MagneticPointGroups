@@ -1,0 +1,15 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object mirrorplane
+        object sympoint
+	object refaxis
+end
+
+#include "4overm.pos"
+#include "tail.ray"
+
+

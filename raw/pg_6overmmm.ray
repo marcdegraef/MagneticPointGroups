@@ -1,0 +1,27 @@
+#include "preface.ray"
+
+
+name point_group
+list
+        object axis_six
+        object hexmirrorplane
+        object mirrorplane rotate 1 0 0 90.0
+        object mirrorplane rotate 0 1 0 90.0
+        object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 60.0
+        object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 -60.0
+        object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 30.0
+        object mirrorplane rotate 1 0 0 90.0 rotate 0 0 1 -30.0
+        object axis_two rotate 1 0 0 90.0 rotate 0 0 1 90.0
+        object axis_two rotate 1 0 0 90.0 rotate 0 0 1 60.0
+        object axis_two rotate 1 0 0 90.0 rotate 0 0 1 -60.0
+        object axis_two rotate 1 0 0 90.0
+        object axis_two rotate 1 0 0 90.0 rotate 0 0 1 30.0
+        object axis_two rotate 1 0 0 90.0 rotate 0 0 1 -30.0
+        object sympoint
+	object refaxis
+end
+
+#include "6overmmm.pos"
+#include "tail.ray"
+
+

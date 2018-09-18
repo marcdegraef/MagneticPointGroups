@@ -1,0 +1,67 @@
+#include "../prefacegray_still.ray"
+
+define sy (2.5*py)
+
+name point_group
+list
+	object axis_four
+	object axis_two rotate 1 0 0 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 -45.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane 
+	object mirrorplane rotate 1 0 0 -90.0
+	object mirrorplane rotate 0 1 0 90.0
+	object mirrorplane rotate 0 1 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane rotate 1 0 0 -90.0 rotate 0 0 1 45.0
+        object sympoint
+
+/* 4/mmm1p */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) 
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) 
+	object pparrow rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) 
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) 
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 90
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 90
+	object pparrow rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 90
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 90
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 180
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 180
+	object pparrow rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 180
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 180
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 270
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 270
+	object pparrow rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 270
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 270
+
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) 
+	object pparrow rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) 
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) 
+	object pparrow rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) 
+
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 90
+	object pparrow rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 90
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 90
+	object pparrow rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 90
+
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 180
+	object pparrow rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 180
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 180
+	object pparrow rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 180
+
+	object pparrow scale 1 1 -1 rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) rotate 0 0 1 270
+	object pparrow rotate 0 1 0 ( theta) translate ( px) (-sy) ( pz) rotate 0 0 1 270
+	object pparrow scale 1 1 -1 rotate 0 1 0 (-theta) translate ( px) ( sy) (mpz) rotate 0 0 1 270
+	object pparrow rotate 0 1 0 (-theta) translate ( px) (-sy) (mpz) rotate 0 0 1 270
+
+
+	object refaxis
+end
+
+
+#include "../tail_still.ray"
+

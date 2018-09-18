@@ -1,0 +1,19 @@
+#include "../preface_still.ray"
+
+
+name point_group
+list
+	object anti_sympoint
+
+/* -1p */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( py) ( pz) 
+	object mmarrow scale 1 1 -1 rotate 0 1 0 ( theta) translate (mpx) (mpy) (mpz) 
+
+	object refaxis
+	object refaxis rotate 1 0 0 90
+	object refaxis rotate 0 1 0 90
+end
+
+
+#include "../tail_still.ray"

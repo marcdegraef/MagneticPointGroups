@@ -1,0 +1,23 @@
+#!/bin/sh
+echo "Point group scalar still generator starting"
+#
+# loop through all point groups
+#
+for FILE in pg_*_still.ray; do 
+	echo 'starting scalar still image for point group file ' $FILE `date`
+	if [ -e $FILE ]; then 
+		echo $FILE >/tmp/play
+		sed -i s/pg_// /tmp/play
+		sed -i s/\_still.ray// /tmp/play
+		read short </tmp/play
+		rayshade  <$FILE >/tmp/pg.mtv  2>/dev/null
+		convert -colorspace RGB /tmp/pg.mtv scalar_$short\.jpeg
+		rm -f /tmp/pg.mtv
+	fi
+done
+rm -f scalar_stills.tar
+tar -cf scalar_stills.tar *.jpeg
+gzip scalar_stills.tar
+rm -f *.jpeg
+echo "Point group scalar still generator quitting"
+exit

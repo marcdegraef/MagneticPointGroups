@@ -1,0 +1,19 @@
+#include "preface.ray"
+
+
+name point_group
+list
+	object axis_four
+	object axis_two
+
+	object ylwpoint translate ( px) ( py) ( pz) 
+	object ylwpoint translate (mpx) (mpy) ( pz) 
+	object ylwpoint translate ( py) (mpx) (mpz) 
+	object ylwpoint translate (mpy) ( px) (mpz) 
+
+	object refaxis
+end
+
+#include "tail.ray"
+
+
