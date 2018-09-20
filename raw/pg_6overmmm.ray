@@ -21,7 +21,6 @@ list
 	object refaxis
 end
 
-#include "6overmmm.pos"
 #include "tail.ray"
 
 

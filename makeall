@@ -1,69 +1,145 @@
-echo "Starting main point group script"
-echo " "
-echo "Make sure you have a lot of time and diskspace..."
+#!/bin/bash
+# Written by M. De Graef; 9/19/18
+# Project Funding: NSF DMR-1564550
+# This script is Mac OS X specific...
+
+# -------------------------------------------------------
+# define a couple of functions
+function showdate() {
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 date
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-echo " "
-echo "Switching to directory raw to create 32 jpeg images"
-cd raw
-./doall
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+}
+
+# -------------------------------------------------------
+
+# This script is the top level script for building all the magnetic point group stills and movies.
+# It should be called with two arguments:
+#
+# ./makeall BUILD_FOLDER NTHREADS
+#
+# where BUILD_FOLDER is a relative or absolute path to the location of the folder that will contain
+# temporary and final files, and NTHREADS is the desired number of threads on which to run the rendering.
+
+
+# -------------------------------------------------------
+# test for presence of script arguments
+if [ $# -eq 0 ]
+  then
+    echo "This script requires two arguments: BUILD_FOLDER and NTHREADS"
+    exit 1
+fi
+
+if [ $# -eq 1 ]
+  then
+    echo "This script requires two arguments: BUILD_FOLDER and NTHREADS"
+    exit 1
+fi
+
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+CURDIR=`pwd`
+
+# test to make sure that the requested number of threads is <= the available number
+MAXTHREADS=`sysctl -n hw.ncpu`   # need to check for OS... this one will only work on Mac OS X
+if [ $NTHREADS -gt $MAXTHREADS ]
+  then 
+    NTHREADS="$MAXTHREADS"
+fi
+
+# do we need to create the BUILD_FOLDER?
+if [ -e "$BUILD_FOLDER" ] 
+  then 
+    echo "$BUILD_FOLDER already exists"
+  else
+    mkdir $BUILD_FOLDER
+fi
+
+# do we need to create the temporary folder?
+if [ -e "$TMP_FOLDER" ] 
+  then 
+    echo "$TMP_FOLDER already exists"
+  else
+    mkdir $TMP_FOLDER
+fi
+
+# and print out a message
+echo "Stills and movies will be built in folder $BUILD_FOLDER using $NTHREADS of $MAXTHREADS available threads."
+
+# -------------------------------------------------------
+# set some other parameters
+# wait time between task checks
+#tick=2
+#RAYSHADE=~/Files/Books/rayshade/rayshade
+RAYSHADE=/usr/local/bin/rayshade
+FFMPEG=~/packages/ffmpeg
+
+
+## -------------------------------------------------------
+#echo "Starting main point group script"
+#echo " "
+#echo "Make sure you have a lot of time and diskspace..."
+#showdate
+#echo " "
+#echo "Switching to directory raw to create 32 jpeg images"
+#cd raw
+#./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+#cd $CURDIR
+#exit
+
+showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-./doall
-./doall_stills
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE $FFMPEG
+#./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+exit
+
+showdate
 echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
-./doall
-./doall_stills
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+
+showdate
 echo " "
 echo "Switching to directory anaglyph to create 2*32 jpeg images"
 echo "Note that these images then need to be combined into true"
 echo "anaglyphs by means of a program like Photoshop ... "
 cd anaglyph
-./doall
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+
+showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
 cd special_positions
-./doall
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+
+showdate
 echo " "
 echo "Switching to directory axial to create 122 movies and 366 hi-res stills"
 cd movieaxial
-./doall
-./doall_stills
-cd ..
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+
+showdate
 echo " "
 echo "Switching to directory polar to create 32 movies and 96 hi-res stills"
 cd moviepolar
-./doall
-./doall_stills
-cd ..
+./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+cd $CURDIR
+
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 echo "All is well that ends well ..."
-date
+showdate
 exit

@@ -9,7 +9,6 @@ list
 	object refaxis
 end
 
-#include "mm2.pos"
 #include "tail.ray"
 
 

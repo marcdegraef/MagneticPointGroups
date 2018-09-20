@@ -10,7 +10,6 @@ list
 	object refaxis
 end
 
-#include "32.pos"
 #include "tail.ray"
 
 

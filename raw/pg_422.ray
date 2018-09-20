@@ -11,6 +11,5 @@ list
 	object refaxis
 end
 
-#include "422.pos"
 #include "tail.ray"
 

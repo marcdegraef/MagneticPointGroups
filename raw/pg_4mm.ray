@@ -11,7 +11,6 @@ list
 	object refaxis
 end
 
-#include "4mm.pos"
 #include "tail.ray"
 
 

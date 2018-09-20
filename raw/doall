@@ -1,26 +1,38 @@
-#!/bin/sh
+#!/bin/bash
 echo "Point group raw generator starting"
+
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+RAYSHADE="$3"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+
 #
 # loop through all point groups
 #
 for FILE in pg_*.ray; do 
 	echo 'starting raw image for point group file ' $FILE `date`
 	if [ -e $FILE ]; then 
-		echo $FILE >/tmp/play
-		sed -i s/pg_// /tmp/play
-		sed -i s/\.ray// /tmp/play
-		read short </tmp/play
-		rayshade  <$FILE >/tmp/pg.mtv  2>/dev/null
-		convert -colorspace RGB /tmp/pg.mtv pg_$short\_raw\.jpeg
-		rm -f /tmp/pg.mtv
+		echo $FILE >$TMP_FOLDER/play$FILE
+		sed -i back "s/pg_//" $TMP_FOLDER/play$FILE
+		sed -i back "s/\.ray//" $TMP_FOLDER/play$FILE
+		read short <$TMP_FOLDER/play$FILE
+		rm $TMP_FOLDER/play$FILE
+		rm $TMP_FOLDER/play"$FILE"back
+		$RAYSHADE <$FILE >$TMP_FOLDER/pg_$short.mtv  2>/dev/null
+		convert -colorspace RGB -auto-level $TMP_FOLDER/pg_$short.mtv $BUILD_FOLDER/pg_$short\_raw\.jpeg
+		rm -f $TMP_FOLDER/pg_$short.mtv
 	fi
 done
-#
-# That's it !
-#
+# collect all the jpegs into a tar-ball
+CURDIR=`pwd`
+cd $BUILD_FOLDER
 rm -f raw_pg.tar
 tar -cf raw_pg.tar *.jpeg
 gzip raw_pg.tar
 rm -f *.jpeg
+cd $CURDIR
+cd ../
 echo "Point group raw generator quitting"
 exit

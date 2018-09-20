@@ -6,7 +6,6 @@ list
 	object mirrorplane
 end
 
-#include "m.pos"
 #include "tail.ray"
 
 

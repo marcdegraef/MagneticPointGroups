@@ -94,7 +94,7 @@ surface black
         reflect 0.4
 
 
-plane white 0 0 -10 0 0 1
+/* plane white 0 0 -10 0 0 1  */
 
 
 name mirrorplane

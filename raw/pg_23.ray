@@ -17,6 +17,5 @@ list
 	object refaxis rotate 0.0 1.0 0.0 90.0
 end
 
-#include "23.pos"
 #include "tail.ray"
 

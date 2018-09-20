@@ -8,7 +8,6 @@ list
 	object refaxis
 end
 
-#include "bar3.pos"
 #include "tail.ray"
 
 
