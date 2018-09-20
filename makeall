@@ -94,8 +94,9 @@ showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-./doall $BUILD_FOLDER $NTHREADS $POVRAY $FFMPEG
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
+#./doall $BUILD_FOLDER $NTHREADS $POVRAY $FFMPEG
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+
 cd $CURDIR
 exit
 

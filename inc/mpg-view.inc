@@ -8,7 +8,7 @@
 // Date: 09/19/2018
 // Auth: Marc De Graef
 
-// define the camera parameters
+// declare the camera parameters
   camera {
 	//orthographic 
 	perspective
@@ -30,3 +30,10 @@
          color_map { [0.0 color blue 1] [1.0 color rgb <0.8,0.8,1.0>] }
       }
    }
+
+#declare px=0.85;
+#declare py=0.15;
+#declare pz=0.40;
+#declare mpx=-px;
+#declare mpy=-py;
+#declare mpz=-pz;
