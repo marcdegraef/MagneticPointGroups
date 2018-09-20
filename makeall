@@ -21,6 +21,11 @@ echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 # where BUILD_FOLDER is a relative or absolute path to the location of the folder that will contain
 # temporary and final files, and NTHREADS is the desired number of threads on which to run the rendering.
 
+# -------------------------------------------------------
+# declare where to find the relevant programs
+POVRAY=/Users/mdg/Applications/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
+POVRAYinclude=/Users/mdg/Applications/PovrayCommandLineMacV2/include
+FFMPEG=~/packages/ffmpeg
 
 # -------------------------------------------------------
 # test for presence of script arguments
@@ -78,43 +83,36 @@ fi
 # and print out a message
 echo "Stills and movies will be built in folder $BUILD_FOLDER using $NTHREADS of $MAXTHREADS available threads."
 
-# -------------------------------------------------------
-# set some other parameters
-# wait time between task checks
-#tick=2
-POVRAY=/Users/mdg/Applications/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
-FFMPEG=~/packages/ffmpeg
-POVRAYinclude=/Users/mdg/Applications/PovrayCommandLineMacV2/include
-
 
 ## -------------------------------------------------------
 echo "Starting main point group script"
 echo " "
 echo "Make sure you have a lot of time and diskspace..."
-#showdate
-#echo " "
-#echo "Switching to directory raw to create 32 jpeg images"
-#cd raw
+showdate
+echo " "
+echo "Switching to directory raw to create 32 jpeg images"
+cd raw
 #./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
-#cd $CURDIR
+cd $CURDIR
 #exit
 
 showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+#./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
 #./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
-exit
+#exit
 
 showdate
 echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
-./doall $BUILD_FOLDER $NTHREADS $POVRAY
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
+#./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
+exit
 
 showdate
 echo " "
