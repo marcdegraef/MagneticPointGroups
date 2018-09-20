@@ -73,20 +73,20 @@ echo "Stills and movies will be built in folder $BUILD_FOLDER using $NTHREADS of
 # set some other parameters
 # wait time between task checks
 #tick=2
-#RAYSHADE=~/Files/Books/rayshade/rayshade
-RAYSHADE=/usr/local/bin/rayshade
+POVRAY=/Users/mdg/Applications/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
 FFMPEG=~/packages/ffmpeg
+POVRAYinclude=/Users/mdg/Applications/PovrayCommandLineMacV2/include
 
 
 ## -------------------------------------------------------
-#echo "Starting main point group script"
-#echo " "
-#echo "Make sure you have a lot of time and diskspace..."
+echo "Starting main point group script"
+echo " "
+echo "Make sure you have a lot of time and diskspace..."
 #showdate
 #echo " "
 #echo "Switching to directory raw to create 32 jpeg images"
 #cd raw
-#./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+#./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 #cd $CURDIR
 #exit
 
@@ -94,8 +94,8 @@ showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE $FFMPEG
-#./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY $FFMPEG
+#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 exit
 
@@ -103,8 +103,8 @@ showdate
 echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
-./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
 showdate
@@ -113,30 +113,30 @@ echo "Switching to directory anaglyph to create 2*32 jpeg images"
 echo "Note that these images then need to be combined into true"
 echo "anaglyphs by means of a program like Photoshop ... "
 cd anaglyph
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
 cd special_positions
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory axial to create 122 movies and 366 hi-res stills"
 cd movieaxial
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
-./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory polar to create 32 movies and 96 hi-res stills"
 cd moviepolar
-./doall $BUILD_FOLDER $NTHREADS $RAYSHADE
-./doall_stills $BUILD_FOLDER $NTHREADS $RAYSHADE
+./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
