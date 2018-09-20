@@ -16,7 +16,7 @@ for FILE in pg_*_still.pov; do
 	echo 'starting scalar still image for point group file ' $FILE `date`
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
-		sed -i back "s/\.pov//" $TMP_FOLDER/play
+		sed -i back "s/_still\.pov//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
