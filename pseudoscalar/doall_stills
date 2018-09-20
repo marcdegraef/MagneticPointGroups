@@ -35,6 +35,7 @@ for FILE in pg_*_still.pov; do
 		rm -f $BUILD_FOLDER/$short\_still\.png
 	fi
 done
+rm povray.ini
 # collect all the jpegs into a tar-ball
 CURDIR=`pwd`
 cd $BUILD_FOLDER
