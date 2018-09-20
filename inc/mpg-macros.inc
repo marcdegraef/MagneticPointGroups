@@ -112,7 +112,7 @@
 #macro axis_two()
 	#local CylinderSemiLength=1.2;
 	#local CylinderRadius=0.02;
-	#local DiscHeight=1.21;
+	#local DiscHeight=1.214;
 	union {
 		cylinder { < 0.0, -CylinderSemiLength, 0.0>, <0.0, CylinderSemiLength, 0.0>, CylinderRadius texture{pigment{color Gray} finish{ reflection 1 }} }
 		object { disc_two() scale <0.15, 1.0, 0.07> translate <0.0, DiscHeight, 0.0> }
@@ -126,7 +126,7 @@
 #macro axis_three()
 	#local CylinderSemiLength=1.2;
 	#local CylinderRadius=0.02;
-	#local DiscHeight=1.21;
+	#local DiscHeight=1.213;
 	union {
 		cylinder { < 0.0, -CylinderSemiLength, 0.0>, <0.0, CylinderSemiLength, 0.0>, CylinderRadius texture{pigment{color Gray} finish{ reflection 1 }} }
 		object { disc_three() scale <0.15, 1.0, 0.15> translate <0.0, DiscHeight, 0.0> }
@@ -140,7 +140,7 @@
 #macro axis_four()
 	#local CylinderSemiLength=1.2;
 	#local CylinderRadius=0.02;
-	#local DiscHeight=1.21;
+	#local DiscHeight=1.212;
 	union {
 		cylinder { < 0.0, -CylinderSemiLength, 0.0>, <0.0, CylinderSemiLength, 0.0>, CylinderRadius texture{pigment{color Gray} finish{ reflection 1 }} }
 		object { disc_four() scale <0.15, 1.0, 0.15> translate <0.0, DiscHeight, 0.0> }
@@ -154,7 +154,7 @@
 #macro axis_five()
 	#local CylinderSemiLength=1.2;
 	#local CylinderRadius=0.02;
-	#local DiscHeight=1.21;
+	#local DiscHeight=1.211;
 	union {
 		cylinder { < 0.0, -CylinderSemiLength, 0.0>, <0.0, CylinderSemiLength, 0.0>, CylinderRadius texture{pigment{color Gray} finish{ reflection 1 }} }
 		object { disc_five() scale <0.15, 1.0, 0.15> translate <0.0, DiscHeight, 0.0> }
@@ -166,7 +166,7 @@
 // definition of a six-fold rotation axis
 // no parameters
 #macro axis_six()
-	#local CylinderSemiLength=1.2;
+	#local CylinderSemiLength=1.20;
 	#local CylinderRadius=0.02;
 	#local DiscHeight=1.21;
 	union {

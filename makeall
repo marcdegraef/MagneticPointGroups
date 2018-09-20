@@ -82,12 +82,12 @@ POVRAYinclude=/Users/mdg/Applications/PovrayCommandLineMacV2/include
 echo "Starting main point group script"
 echo " "
 echo "Make sure you have a lot of time and diskspace..."
-#showdate
-#echo " "
-#echo "Switching to directory raw to create 32 jpeg images"
-#cd raw
-#./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
-#cd $CURDIR
+showdate
+echo " "
+echo "Switching to directory raw to create 32 jpeg images"
+cd raw
+./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+cd $CURDIR
 #exit
 
 showdate
@@ -96,7 +96,6 @@ echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
 #./doall $BUILD_FOLDER $NTHREADS $POVRAY $FFMPEG
 ./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
-
 cd $CURDIR
 exit
 
