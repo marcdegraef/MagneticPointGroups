@@ -42,3 +42,6 @@ union {
 
  
 object { point_group }
+ 
+#include "4overmmm.pos"
+object { orbit }

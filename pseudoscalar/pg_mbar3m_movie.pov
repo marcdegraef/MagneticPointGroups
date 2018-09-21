@@ -58,3 +58,6 @@ union {
 
 
 object { point_group }
+ 
+#include "mbar3m.pos"
+object { orbit }

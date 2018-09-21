@@ -37,3 +37,6 @@ union {
 object { point_group }
 
  
+ 
+#include "4mm.pos"
+object { orbit }

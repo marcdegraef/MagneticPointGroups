@@ -32,3 +32,6 @@ union {
 
 
 object { point_group }
+ 
+#include "bar3.pos"
+object { orbit }

@@ -110,18 +110,16 @@ echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
 #./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
-exit
 
 showdate
 echo " "
 echo "Switching to directory anaglyph to create 2*32 jpeg images"
-echo "Note that these images then need to be combined into true"
-echo "anaglyphs by means of a program like Photoshop ... "
 cd anaglyph
-./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
+exit
 
 showdate
 echo " "

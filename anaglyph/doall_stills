@@ -1,0 +1,49 @@
+#!/bin/bash
+echo "Point group anaglyph generator starting"
+
+# -------------------------------------------------------
+# get the script arguments
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+POVRAY="$3"
+POVRAYinclude="$4"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+FRAMES_FOLDER="$BUILD_FOLDER"/frames
+
+#
+# loop through all point groups
+#
+for FILE in pg_*_still.pov; do 
+	echo 'starting anaglyph for point group file ' $FILE `date`
+	if [ -e $FILE ]; then 
+		echo $FILE >$TMP_FOLDER/play
+		sed -i back "s/_still\.pov//" $TMP_FOLDER/play
+		read short <$TMP_FOLDER/play
+		rm $TMP_FOLDER/play
+		rm $TMP_FOLDER/playback
+		echo "Input_File_Name=$FILE" >povray.ini
+		echo "Output_File_Name=$FRAMES_FOLDER/"$short"_still.png" >>povray.ini
+		echo "+L$POVRAYinclude" >>povray.ini
+		echo "+W1280 +H1280" >>povray.ini
+		echo "Initial_Clock=0" >>povray.ini
+		echo "Initial_Frame=0" >>povray.ini
+		echo "Final_Clock=3" >>povray.ini
+		echo "Final_Frame=3" >>povray.ini
+		echo "Frame_Step=3" >>povray.ini
+		echo "Work_Threads=$NTHREADS" >>povray.ini
+		$POVRAY povray.ini 2>/dev/null
+		convert $FRAMES_FOLDER/"$short"_still3.png -channel r -separate \( +channel $FRAMES_FOLDER/"$short"_still0.png -separate -delete -3 \) +channel -combine $BUILD_FOLDER/"$short"_anaglyph.jpeg
+		/bin/rm -f $FRAMES_FOLDER/*.png
+	fi
+done
+rm -f povray.ini
+CURDIR=`pwd`
+cd $BUILD_FOLDER
+rm -f anaglyph.tar
+tar -cf anaglyph.tar pg_*_anaglyph.jpeg
+gzip anaglyph.tar
+rm -f *.jpeg
+echo "Point group anaglyph generator quitting"
+exit

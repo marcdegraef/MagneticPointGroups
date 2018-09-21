@@ -35,3 +35,6 @@ union {
 object { point_group }
 
  
+ 
+#include "2overm.pos"
+object { orbit }

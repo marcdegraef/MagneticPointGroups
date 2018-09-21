@@ -35,3 +35,6 @@ union {
 object { point_group }
 
  
+ 
+#include "3m.pos"
+object { orbit rotate y*30 }

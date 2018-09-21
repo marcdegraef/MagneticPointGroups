@@ -38,3 +38,6 @@ union {
 
 
 object { point_group }
+ 
+#include "mmm.pos"
+object { orbit }

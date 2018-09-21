@@ -30,3 +30,6 @@ union {
 
 
 object { point_group }
+ 
+#include "m.pos"
+object { orbit }

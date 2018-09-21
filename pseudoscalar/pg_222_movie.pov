@@ -36,3 +36,6 @@ union {
 
 object { point_group }
 
+ 
+#include "222.pos"
+object { orbit }
