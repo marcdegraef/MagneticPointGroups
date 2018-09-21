@@ -117,16 +117,16 @@ showdate
 echo " "
 echo "Switching to directory anaglyph to create 2*32 jpeg images"
 cd anaglyph
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
-exit
 
 showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
 cd special_positions
-./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
 cd $CURDIR
+exit
 
 showdate
 echo " "

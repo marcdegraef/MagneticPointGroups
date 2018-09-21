@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for FILE in pg_*_still.pov; do
+        echo $FILE >play$FILE
+        sed -i back "s/_still\.pov//" play$FILE
+	read short <play$FILE
+	rm play$FILE
+	rm play"$FILE"back
+        cp $FILE "$short"_movie.pov
+        sed -i back "s/mpg-view/mpg-view-movie/" "$short"_movie.pov
+        rm "$short"_movie.povback
+done
+
