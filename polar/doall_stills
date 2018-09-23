@@ -1,11 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 echo "Point group polar vector stills generator starting"
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+POVRAY="$3"
+POVRAYinclude="$4"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+
 #
 # each subfolder corresponds to one point group, so loop through all folders
 #
 for FILE in *; do 
 	if [ -d $FILE ]; then 
-		./doone_still $FILE
+		./doone_still $FILE $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 	fi
 done
 # 
@@ -13,24 +21,18 @@ done
 #
 for FILE in *; do
 	if [ -d $FILE ]; then
-		if [ -e $FILE/$FILE-1.jpeg ]; then 
-			cp $FILE/$FILE-1.jpeg polar_$FILE-1.jpeg
-			cp $FILE/$FILE-2.jpeg polar_$FILE-2.jpeg
-			cp $FILE/$FILE-3.jpeg polar_$FILE-3.jpeg
-		else
-			#gunzip $FILE/$FILE\_stills.tar.gz
-			tar -xf $FILE/$FILE\_stills.tar
-			mv $FILE-1.jpeg polar_$FILE-1.jpeg
-			mv $FILE-2.jpeg polar_$FILE-2.jpeg
-			mv $FILE-3.jpeg polar_$FILE-3.jpeg
-			gzip $FILE/$FILE\_stills.tar
-		fi
+		mv $FILE/$FILE-1.jpeg $BUILD_FOLDER/polar_$FILE-1.jpeg
+		mv $FILE/$FILE-2.jpeg $BUILD_FOLDER/polar_$FILE-2.jpeg
+		mv $FILE/$FILE-3.jpeg $BUILD_FOLDER/polar_$FILE-3.jpeg
 	fi
 done
+CURDIR=`pwd`
+cd $BUILD_FOLDER
 /bin/rm -f polar_stills.tar polar_stills.tar.gz
 tar -cf polar_stills.tar *.jpeg
 gzip polar_stills.tar
 /bin/rm *.jpeg
+cd $CURDIR
 #
 # That's it !
 #

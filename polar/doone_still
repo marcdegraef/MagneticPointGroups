@@ -1,16 +1,43 @@
+#!/bin/bash
 echo "Start polar stills for point group " $1 `date`
-cd $1
-rayshade <$1_still.ray >/tmp/$1.mtv 2>/dev/null
-convert -colorspace RGB /tmp/$1.mtv /tmp/$1.jpeg
-mv /tmp/$1-2.jpeg /tmp/$1-3.jpeg
-mv /tmp/$1-1.jpeg /tmp/$1-2.jpeg
-mv /tmp/$1-0.jpeg /tmp/$1-1.jpeg
-/bin/rm -f $1_stills.tar $1_stills.tar.gz
-/bin/rm -f /tmp/$1.mtv
-/bin/mv /tmp/$1-*.jpeg .
-tar -cf $1_stills.tar $1-*.jpeg
-gzip $1_stills.tar
-/bin/rm -f $1-*.jpeg
+
+# -------------------------------------------------------
+# get the script arguments
+PGDIR="$1"
+BUILD_FOLDER="$2"
+NTHREADS="$3"
+POVRAY="$4"
+POVRAYinclude="$5"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+FILE=$PGDIR\.pov
+
+cd $PGDIR
+
+echo "Input_File_Name=$FILE" >povray.ini
+echo "Output_File_Name=$BUILD_FOLDER/"$PGDIR"_still.png" >>povray.ini
+echo "+L$POVRAYinclude" >>povray.ini
+echo "+W1280 +H1280" >>povray.ini
+echo "Initial_Clock=0" >>povray.ini
+echo "Initial_Frame=0" >>povray.ini
+echo "Final_Clock=0" >>povray.ini
+echo "Final_Frame=0" >>povray.ini
+echo "Work_Threads=$NTHREADS" >>povray.ini
+
+
+rayshade <$PGDIR_still.ray >$TMP_FOLDER/$PGDIR.mtv 2>/dev/null
+convert -colorspace RGB $TMP_FOLDER/$PGDIR.mtv /tmp/$PGDIR.jpeg
+mv $TMP_FOLDER/$PGDIR-2.jpeg /tmp/$PGDIR-3.jpeg
+mv $TMP_FOLDER/$PGDIR-1.jpeg /tmp/$PGDIR-2.jpeg
+mv $TMP_FOLDER/$PGDIR-0.jpeg /tmp/$PGDIR-1.jpeg
+
+
+
+/bin/rm -f $PGDIR_stills.tar $PGDIR_stills.tar.gz
+/bin/rm -f $TMP_FOLDER/$PGDIR.mtv
+/bin/mv $TMP_FOLDER/$PGDIR-*.jpeg .
+tar -cf $PGDIR_stills.tar $PGDIR-*.jpeg
+gzip $PGDIR_stills.tar
+/bin/rm -f $PGDIR-*.jpeg
 cd ..
-echo "End polar stills for point group " $1 `date`
+echo "End polar stills for point group " $PGDIR `date`
 exit
