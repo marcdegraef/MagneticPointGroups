@@ -131,14 +131,14 @@ showdate
 echo " "
 echo "Switching to directory polar to create 32 movies and 32 hi-res 2x2 stills"
 cd polar
-#./doall $BUILD_FOLDER $NTHREADS $POVRAY
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 exit
 
 showdate
 echo " "
-echo "Switching to directory axial to create 122 movies and 366 hi-res stills"
+echo "Switching to directory axial to create 122 movies and 122 hi-res 2x2 stills"
 cd movieaxial
 #./doall $BUILD_FOLDER $NTHREADS $POVRAY
 #./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY

@@ -1,0 +1,36 @@
+#!/bin/bash
+echo "Start polar movie for point group " $1 `date`
+
+# -------------------------------------------------------
+# get the script arguments
+PGDIR="$1"
+BUILD_FOLDER="$2"
+NTHREADS="$3"
+POVRAY="$4"
+POVRAYinclude="$5"
+FFMPEG="$6"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+FILE=pg_"$PGDIR"_movie\.pov
+FRAMES_FOLDER="$BUILD_FOLDER"/frames
+
+
+cd $PGDIR
+
+echo "Input_File_Name=$FILE" >povray.ini
+echo "Output_File_Name=$FRAMES_FOLDER/"$PGDIR"_movie.png" >>povray.ini
+echo "+L$POVRAYinclude" >>povray.ini
+echo "+W800 +H800" >>povray.ini
+echo "Initial_Clock=0" >>povray.ini
+echo "Initial_Frame=0" >>povray.ini
+echo "Final_Clock=359" >>povray.ini
+echo "Final_Frame=359" >>povray.ini
+echo "Frame_Step=1" >>povray.ini
+echo "Work_Threads=$NTHREADS" >>povray.ini
+
+$POVRAY povray.ini 2>/dev/null
+$FFMPEG -i $FRAMES_FOLDER/"$PGDIR"_movie%03d.png -y -c:v libx264 -pix_fmt yuv420p $BUILD_FOLDER/"$PGDIR"_polar.mp4 >/dev/null 2>/dev/null
+
+rm -f $FRAMES_FOLDER/"$PGDIR"_movie*\.png
+rm -f povray.ini
+cd ../
+exit
