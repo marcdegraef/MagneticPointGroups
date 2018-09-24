@@ -17,15 +17,6 @@ for FILE in *; do
 	fi
 done
 # 
-# combine all jpeg images into an archive
-#
-for FILE in *; do
-	if [ -d $FILE ]; then
-		mv $FILE/$FILE-1.jpeg $BUILD_FOLDER/polar_$FILE-1.jpeg
-		mv $FILE/$FILE-2.jpeg $BUILD_FOLDER/polar_$FILE-2.jpeg
-		mv $FILE/$FILE-3.jpeg $BUILD_FOLDER/polar_$FILE-3.jpeg
-	fi
-done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 /bin/rm -f polar_stills.tar polar_stills.tar.gz

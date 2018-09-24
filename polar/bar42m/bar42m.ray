@@ -1,0 +1,30 @@
+#include "../preface.ray"
+
+define sy (2.5*py)
+
+name point_group
+list
+	object axis_four
+	object axis_two
+	object axis_two rotate 1 0 0 90.0
+	object axis_two rotate 1 0 0 90.0 rotate 0 0 1 90.0
+	object mirrorplane rotate 0 1 0 90.0 rotate 0 0 1 45.0
+	object mirrorplane rotate 1 0 0 -90.0 rotate 0 0 1 45.0
+
+/* bar42m */
+
+	object pparrow rotate 0 1 0 ( theta) translate ( px) ( sy) ( pz) 
+	object mparrow scale 1 1 -1 rotate 0 1 0 (-theta) rotate 0 0 1 270 translate ( sy) (mpx) (mpz) 
+	object pparrow rotate 0 1 0 ( theta) rotate 0 0 1 180 translate (mpx) (-sy) ( pz) 
+	object mparrow scale 1 1 -1 rotate 0 1 0 (-theta) rotate 0 0 1 90 translate (-sy) ( px) (mpz) 
+
+	object pparrow rotate 0 1 0 ( theta) rotate 1 0 0 180 translate ( px) (-sy) (mpz) 
+	object mparrow scale 1 1 -1 rotate 0 1 0 (-theta) rotate 1 0 0 180 rotate 0 0 1 270 translate (-sy) (mpx) ( pz) 
+	object pparrow rotate 0 1 0 ( theta) rotate 1 0 0 180 rotate 0 0 1 180 translate (mpx) ( sy) (mpz) 
+	object mparrow scale 1 1 -1 rotate 0 1 0 (-theta) rotate 1 0 0 180 rotate 0 0 1 90 translate ( sy) ( px) ( pz) 
+
+	object refaxis
+end
+#include "../tail_movies.ray"
+
+

@@ -124,7 +124,15 @@ showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
 cd special_positions
-./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+#./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+cd $CURDIR
+
+showdate
+echo " "
+echo "Switching to directory polar to create 32 movies and 32 hi-res 2x2 stills"
+cd polar
+#./doall $BUILD_FOLDER $NTHREADS $POVRAY
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 exit
 
@@ -132,17 +140,10 @@ showdate
 echo " "
 echo "Switching to directory axial to create 122 movies and 366 hi-res stills"
 cd movieaxial
-./doall $BUILD_FOLDER $NTHREADS $POVRAY
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
+#./doall $BUILD_FOLDER $NTHREADS $POVRAY
+#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
 cd $CURDIR
 
-showdate
-echo " "
-echo "Switching to directory polar to create 32 movies and 96 hi-res stills"
-cd moviepolar
-./doall $BUILD_FOLDER $NTHREADS $POVRAY
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
-cd $CURDIR
 
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 echo "All is well that ends well ..."

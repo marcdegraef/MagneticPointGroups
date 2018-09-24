@@ -45,21 +45,21 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
-	object {  pparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz, -sy> }
+	object {  pparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz, -sy> }
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*90 }
-	object {  pparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz, -sy> rotate y*90 }
+	object {  pparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz, -sy> rotate y*90 }
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*180 }
-	object {  pparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz, -sy> rotate y*180 }
+	object {  pparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz, -sy> rotate y*180 }
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*270 }
-	object {  pparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz, -sy> rotate y*270 }
+	object {  pparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz, -sy> rotate y*270 }
 	object {  mparrow() rotate z*theta translate < px,  pz, -sy> }
-	object {  mparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz,  sy> }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> }
 	object {  mparrow() rotate z*theta translate < px,  pz, -sy> rotate y*90 }
-	object {  mparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz,  sy> rotate y*90 }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> rotate y*90 }
 	object {  mparrow() rotate z*theta translate < px,  pz, -sy> rotate y*180 }
-	object {  mparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz,  sy> rotate y*180 }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> rotate y*180 }
 	object {  mparrow() rotate z*theta translate < px,  pz, -sy> rotate y*270 }
-	object {  mparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz,  sy> rotate y*270 }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> rotate y*270 }
   }
 
 object { orbit }
