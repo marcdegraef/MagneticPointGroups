@@ -2,9 +2,9 @@
 // BSD2 license, see license.txt file accompanying this distribution
 
 // Persistence of Vision Ray Tracer Scene Description File
-// File: pg_2overm.pov
+// File: pg_1.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_2overm
+// Desc: pov file for polar rendering of point group pg_1
 // Date: ../../19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -22,9 +22,6 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_two() } 
-	object {  mirrorplane() }
-        object {  sympoint() }
 	object {  cartesian() }
 }
 
@@ -37,10 +34,7 @@ object { point_group }
  
 #declare orbit=
   union {
-	object {  pparrow() rotate z*theta translate < px, pz,py> } 
-	object {  pparrow() rotate z*-theta translate <mpx,pz,mpy> } 
-	object {  mparrow() scale <1,-1,1> rotate z*theta translate <mpx,mpz,mpy> } 
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> } 
+	object {  pparrow() rotate z*theta translate < px, py, pz> } 
   }
 
 object { orbit }
