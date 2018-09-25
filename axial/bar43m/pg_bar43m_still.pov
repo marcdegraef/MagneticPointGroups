@@ -4,7 +4,7 @@
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_bar43m.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_bar43m
+// Desc: pov file for axial rendering of point group pg_bar43m
 // Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -16,8 +16,8 @@ global_settings {
 #include "colors.inc"
 #include "metals.inc"
 #include "transforms.inc"
-#include "../../inc/mpg-view-polar.inc"
-#include "../../inc/mpg-macros-polar.inc"
+#include "../../inc/mpg-view-axial.inc"
+#include "../../inc/mpg-macros-axial-regular.inc"
 
 
 
@@ -67,18 +67,18 @@ object { point_group }
 	object {  pparrow() rotate z*theta translate < sx,  pz,  sy> rotate y*180.0 rotate x*180.0 }
 	object {  pparrow() rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy,  sx,  pz> rotate y*180.0 rotate x*180.0 }
 	object {  pparrow() rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sy,  sx> rotate y*180.0 rotate x*180.0 }
-	object {  mparrow() rotate x*-theta translate < sy,  pz,  sx> }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> }
-	object {  mparrow() rotate x*-theta translate < sy,  pz,  sx>  rotate y*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate y*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate y*180.0 }
-	object {  mparrow() rotate x*-theta translate < sy,  pz,  sx>  rotate x*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate x*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate x*180.0 }
-	object {  mparrow() rotate x*-theta translate < sy,  pz,  sx>  rotate y*180.0 rotate x*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate y*180.0 rotate x*180.0 }
-	object {  mparrow() rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate y*180.0 rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta translate < sy,  pz,  sx> }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta translate < sy,  pz,  sx>  rotate y*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate y*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate y*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta translate < sy,  pz,  sx>  rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta translate < sy,  pz,  sx>  rotate y*180.0 rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sx,  sy> rotate y*180.0 rotate x*180.0 }
+	object {  mparrow() scale <1,-1,1>  rotate x*-theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sx,  sy,  pz> rotate y*180.0 rotate x*180.0 }
   }
 
 object { orbit }

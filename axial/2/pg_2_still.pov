@@ -4,7 +4,7 @@
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_2.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_2
+// Desc: pov file for axial rendering of point group pg_2
 // Date: ../../19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -15,8 +15,8 @@ global_settings {
 
 #include "colors.inc"
 #include "metals.inc"
-#include "../../inc/mpg-view-polar.inc"
-#include "../../inc/mpg-macros-polar.inc"
+#include "../../inc/mpg-view-axial.inc"
+#include "../../inc/mpg-macros-axial-regular.inc"
 
 
 

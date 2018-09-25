@@ -4,7 +4,7 @@
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_mmm.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_mmm
+// Desc: pov file for axial rendering of point group pg_mmm
 // Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -15,8 +15,8 @@ global_settings {
 
 #include "colors.inc"
 #include "metals.inc"
-#include "../../inc/mpg-view-polar.inc"
-#include "../../inc/mpg-macros-polar.inc"
+#include "../../inc/mpg-view-axial.inc"
+#include "../../inc/mpg-macros-axial-regular.inc"
 
 
 
@@ -43,10 +43,10 @@ object { point_group }
 	object {  pparrow() rotate z*theta rotate y*180 translate <mpx,  pz, -sy> }
 	object {  pparrow() rotate z*theta rotate z*180 translate <mpx, mpz,  sy> }
 	object {  pparrow() rotate z*theta rotate x*180 translate < px, mpz, -sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*theta translate <mpx, mpz, -sy> }
-	object {  mparrow() rotate z*theta translate < px,  pz, -sy> }
-	object {  mparrow() rotate z*-theta translate <mpx,  pz,  sy> }
+	object {  mparrow() rotate z*-theta translate < px, mpz,  sy> }
+	object {  mparrow() rotate z*theta translate <mpx, mpz, -sy> }
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,  pz, -sy> }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate <mpx,  pz,  sy> }
   }
 
 object { orbit }

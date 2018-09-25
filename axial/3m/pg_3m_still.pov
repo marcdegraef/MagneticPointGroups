@@ -4,7 +4,7 @@
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_3m.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_3m
+// Desc: pov file for axial rendering of point group pg_3m
 // Date: ../../19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -15,8 +15,8 @@ global_settings {
 
 #include "colors.inc"
 #include "metals.inc"
-#include "../../inc/mpg-view-polar.inc"
-#include "../../inc/mpg-macros-polar.inc"
+#include "../../inc/mpg-view-axial.inc"
+#include "../../inc/mpg-macros-axial-regular.inc"
 
 
 
@@ -40,13 +40,13 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px, pz,sy> } 
-	object {  mparrow() rotate z*theta translate < px,pz,msy> } 
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,pz,msy> } 
 
 	object {  pparrow() rotate z*theta translate < px, pz,sy> rotate y*120} 
-	object {  mparrow() rotate z*theta translate < px,pz,msy>  rotate y*120} 
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,pz,msy>  rotate y*120} 
 
 	object {  pparrow() rotate z*theta translate < px, pz,sy>  rotate y*240} 
-	object {  mparrow() rotate z*theta translate < px,pz,msy>  rotate y*240} 
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,pz,msy>  rotate y*240} 
 	
   }
 

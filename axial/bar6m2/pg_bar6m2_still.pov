@@ -4,7 +4,7 @@
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_bar6m2.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_bar6m2
+// Desc: pov file for axial rendering of point group pg_bar6m2
 // Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -15,8 +15,8 @@ global_settings {
 
 #include "colors.inc"
 #include "metals.inc"
-#include "../../inc/mpg-view-polar.inc"
-#include "../../inc/mpg-macros-polar.inc"
+#include "../../inc/mpg-view-axial.inc"
+#include "../../inc/mpg-macros-axial-regular.inc"
 
 
 
@@ -45,12 +45,12 @@ object { point_group }
 	object {  pparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  msy> }
 	object {  pparrow() scale <1,-1,1> rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 * msy , mpz,  0.866 * px - 0.5 * msy > }
 	object {  pparrow() scale <1,-1,1> rotate z*-theta rotate y*-240 translate < -0.5 * px - 0.866 * sy , mpz, -0.866 * px + 0.5 * sy > }
-	object {  mparrow() rotate z*theta translate < px,  pz,  msy> }
-	object {  mparrow() rotate z*theta rotate y*-120 translate < -0.5 * px - 0.866 * msy ,  pz,  0.866 * px - 0.5 * msy > }
-	object {  mparrow() rotate z*theta rotate y*-240 translate < -0.5 * px - 0.866 * sy ,  pz, -0.866 * px + 0.5 * sy > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 * sy , mpz,  0.866 * px - 0.5 * sy > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-240 translate < -0.5 * px - 0.866 * msy , mpz, -0.866 * px + 0.5 * msy > }
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,  pz,  msy> }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*-120 translate < -0.5 * px - 0.866 * msy ,  pz,  0.866 * px - 0.5 * msy > }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*-240 translate < -0.5 * px - 0.866 * sy ,  pz, -0.866 * px + 0.5 * sy > }
+	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> }
+	object {  mparrow() rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 * sy , mpz,  0.866 * px - 0.5 * sy > }
+	object {  mparrow() rotate z*-theta rotate y*-240 translate < -0.5 * px - 0.866 * msy , mpz, -0.866 * px + 0.5 * msy > }
   }
 
 object { orbit rotate y*30}
