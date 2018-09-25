@@ -2,9 +2,9 @@
 // BSD2 license, see license.txt file accompanying this distribution
 
 // Persistence of Vision Ray Tracer Scene Description File
-// File: pg_bar6p2mp.pov
+// File: pg_bar6pm2p.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_bar6p2mp
+// Desc: pov file for axial rendering of point group pg_bar6pm2p
 // Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
