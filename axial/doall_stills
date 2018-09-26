@@ -1,35 +1,29 @@
 #!/bin/sh
 echo "Point group axial vector stills generator starting"
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+POVRAY="$3"
+POVRAYinclude="$4"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+
 #
 # each subfolder corresponds to one point group, so loop through all folders
 #
-# first we need to do the 32 gray groups, since they have a different color scheme than all the others
-LISTGRAY="listgray"
-while IFS= read -r FILE
-do
-	./doone_still $FILE
-done <"$LISTGRAY"
-
-# then we do the remaining 90 groups
-
-
-
-
-
-
-# 
-# combine all jpeg images into an archive
-#
-for FILE in *; do
-	if [ -d $FILE ]; then
-		if [ -e $FILE/$FILE-1.jpeg ]; then 
-			cp $FILE/$FILE-*.jpeg .
-		fi
+for FILE in *; do 
+	if [ -d $FILE ]; then 
+		./doone_still $FILE $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 	fi
 done
+# 
+CURDIR=`pwd`
+cd $BUILD_FOLDER
+/bin/rm -f axial_stills.tar axial_stills.tar.gz
 tar -cf axial_stills.tar *.jpeg
 gzip axial_stills.tar
 /bin/rm *.jpeg
+cd $CURDIR
 #
 # That's it !
 #

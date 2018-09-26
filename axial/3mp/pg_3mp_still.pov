@@ -23,9 +23,9 @@ global_settings {
 #declare point_group=
 union {
 	object {  axis_three() }
-	object {  mirrorplane() rotate x*90.0 rotate y*60.0 }
-	object {  mirrorplane() rotate x*90.0 rotate y*120.0 }
-	object {  mirrorplane() rotate x*90.0 }
+	object {  anti_mirrorplane() rotate x*90.0 rotate y*60.0 }
+	object {  anti_mirrorplane() rotate x*90.0 rotate y*120.0 }
+	object {  anti_mirrorplane() rotate x*90.0 }
 }
 
 
@@ -40,13 +40,13 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px, pz,sy> } 
-	object {  mparrow() rotate z*theta translate < px,pz,msy> } 
+	object {  mmarrow() rotate z*theta translate < px,pz,msy> } 
 
 	object {  pparrow() rotate z*theta translate < px, pz,sy> rotate y*120} 
-	object {  mparrow() rotate z*theta translate < px,pz,msy>  rotate y*120} 
+	object {  mmarrow() rotate z*theta translate < px,pz,msy>  rotate y*120} 
 
 	object {  pparrow() rotate z*theta translate < px, pz,sy>  rotate y*240} 
-	object {  mparrow() rotate z*theta translate < px,pz,msy>  rotate y*240} 
+	object {  mmarrow() rotate z*theta translate < px,pz,msy>  rotate y*240} 
 	
   }
 

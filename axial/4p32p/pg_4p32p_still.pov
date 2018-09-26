@@ -23,16 +23,16 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_four() }
-	object {  axis_four()  rotate x*90.0}
-	object {  axis_four()  rotate z*90.0}
+	object {  anti_axis_four() }
+	object {  anti_axis_four()  rotate x*90.0}
+	object {  anti_axis_four()  rotate z*90.0}
 
-	object {  axis_two()  rotate x*45.0}
-	object {  axis_two()  rotate x*-45.0}
-	object {  axis_two()  rotate y*90.0 rotate z*45.0}
-	object {  axis_two()  rotate y*90.0 rotate z*-45.0}
-	object {  axis_two()  rotate x*90.0 rotate y*45.0}
-	object {  axis_two()  rotate x*90.0 rotate y*-45.0}
+	object {  anti_axis_two()  rotate x*45.0}
+	object {  anti_axis_two()  rotate x*-45.0}
+	object {  anti_axis_two()  rotate y*90.0 rotate z*45.0}
+	object {  anti_axis_two()  rotate y*90.0 rotate z*-45.0}
+	object {  anti_axis_two()  rotate x*90.0 rotate y*45.0}
+	object {  anti_axis_two()  rotate x*90.0 rotate y*-45.0}
 
 	object {  axis_three() rotate y*-30.0 rotate x*54.7333 rotate y*45.0}
 	object {  axis_three() rotate y*-30.0 rotate x*54.7333 rotate y*-45.0}
@@ -56,24 +56,24 @@ object { point_group }
 	object {  pparrow() rotate z*theta rotate y*180.0 translate <mpx,  pz, msy> }
 	object {  pparrow() rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz, msy, mpx> }
 	object {  pparrow() rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy, mpx,  pz> }
-	object {  pparrow() rotate z*theta translate < px,  pz,  sy>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sy,  px>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy,  px,  pz>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate y*180.0 translate <mpx,  pz, msy>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz, msy, mpx>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy, mpx,  pz>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate < px,  pz,  sy>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz,  sy,  px>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy,  px,  pz>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*180.0 translate <mpx,  pz, msy>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate < pz, msy, mpx>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy, mpx,  pz>  rotate y*90.0 }
 	object {  pparrow() rotate z*theta rotate z*180.0 translate <mpx, mpz,  sy> }
 	object {  pparrow() rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz,  sy, mpx> }
 	object {  pparrow() rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy, mpx, mpz> }
 	object {  pparrow() rotate z*theta rotate x*180.0 translate < px, mpz, msy> }
 	object {  pparrow() rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz, msy,  px> }
 	object {  pparrow() rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy,  px, mpz> }
-	object {  pparrow() rotate z*theta rotate z*180.0 translate <mpx, mpz,  sy>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz,  sy, mpx>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy, mpx, mpz>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate x*180.0 translate < px, mpz, msy>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz, msy,  px>  rotate y*90.0 }
-	object {  pparrow() rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy,  px, mpz>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate z*180.0 translate <mpx, mpz,  sy>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz,  sy, mpx>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate z*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate < sy, mpx, mpz>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate x*180.0 translate < px, mpz, msy>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -120.0) translate <mpz, msy,  px>  rotate y*90.0 }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate x*180.0 Axis_Rotate_Trans(<1, 1, 1>, -240.0) translate <msy,  px, mpz>  rotate y*90.0 }
   }
 
 object { orbit }

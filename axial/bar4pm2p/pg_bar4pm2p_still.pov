@@ -2,9 +2,9 @@
 // BSD2 license, see license.txt file accompanying this distribution
 
 // Persistence of Vision Ray Tracer Scene Description File
-// File: pg_bar4pm2p.pov
+// File: pg_bar4p2mp.pov
 // Vers: 3.7
-// Desc: pov file for polar rendering of point group pg_bar4pm2p
+// Desc: pov file for axial rendering of point group pg_bar4p2mp
 // Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
@@ -15,6 +15,7 @@ global_settings {
 
 #include "colors.inc"
 #include "metals.inc"
+#include "transforms.inc"
 #include "../../inc/mpg-view-axial.inc"
 #include "../../inc/mpg-macros-axial-color.inc"
 
@@ -22,12 +23,12 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_four() }
+	object {  anti_axis_four() }
 	object {  axis_two() }
-	object {  axis_two()  rotate x*90.0}
-	object {  axis_two()  rotate x*90.0 rotate y*90.0}
-	object {  mirrorplane()  rotate z*90.0 rotate y*45.0}
-	object {  mirrorplane()  rotate x*90.0 rotate y*45.0}
+	object {  anti_axis_two()  rotate x*90.0 rotate y*45.0}
+	object {  anti_axis_two()  rotate x*90.0 rotate y*-45.0}
+	object {  mirrorplane()  rotate z*90.0 rotate y*90}
+	object {  mirrorplane()  rotate x*90.0 rotate y*90}
 	object {  cartesian() }
 }
 
@@ -39,13 +40,14 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
-	object {  pparrow() rotate z*theta rotate y*180 translate <mpx,  pz, -sy> }
-	object {  pparrow() rotate z*theta rotate x*180 translate < px, mpz, -sy> }
-	object {  pparrow() rotate z*theta rotate x*180 rotate y*180 translate <mpx, mpz,  sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-270 translate < sy, mpz, mpx> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-90 translate <-sy, mpz,  px> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate x*180 rotate y*-270 translate <-sy,  pz, mpx> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate x*180 rotate y*-90 translate < sy,  pz,  px> }
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate <px,  pz, -sy> }
+	object {  pparrow() rotate z*theta rotate y*180 translate <mpx,pz,-sy> }
+	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*180 translate < mpx,  pz,  sy> }
+	
+	object {  pmarrow() scale <1,-1,1> rotate z*theta Axis_Rotate_Trans(<1, 0, 1>, 180.0) translate < sy, mpz, px> }
+	object {  mmarrow() rotate z*theta Axis_Rotate_Trans(<1, 0, 1>, 180.0)  translate <-sy, mpz,  px> }
+	object {  mmarrow() rotate z*theta Axis_Rotate_Trans(<1, 0, -1>, 180.0) translate < sy, mpz, mpx> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta Axis_Rotate_Trans(<1, 0, -1>, 180.0) translate <-sy, mpz,  mpx> }
   }
 
 object { orbit }

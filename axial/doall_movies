@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "Point group axial vector movies generator starting"
+# -------------------------------------------------------
+# get the script arguments
+BUILD_FOLDER="$1"
+NTHREADS="$2"
+POVRAY="$3"
+POVRAYinclude="$4"
+FFMPEG="$5"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+
+#
+# each subfolder corresponds to one point group, so loop through all folders
+#
+for FILE in *; do 
+	if [ -d $FILE ]; then 
+		./doone_movie $FILE $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+	fi
+done
+# 
+CURDIR=`pwd`
+cd $BUILD_FOLDER
+/bin/rm -f axial_movies.tar axial_movies.tar.gz
+tar -cf axial_movies.tar *.mp4
+gzip axial_movies.tar
+/bin/rm *.mp4
+cd $CURDIR
+#
+# That's it !
+#
+echo "Point group axial vector movies generator quitting"
+exit
+

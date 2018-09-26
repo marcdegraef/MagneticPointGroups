@@ -1,16 +1,32 @@
+#!/bin/bash
 echo "Start axial stills for point group " $1 `date`
-cd $1
-rayshade <$1_still.ray >/tmp/$1.mtv 2>/dev/null
-convert -colorspace RGB /tmp/$1.mtv /tmp/$1.jpeg
-mv /tmp/$1-2.jpeg /tmp/$1-3.jpeg
-mv /tmp/$1-1.jpeg /tmp/$1-2.jpeg
-mv /tmp/$1-0.jpeg /tmp/$1-1.jpeg
-/bin/rm -f $1_stills.tar $1_stills.tar.gz
-/bin/rm -f /tmp/$1.mtv
-/bin/mv /tmp/$1-*.jpeg .
-tar -cf $1_stills.tar $1-*.jpeg
-gzip $1_stills.tar
-/bin/rm -f $1-*.jpeg
-cd ..
-echo "End axial stills for point group " $1 `date`
+
+# -------------------------------------------------------
+# get the script arguments
+PGDIR="$1"
+BUILD_FOLDER="$2"
+NTHREADS="$3"
+POVRAY="$4"
+POVRAYinclude="$5"
+TMP_FOLDER="$BUILD_FOLDER"/tmp
+FILE=pg_"$PGDIR"_still\.pov
+
+cd $PGDIR
+
+echo "Input_File_Name=$FILE" >povray.ini
+echo "Output_File_Name=$BUILD_FOLDER/"$PGDIR"_still.png" >>povray.ini
+echo "+L$POVRAYinclude" >>povray.ini
+echo "+W640 +H640" >>povray.ini
+echo "Initial_Clock=0" >>povray.ini
+echo "Initial_Frame=0" >>povray.ini
+echo "Final_Clock=135" >>povray.ini
+echo "Final_Frame=135" >>povray.ini
+echo "Frame_Step=45" >>povray.ini
+echo "Work_Threads=$NTHREADS" >>povray.ini
+
+$POVRAY povray.ini 2>/dev/null
+convert -colorspace RGB -auto-level \( $BUILD_FOLDER/"$PGDIR"_still000\.png  $BUILD_FOLDER/"$PGDIR"_still045\.png +append \)  \( $BUILD_FOLDER/"$PGDIR"_still090\.png  $BUILD_FOLDER/"$PGDIR"_still135\.png +append \) -append  $BUILD_FOLDER/"$PGDIR"_axial_still\.jpeg
+rm -f $BUILD_FOLDER/"$PGDIR"_still*\.png
+rm -f povray.ini
+cd ../
 exit

@@ -22,7 +22,7 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  mirrorplane() }
+	object {  anti_mirrorplane() }
 }
 
 
@@ -33,7 +33,7 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  py> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  py> }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  py> }
   }
 
 object { orbit }

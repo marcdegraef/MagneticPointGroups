@@ -92,7 +92,7 @@ showdate
 echo " "
 echo "Switching to directory raw to create 32 jpeg images"
 cd raw
-#./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 #exit
 
@@ -100,8 +100,8 @@ showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-#./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 #exit
 
@@ -109,22 +109,22 @@ showdate
 echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
-#./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory anaglyph to create 2*32 jpeg images"
 cd anaglyph
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
 cd special_positions
-#./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
 cd $CURDIR
 
 showdate
@@ -132,16 +132,15 @@ echo " "
 echo "Switching to directory polar to create 32 movies and 32 hi-res 2x2 stills"
 cd polar
 ./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
-exit
 
 showdate
 echo " "
 echo "Switching to directory axial to create 122 movies and 122 hi-res 2x2 stills"
-cd movieaxial
-#./doall $BUILD_FOLDER $NTHREADS $POVRAY
-#./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY
+cd axial
+./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
 cd $CURDIR
 
 

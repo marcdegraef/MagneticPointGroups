@@ -22,10 +22,10 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_two() } 
-	object {  mirrorplane() }
-	object {  axis_two()  rotate x*90.0}
-	object {  mirrorplane()  rotate x*90.0}
+	object {  anti_axis_two() } 
+	object {  anti_mirrorplane() }
+	object {  anti_axis_two()  rotate x*90.0}
+	object {  anti_mirrorplane()  rotate x*90.0}
 	object {  axis_two()  rotate x*90.0 rotate y*90}
 	object {  mirrorplane()  rotate z*90.0}
         object {  sympoint() }
@@ -40,13 +40,14 @@ object { point_group }
 #declare orbit=
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
-	object {  pparrow() rotate z*theta rotate y*180 translate <mpx,  pz, -sy> }
-	object {  pparrow() rotate z*theta rotate z*180 translate <mpx, mpz,  sy> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate y*180 translate <mpx,  pz, -sy> }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> }
+	object {  mparrow() rotate z*theta translate <mpx, mpz, -sy> }
+
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate z*180 translate <mpx, mpz,  sy> }
+	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> }
 	object {  pparrow() rotate z*theta rotate x*180 translate < px, mpz, -sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  sy> }
-	object {  mparrow() scale <1,-1,1> rotate z*theta translate <mpx, mpz, -sy> }
-	object {  mparrow() rotate z*theta translate < px,  pz, -sy> }
-	object {  mparrow() rotate z*-theta translate <mpx,  pz,  sy> }
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate <mpx,  pz,  sy> }
   }
 
 object { orbit }

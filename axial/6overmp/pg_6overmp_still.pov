@@ -23,8 +23,8 @@ global_settings {
 #declare point_group=
 union {
 	object {  axis_six() }
-	object {  hexmirrorplane() }
-      object {  sympoint() }
+	object {  anti_hexmirrorplane() }
+      object {  anti_sympoint() }
 }
 
 
@@ -41,12 +41,12 @@ object { point_group }
 	object {  pparrow() rotate z*theta rotate y*-180 translate <mpx,  pz, mpy> }
 	object {  pparrow() rotate z*theta rotate y*-240 translate < -0.5 * px + 0.866 * py ,  pz, -0.866 * px - 0.5 * py > }
 	object {  pparrow() rotate z*theta rotate y*-300 translate <  0.5 * px + 0.866 * py ,  pz, -0.866 * px + 0.5 * py > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  py> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-60 translate <  0.5 * px - 0.866 * py , mpz,  0.866 * px + 0.5 * py > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 * py , mpz,  0.866 * px - 0.5 * py > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-180 translate <mpx, mpz, mpy> }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-240 translate < -0.5 * px + 0.866 * py , mpz, -0.866 * px - 0.5 * py > }
-	object {  mparrow() scale <1,-1,1> rotate z*-theta rotate y*-300 translate <  0.5 * px + 0.866 * py , mpz, -0.866 * px + 0.5 * py > }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,  py> }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta rotate y*-60 translate <  0.5 * px - 0.866 * py , mpz,  0.866 * px + 0.5 * py > }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 * py , mpz,  0.866 * px - 0.5 * py > }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta rotate y*-180 translate <mpx, mpz, mpy> }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta rotate y*-240 translate < -0.5 * px + 0.866 * py , mpz, -0.866 * px - 0.5 * py > }
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta rotate y*-300 translate <  0.5 * px + 0.866 * py , mpz, -0.866 * px + 0.5 * py > }
   }
 
 object { orbit }

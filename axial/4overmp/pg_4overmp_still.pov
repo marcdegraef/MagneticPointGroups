@@ -23,8 +23,8 @@ global_settings {
 #declare point_group=
 union {
 	object {  axis_four() }
-	object {  mirrorplane() }
-        object {  sympoint() }
+	object {  anti_mirrorplane() }
+        object {  anti_sympoint() }
 	object {  cartesian() }
 }
 
@@ -42,10 +42,10 @@ object { point_group }
 	object {  pparrow() rotate z*theta translate < px, pz,py> rotate y*180} 
 	object {  pparrow() rotate z*theta translate < px, pz,py> rotate y*270} 
 
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> } 
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*90} 
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*180} 
-	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*270} 
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> } 
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*90} 
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*180} 
+	object {  mmarrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> rotate y*270} 
   }
 
 object { orbit }

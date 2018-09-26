@@ -23,8 +23,8 @@ global_settings {
 #declare point_group=
 union {
 	object {  axis_two() } 
-	object {  mirrorplane()  rotate x* 90.0}
-	object {  mirrorplane()  rotate z* 90.0}
+	object {  anti_mirrorplane()  rotate x* 90.0}
+	object {  anti_mirrorplane()  rotate z* 90.0}
 	object {  cartesian() }
 }
 
@@ -37,8 +37,8 @@ object { point_group }
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
 	object {  pparrow() rotate z*theta  translate <px,  pz,  sy> rotate y*180}
-	object {  mparrow() rotate z*-theta  translate <mpx,  pz,  sy> }
-	object {  mparrow() rotate z*-theta  translate <mpx,  pz,  sy> rotate y*180}
+	object {  mmarrow() rotate z*-theta  translate <mpx,  pz,  sy> }
+	object {  mmarrow() rotate z*-theta  translate <mpx,  pz,  sy> rotate y*180}
   }
 
 object { orbit }

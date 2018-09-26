@@ -22,7 +22,7 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_four() }
+	object {  anti_axis_four() }
 	object {  axis_two() }
 	object {  cartesian() }
 }
@@ -36,8 +36,8 @@ object { point_group }
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  py> }
 	object {  pparrow() rotate z*theta rotate y*180 translate <mpx,  pz, mpy> }
-	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*90 translate <mpy, mpz,  px> }
-	object {  mparrow() scale <1,-1,1> rotate z*theta rotate y*270 translate < py, mpz, mpx> }
+	object {  mmarrow() scale <1,-1,1> rotate z*theta rotate y*90 translate <mpy, mpz,  px> }
+	object {  mmarrow() scale <1,-1,1> rotate z*theta rotate y*270 translate < py, mpz, mpx> }
   }
 
 object { orbit }

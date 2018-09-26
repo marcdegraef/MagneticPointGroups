@@ -22,11 +22,11 @@ global_settings {
 
 #declare point_group=
 union {
-	object {  axis_four() }
+	object {  anti_axis_four() }
 	object {  axis_two()  rotate x*90.0 }
 	object {  axis_two()  rotate x*90.0 rotate y*90.0 }
-	object {  axis_two()  rotate x*90.0 rotate y*45.0 }
-	object {  axis_two()  rotate x*90.0 rotate y*135.0 }
+	object {  anti_axis_two()  rotate x*90.0 rotate y*45.0 }
+	object {  anti_axis_two()  rotate x*90.0 rotate y*135.0 }
 	object {  cartesian() }
 }
 
@@ -38,12 +38,12 @@ object { point_group }
   union {
 	object {  pparrow() rotate z*theta translate < px,  pz,  py> }
 	object {  pparrow() rotate z*theta rotate y*-180 translate <mpx,  pz, mpy> }
-	object {  pparrow() rotate z*theta rotate y*-90 translate <mpy,  pz,  px> }
-	object {  pparrow() rotate z*theta rotate y*-270 translate < py,  pz, mpx> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate y*-90 translate <mpy,  pz,  px> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate y*-270 translate < py,  pz, mpx> }
 	object {  pparrow() rotate z*theta rotate x*180 translate < px, mpz, mpy> }
 	object {  pparrow() rotate z*theta rotate x*180 rotate y*-180 translate <mpx, mpz,  py> }
-	object {  pparrow() rotate z*theta rotate x*180 rotate y*-90 translate < py, mpz,  px> }
-	object {  pparrow() rotate z*theta rotate x*180 rotate y*-270 translate <mpy, mpz, mpx> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate x*180 rotate y*-90 translate < py, mpz,  px> }
+	object {  pmarrow() scale <1,-1,1> rotate z*theta rotate x*180 rotate y*-270 translate <mpy, mpz, mpx> }
   }
 
 object { orbit }
