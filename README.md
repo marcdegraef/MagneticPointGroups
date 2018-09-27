@@ -10,18 +10,28 @@ The [mpg.web.cmu.edu](http://mpg.web.cmu.edu) site files were generated using th
 
 The first commit of this package represents the version of the mpg web site before September 2018; the build uses several ImageMagick programs (convert, image2ppm, and ppmtoy4m) along with the mpeg2enc program to generate all the movies. In the current version, we are in the process of replacing those programs with single calls to the ffmpeg program, which is more versatile at creating the necessary movie output files.  The original movie files were in mpeg3 format, the current default format is .mp4.
 
+On Mac OS X, the ImageMagick package is installed by default, and several scripts require it for file conversions and to merge image files together into a single image. On other platforms you will need to install [ImageMagick](https://imagemagick.org/script/download.php), and set the shell script variable to the correct location of the *convert* program.
+
 ## How to run the scripts
-The top folder of this package contains a *makeall* script that controls the entire build. All the image stills and movies will be generated in a folder called mpg-build inside this distribution.  Note that a complete build of all the stills and movies will take several days, so you should run it as follows (in a bash shell):
+The top folder of this package contains a *makeall* script that controls the entire build. Before you run the script, you will need to edit the makeall file and set the following variables:
+- POVRAY=/path/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
+- POVRAYinclude=/path/PovrayCommandLineMacV2/include
+- FFMPEG=/path/ffmpeg
+- CONVERT=/path/convert
+
+where *path* is the full path to each program. Note that the name of the POVRAY and POVRAYinclude variables may be different on different platforms.
+
+Note that a complete build of all the stills and movies can easily take a full day, so you should run it as follows (in a bash shell):
 
 bash> ./makeall  BUILD_FOLDER  NTHREADS
 
-where BUILD_FOLDER is the full path to a folder where you want all the renderings to be stored, and NTHREADS is the number of threads you want to allocate to the PoVray program for rendering; if you select a number larger than the number of available threads, it will be reset to the maximum available. Then take a vacation for a few days ... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.
+where BUILD_FOLDER is the full path to a folder where you want all the renderings to be stored, and NTHREADS is the number of threads you want to allocate to the PoVray program for rendering; if you select a number larger than the number of available threads, it will be reset to the maximum available. Then go have some coffee... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.
 
 ## Output types
 The scripts generate a number of different representations for the 122 magnetic point groups:
 - *raw* [only the symmetry elements for the 32 regular point groups are displayed without any objects]
 - *scalar* [the object is a scalar, ie., a small blue sphere, without handedness]
-- *scalar (anaglyph)* [similar to *scalar*, but the images are red-blue anaglyphs]
+- *anaglyph* [similar to *scalar*, but the images are red-blue anaglyphs]
 - *pseudoscalar* [the object is a righthanded helix made from multiple spheres]
 - *polar* [the object is a polar vector]
 - *axial* [the object is an axial vector; available for all 122 magnetic point groups]
@@ -29,6 +39,15 @@ The scripts generate a number of different representations for the 122 magnetic 
 Note that the script will generate the left and right eye frames for the anaglyphs, but does not at this time generate the actual anaglyph file; this will need to be done using a package like ImageMagick, or programs such as Adobe Photoshop or the Interactive Data Language (IDL).  Instructions are provided in a separate README-anaglyph file in the anaglyph folder.
 
 For details on the underlying math and physics, please refer to the following paper: M. De Graef, [*Visualization of time-reversal symmetry in magnetic point groups*](https://link.springer.com/article/10.1007/s11661-010-0171-0), Met. Mat. Trans. A, vol. 41, pp.1321-1329 (2010). A similar article was published as [Teaching Pamphlet #23](https://www.iucr.org/education/pamphlets/23) by the International Union of Crystallography.
+
+## Changing the defaults
+You are more than welcome to modify some of the rendering settings which are defined in the makeall file.  At this point in time, you can modify the size of the stills and the size of the movies, as well as the number of frames in the movies.  They are set by the following shell variables:
+- STILL_SIZE  [all stills will have dimensions STILL_SIZE x STILL_SIZE, default 1280]
+- STILL_SIZE_MONTAGE  [this is used for the 2x2 montages, default 640]
+- MOVIE_SIZE  [all movies will have dimensions MOVIE_SIZE x MOVIE_SIZE, default 800]
+- NFRAMES  [number of movie frames, default 359 (integer, starts at 0)]
+- FRAMESTEP  [angular step size between frames, default 1 degree (integer)]
+
 
 ## Things to do
 - allow for partial builds (e.g., only the raw stills, or only the axial movies, or only orthorhombic symmetry, etc...)

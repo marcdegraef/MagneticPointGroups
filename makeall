@@ -2,17 +2,6 @@
 # Written by M. De Graef; 9/19/18
 # Project Funding: NSF DMR-1564550
 # This script is Mac OS X specific...
-
-# -------------------------------------------------------
-# define a couple of functions
-function showdate() {
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-date
-echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
-}
-
-# -------------------------------------------------------
-
 # This script is the top level script for building all the magnetic point group stills and movies.
 # It should be called with two arguments:
 #
@@ -26,6 +15,27 @@ echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 POVRAY=/Users/mdg/Applications/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
 POVRAYinclude=/Users/mdg/Applications/PovrayCommandLineMacV2/include
 FFMPEG=~/packages/ffmpeg
+CONVERT=/usr/local/bin/convert
+
+# set a few rendering parameters:
+STILL_SIZE=1280
+STILL_SIZE_MONTAGE=640
+MOVIE_SIZE=800
+N_FRAMES=359
+FRAME_STEP=1
+
+
+
+# -------------------------------------------------------
+# define a couple of functions
+function showdate() {
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+date
+echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
+}
+
+# -------------------------------------------------------
+
 
 # -------------------------------------------------------
 # test for presence of script arguments
@@ -47,6 +57,7 @@ BUILD_FOLDER="$1"
 NTHREADS="$2"
 TMP_FOLDER="$BUILD_FOLDER"/tmp
 FRAMES_FOLDER="$BUILD_FOLDER"/frames
+
 CURDIR=`pwd`
 
 # test to make sure that the requested number of threads is <= the available number
@@ -83,6 +94,28 @@ fi
 # and print out a message
 echo "Stills and movies will be built in folder $BUILD_FOLDER using $NTHREADS of $MAXTHREADS available threads."
 
+# write these parameters to a hidden file that can be read by the actual rendering scripts
+RENDER_FILE=.render_parameters
+echo "STILL_SIZE=$STILL_SIZE" >$RENDER_FILE
+echo "STILL_SIZE_MONTAGE=$STILL_SIZE_MONTAGE" >$RENDER_FILE
+echo "MOVIE_SIZE=$MOVIE_SIZE" >>$RENDER_FILE
+echo "N_FRAMES=$N_FRAMES" >>$RENDER_FILE
+echo "FRAME_STEP=$FRAME_STEP" >>$RENDER_FILE
+echo "BUILD_FOLDER=$BUILD_FOLDER" >>$RENDER_FILE
+echo "FRAMES_FOLDER=$FRAMES_FOLDER" >>$RENDER_FILE
+echo "TMP_FOLDER=$TMP_FOLDER" >>$RENDER_FILE
+echo "NTHREADS=$NTHREADS" >>$RENDER_FILE
+echo "POVRAY=$POVRAY" >>$RENDER_FILE
+echo "POVRAYinclude=$POVRAYinclude" >>$RENDER_FILE
+echo "FFMPEG=$FFMPEG" >>$RENDER_FILE
+echo "CONVERT=$CONVERT" >>$RENDER_FILE
+
+echo ""
+echo "Rendering parameters used for this run:"
+cat $RENDER_FILE
+echo ""
+
+exit
 
 ## -------------------------------------------------------
 echo "Starting main point group script"
@@ -92,7 +125,7 @@ showdate
 echo " "
 echo "Switching to directory raw to create 32 jpeg images"
 cd raw
-./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall $RENDER_FILE
 cd $CURDIR
 #exit
 
@@ -100,8 +133,8 @@ showdate
 echo " "
 echo "Switching to directory scalar to create 32 movies and 32 jpeg images"
 cd scalar
-./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $RENDER_FILE
+./doall_stills $RENDER_FILE
 cd $CURDIR
 #exit
 
@@ -109,38 +142,38 @@ showdate
 echo " "
 echo "Switching to directory pseudoscalar to create 32 movies and 32 jpeg images"
 cd pseudoscalar
-./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $RENDER_FILE
+./doall_stills $RENDER_FILE
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory anaglyph to create 2*32 jpeg images"
 cd anaglyph
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_stills $RENDER_FILE
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory special_positions to create 1 movie"
-cd special_positions
-./doall $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+cd special_positions 
+./doall $RENDER_FILE
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory polar to create 32 movies and 32 hi-res 2x2 stills"
 cd polar
-./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $RENDER_FILE
+./doall_stills $RENDER_FILE
 cd $CURDIR
 
 showdate
 echo " "
 echo "Switching to directory axial to create 122 movies and 122 hi-res 2x2 stills"
 cd axial
-./doall_movies $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
-./doall_stills $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+./doall_movies $RENDER_FILE
+./doall_stills $RENDER_FILE
 cd $CURDIR
 
 

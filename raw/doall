@@ -1,13 +1,13 @@
 #!/bin/bash
 echo "Point group raw generator starting"
 
-# -------------------------------------------------------
-# get the script arguments
-BUILD_FOLDER="$1"
-NTHREADS="$2"
-POVRAY="$3"
-POVRAYinclude="$4"
-TMP_FOLDER="$BUILD_FOLDER"/tmp
+RENDER_FILE="$1"
+if [ -f $RENDER_FILE ]; then
+  . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
+    exit
+fi
 
 #
 # loop through all point groups
@@ -23,7 +23,7 @@ for FILE in pg_*.pov; do
 		echo "Input_File_Name=$FILE" >povray.ini
 		echo "Output_File_Name=$BUILD_FOLDER/"$short"_raw.png" >>povray.ini
 		echo "+L$POVRAYinclude" >>povray.ini
-		echo "+W1280 +H1280" >>povray.ini
+		echo "+W$STILL_SIZE +H$STILL_SIZE" >>povray.ini
 		echo "Initial_Clock=0" >>povray.ini
 		echo "Initial_Frame=0" >>povray.ini
 		echo "Final_Clock=0" >>povray.ini
@@ -31,7 +31,7 @@ for FILE in pg_*.pov; do
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 
 		$POVRAY povray.ini 2>/dev/null
-		convert -colorspace RGB -auto-level $BUILD_FOLDER/$short\_raw\.png  $BUILD_FOLDER/$short\_raw\.jpeg
+		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_raw\.png  $BUILD_FOLDER/$short\_raw\.jpeg
 		rm -f $BUILD_FOLDER/$short\_raw\.png
 	fi
 done

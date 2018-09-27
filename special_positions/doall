@@ -1,15 +1,13 @@
 #!/bin/bash
 echo "Start special positions movie for point group 4/mmm " `date`
 
-# -------------------------------------------------------
-# get the script arguments
-BUILD_FOLDER="$1"
-NTHREADS="$2"
-POVRAY="$3"
-POVRAYinclude="$4"
-FFMPEG="$5"
-TMP_FOLDER="$BUILD_FOLDER"/tmp
-FRAMES_FOLDER="$BUILD_FOLDER"/frames
+RENDER_FILE="$1"
+if [ -f $RENDER_FILE ]; then
+  . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
+    exit
+fi
 
 #
 # loop through all frames
@@ -18,7 +16,7 @@ short=pg_4overmmm
 echo "Input_File_Name="$short"_sp1.pov" >povray.ini
 echo "Output_File_Name=$FRAMES_FOLDER/frame1_.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W800 +H800" >>povray.ini
+echo "+W$MOVIE_SIZE +H$MOVIE_SIZE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=9" >>povray.ini
@@ -29,7 +27,7 @@ $POVRAY povray.ini 2>/dev/null
 echo "Input_File_Name="$short"_sp2.pov" >povray.ini
 echo "Output_File_Name=$FRAMES_FOLDER/frame2_.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W800 +H800" >>povray.ini
+echo "+W$MOVIE_SIZE +H$MOVIE_SIZE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=9" >>povray.ini
@@ -40,7 +38,7 @@ $POVRAY povray.ini 2>/dev/null
 echo "Input_File_Name="$short"_sp3.pov" >povray.ini
 echo "Output_File_Name=$FRAMES_FOLDER/frame3_.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W800 +H800" >>povray.ini
+echo "+W$MOVIE_SIZE +H$MOVIE_SIZE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=9" >>povray.ini
@@ -51,7 +49,7 @@ $POVRAY povray.ini 2>/dev/null
 echo "Input_File_Name="$short"_sp4.pov" >povray.ini
 echo "Output_File_Name=$FRAMES_FOLDER/frame4_.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W800 +H800" >>povray.ini
+echo "+W$MOVIE_SIZE +H$MOVIE_SIZE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=9" >>povray.ini
@@ -59,11 +57,10 @@ echo "Final_Frame=9" >>povray.ini
 echo "Frame_Step=1" >>povray.ini
 echo "Work_Threads=$NTHREADS" >>povray.ini
 $POVRAY povray.ini 2>/dev/null
-rm -f povray.ini
 echo "Input_File_Name="$short"_sp5.pov" >povray.ini
 echo "Output_File_Name=$FRAMES_FOLDER/frame5_.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W800 +H800" >>povray.ini
+echo "+W$MOVIE_SIZE +H$MOVIE_SIZE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=9" >>povray.ini
@@ -71,8 +68,6 @@ echo "Final_Frame=9" >>povray.ini
 echo "Frame_Step=1" >>povray.ini
 echo "Work_Threads=$NTHREADS" >>povray.ini
 $POVRAY povray.ini 2>/dev/null
-rm -f povray.ini
-
 rm -f povray.ini
 
 mv $FRAMES_FOLDER/frame1_0.png $FRAMES_FOLDER/frame00.png

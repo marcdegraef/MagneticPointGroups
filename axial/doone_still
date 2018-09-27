@@ -4,11 +4,13 @@ echo "Start axial stills for point group " $1 `date`
 # -------------------------------------------------------
 # get the script arguments
 PGDIR="$1"
-BUILD_FOLDER="$2"
-NTHREADS="$3"
-POVRAY="$4"
-POVRAYinclude="$5"
-TMP_FOLDER="$BUILD_FOLDER"/tmp
+RENDER_FILE="$2"
+if [ -f $RENDER_FILE ]; then
+  . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
+    exit
+fi
 FILE=pg_"$PGDIR"_still\.pov
 
 cd $PGDIR
@@ -16,7 +18,7 @@ cd $PGDIR
 echo "Input_File_Name=$FILE" >povray.ini
 echo "Output_File_Name=$BUILD_FOLDER/"$PGDIR"_still.png" >>povray.ini
 echo "+L$POVRAYinclude" >>povray.ini
-echo "+W640 +H640" >>povray.ini
+echo "+W$STILL_SIZE_MONTAGE +H$STILL_SIZE_MONTAGE" >>povray.ini
 echo "Initial_Clock=0" >>povray.ini
 echo "Initial_Frame=0" >>povray.ini
 echo "Final_Clock=135" >>povray.ini
@@ -25,7 +27,7 @@ echo "Frame_Step=45" >>povray.ini
 echo "Work_Threads=$NTHREADS" >>povray.ini
 
 $POVRAY povray.ini 2>/dev/null
-convert -colorspace RGB -auto-level \( $BUILD_FOLDER/"$PGDIR"_still000\.png  $BUILD_FOLDER/"$PGDIR"_still045\.png +append \)  \( $BUILD_FOLDER/"$PGDIR"_still090\.png  $BUILD_FOLDER/"$PGDIR"_still135\.png +append \) -append  $BUILD_FOLDER/"$PGDIR"_axial_still\.jpeg
+$CONVERT -colorspace RGB -auto-level \( $BUILD_FOLDER/"$PGDIR"_still000\.png  $BUILD_FOLDER/"$PGDIR"_still045\.png +append \)  \( $BUILD_FOLDER/"$PGDIR"_still090\.png  $BUILD_FOLDER/"$PGDIR"_still135\.png +append \) -append  $BUILD_FOLDER/"$PGDIR"_axial_still\.jpeg
 rm -f $BUILD_FOLDER/"$PGDIR"_still*\.png
 rm -f povray.ini
 cd ../

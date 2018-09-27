@@ -2,19 +2,20 @@
 echo "Point group axial vector movies generator starting"
 # -------------------------------------------------------
 # get the script arguments
-BUILD_FOLDER="$1"
-NTHREADS="$2"
-POVRAY="$3"
-POVRAYinclude="$4"
-FFMPEG="$5"
-TMP_FOLDER="$BUILD_FOLDER"/tmp
+RENDER_FILE="$1"
+if [ -f $RENDER_FILE ]; then
+  . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
+    exit
+fi
 
 #
 # each subfolder corresponds to one point group, so loop through all folders
 #
 for FILE in *; do 
 	if [ -d $FILE ]; then 
-		./doone_movie $FILE $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude $FFMPEG
+		./doone_movie $FILE $RENDER_FILE
 	fi
 done
 # 

@@ -2,18 +2,20 @@
 echo "Point group polar vector stills generator starting"
 # -------------------------------------------------------
 # get the script arguments
-BUILD_FOLDER="$1"
-NTHREADS="$2"
-POVRAY="$3"
-POVRAYinclude="$4"
-TMP_FOLDER="$BUILD_FOLDER"/tmp
+RENDER_FILE="$2"
+if [ -f $RENDER_FILE ]; then
+  . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
+    exit
+fi
 
 #
 # each subfolder corresponds to one point group, so loop through all folders
 #
 for FILE in *; do 
 	if [ -d $FILE ]; then 
-		./doone_still $FILE $BUILD_FOLDER $NTHREADS $POVRAY $POVRAYinclude
+		./doone_still $FILE $RENDER_FILE
 	fi
 done
 # 

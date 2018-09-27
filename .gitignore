@@ -2,5 +2,6 @@ test/
 
 *.png
 
+.render_parameters
 
 
