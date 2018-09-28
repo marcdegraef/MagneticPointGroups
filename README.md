@@ -13,7 +13,7 @@ The first commit of this package represents the version of the mpg web site befo
 On Mac OS X, the ImageMagick package is installed by default, and several scripts require it for file conversions and to merge image files together into a single image. On other platforms you will need to install [ImageMagick](https://imagemagick.org/script/download.php), and set the shell script variable to the correct location of the *convert* program.
 
 ## How to run the scripts
-The top folder of this package contains a *makeall* script that controls the entire build. Before you run the script, you will need to edit the makeall file and set the following variables:
+The top folder of this package contains a *makeall* script that controls the entire build. Before you run the script, you will need to copy the RenderParameters.template file to a file called RenderParameters in the top folder of the package.  Then edit the file and set all the relevant parameters, including the following paths (example given for Mac OS X):
 - POVRAY=/path/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
 - POVRAYinclude=/path/PovrayCommandLineMacV2/include
 - FFMPEG=/path/ffmpeg
@@ -23,9 +23,9 @@ where *path* is the full path to each program. Note that the name of the POVRAY 
 
 Note that a complete build of all the stills and movies can easily take a full day, so you should run it as follows (in a bash shell):
 
-bash> ./makeall  BUILD_FOLDER  NTHREADS
+bash> ./makeall 
 
-where BUILD_FOLDER is the full path to a folder where you want all the renderings to be stored, and NTHREADS is the number of threads you want to allocate to the PoVray program for rendering; if you select a number larger than the number of available threads, it will be reset to the maximum available. Then go have some coffee... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.
+Then go have some coffee... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.
 
 ## Output types
 The scripts generate a number of different representations for the 122 magnetic point groups:
@@ -50,7 +50,6 @@ You are more than welcome to modify some of the rendering settings which are def
 
 
 ## Things to do
-- allow for partial builds (e.g., only the raw stills, or only the axial movies, or only orthorhombic symmetry, etc...)
 - implement build on Linux and Windows
 
 ## Funding acknowledgment
