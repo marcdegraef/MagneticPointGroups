@@ -13,10 +13,11 @@ fi
 # loop through all point groups
 #
 for FILE in pg_*_still.pov; do 
-	echo 'starting pseduoscalar still image for point group file ' $FILE `date`
+	echo 'starting pseudoscalar still image for point group file ' $FILE `date`
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
 		sed -i back "s/_still\.pov//" $TMP_FOLDER/play
+		sed -i back "s/pg_//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
@@ -31,7 +32,8 @@ for FILE in pg_*_still.pov; do
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 
 		$POVRAY povray.ini 2>/dev/null
-		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_still\.png  $BUILD_FOLDER/$short\_pseudoscalar_still\.jpeg
+		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_still\.png  $BUILD_FOLDER/pseudoscalar_"$short"\.jpeg
+		$CONVERT $BUILD_FOLDER/pseudoscalar_"$short"\.jpeg -resize 50% $BUILD_FOLDER/pseudoscalar_"$short"_small\.jpeg
 		rm -f $BUILD_FOLDER/$short\_still\.png
 	fi
 done
@@ -40,7 +42,7 @@ rm povray.ini
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 rm -f pseudoscalar_stills.tar
-tar -cf pseudoscalar_stills.tar *.jpeg
+tar -cf pseudoscalar_stills.tar pseudoscalar*.jpeg
 gzip pseudoscalar_stills.tar
 rm -f *.jpeg
 echo "Point group pseudoscalar still generator quitting"

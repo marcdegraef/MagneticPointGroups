@@ -17,6 +17,7 @@ for FILE in pg_*.pov; do
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
 		sed -i back "s/\.pov//" $TMP_FOLDER/play
+		sed -i back "s/pg_//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
@@ -31,16 +32,17 @@ for FILE in pg_*.pov; do
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 
 		$POVRAY povray.ini 2>/dev/null
-		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_raw\.png  $BUILD_FOLDER/$short\_raw\.jpeg
+		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_raw\.png  $BUILD_FOLDER/raw_"$short"\.jpeg
+		$CONVERT $BUILD_FOLDER/raw_"$short"\.jpeg -resize 50% $BUILD_FOLDER/raw_"$short"_small\.jpeg
 		rm -f $BUILD_FOLDER/$short\_raw\.png
 	fi
 done
 # collect all the jpegs into a tar-ball
 CURDIR=`pwd`
 cd $BUILD_FOLDER
-rm -f raw_pg.tar
-tar -cf raw_pg.tar *.jpeg
-gzip raw_pg.tar
+rm -f raw_stills.tar
+tar -cf raw_stills.tar raw*.jpeg
+gzip raw_stills.tar
 rm -f *.jpeg
 cd $CURDIR
 cd ../

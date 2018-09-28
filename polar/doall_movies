@@ -22,7 +22,7 @@ done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 /bin/rm -f polar_movies.tar polar_movies.tar.gz
-tar -cf polar_movies.tar *.mp4
+tar -cf polar_movies.tar polar*.mp4
 gzip polar_movies.tar
 /bin/rm *.mp4
 cd $CURDIR

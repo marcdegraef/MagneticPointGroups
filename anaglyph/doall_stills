@@ -19,6 +19,7 @@ for FILE in pg_*_still.pov; do
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
 		sed -i back "s/_still\.pov//" $TMP_FOLDER/play
+		sed -i back "s/pg_//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
@@ -33,7 +34,8 @@ for FILE in pg_*_still.pov; do
 		echo "Frame_Step=3" >>povray.ini
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 		$POVRAY povray.ini 2>/dev/null
-		$CONVERT $FRAMES_FOLDER/"$short"_still3.png -channel r -separate \( +channel $FRAMES_FOLDER/"$short"_still0.png -separate -delete -3 \) +channel -combine $BUILD_FOLDER/"$short"_anaglyph.jpeg
+		$CONVERT $FRAMES_FOLDER/"$short"_still3.png -channel r -separate \( +channel $FRAMES_FOLDER/"$short"_still0.png -separate -delete -3 \) +channel -combine $BUILD_FOLDER/anaglyph_"$short".jpeg
+		$CONVERT $BUILD_FOLDER/anaglyph_"$short".jpeg -resize 50% $BUILD_FOLDER/anaglyph_"$short"_small.jpeg
 		/bin/rm -f $FRAMES_FOLDER/*.png
 	fi
 done
@@ -41,7 +43,7 @@ rm -f povray.ini
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 rm -f anaglyph.tar
-tar -cf anaglyph.tar pg_*_anaglyph.jpeg
+tar -cf anaglyph.tar anaglyph*.jpeg
 gzip anaglyph.tar
 rm -f *.jpeg
 echo "Point group anaglyph generator quitting"

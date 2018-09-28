@@ -22,7 +22,7 @@ done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 /bin/rm -f axial_movies.tar axial_movies.tar.gz
-tar -cf axial_movies.tar *.mp4
+tar -cf axial_movies.tar axial*.mp4
 gzip axial_movies.tar
 /bin/rm *.mp4
 cd $CURDIR

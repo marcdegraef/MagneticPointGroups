@@ -17,6 +17,7 @@ for FILE in pg_*_movie.pov; do
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
 		sed -i back "s/_movie\.pov//" $TMP_FOLDER/play
+		sed -i back "s/pg_//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
@@ -31,14 +32,14 @@ for FILE in pg_*_movie.pov; do
 		echo "Frame_Step=$FRAME_STEP" >>povray.ini
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 		$POVRAY povray.ini 2>/dev/null
-		$FFMPEG -i $FRAMES_FOLDER/"$short"_movie%03d.png -y -c:v libx264 -pix_fmt yuv420p $BUILD_FOLDER/"$short"_scalar.mp4 >/dev/null 2>/dev/null
+		$FFMPEG -i $FRAMES_FOLDER/"$short"_movie%03d.png -y -c:v libx264 -pix_fmt yuv420p $BUILD_FOLDER/scalar_"$short".mp4 >/dev/null 2>/dev/null
 		/bin/rm -f $FRAMES_FOLDER/*.png
 	fi
 done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
-rm -f scalar_movies.tar
-tar -cf scalar_movies.tar pg_*_scalar.mp4
+rm -f scalar_movies.tar.gz
+tar -cf scalar_movies.tar scalar*.mp4
 gzip scalar_movies.tar
 rm -f *.mp4
 echo "Point group scalar movie generator quitting"

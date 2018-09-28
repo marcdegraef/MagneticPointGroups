@@ -17,6 +17,7 @@ for FILE in pg_*_still.pov; do
 	if [ -e $FILE ]; then 
 		echo $FILE >$TMP_FOLDER/play
 		sed -i back "s/_still\.pov//" $TMP_FOLDER/play
+		sed -i back "s/pg_//" $TMP_FOLDER/play
 		read short <$TMP_FOLDER/play
 		rm $TMP_FOLDER/play
 		rm $TMP_FOLDER/playback
@@ -31,15 +32,16 @@ for FILE in pg_*_still.pov; do
 		echo "Work_Threads=$NTHREADS" >>povray.ini
 
 		$POVRAY povray.ini 2>/dev/null
-		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_still\.png  $BUILD_FOLDER/$short\_still\.jpeg
+		$CONVERT -colorspace RGB -auto-level $BUILD_FOLDER/$short\_still\.png  $BUILD_FOLDER/scalar_"$short"\.jpeg
+		$CONVERT $BUILD_FOLDER/scalar_"$short"\.jpeg -resize 50% $BUILD_FOLDER/scalar_"$short"_small\.jpeg
 		rm -f $BUILD_FOLDER/$short\_still\.png
 	fi
 done
 # collect all the jpegs into a tar-ball
 CURDIR=`pwd`
 cd $BUILD_FOLDER
-rm -f scalar_stills.tar
-tar -cf scalar_stills.tar *.jpeg
+rm -f scalar_stills.tar.gz
+tar -cf scalar_stills.tar scalar*.jpeg
 gzip scalar_stills.tar
 rm -f *.jpeg
 echo "Point group scalar still generator quitting"

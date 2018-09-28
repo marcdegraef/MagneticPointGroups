@@ -23,7 +23,7 @@ done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 /bin/rm -f axial_stills.tar axial_stills.tar.gz
-tar -cf axial_stills.tar *.jpeg
+tar -cf axial_stills.tar axial*.jpeg
 gzip axial_stills.tar
 /bin/rm *.jpeg
 cd $CURDIR

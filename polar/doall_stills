@@ -22,7 +22,7 @@ done
 CURDIR=`pwd`
 cd $BUILD_FOLDER
 /bin/rm -f polar_stills.tar polar_stills.tar.gz
-tar -cf polar_stills.tar *.jpeg
+tar -cf polar_stills.tar polar*.jpeg
 gzip polar_stills.tar
 /bin/rm *.jpeg
 cd $CURDIR

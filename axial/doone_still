@@ -27,7 +27,8 @@ echo "Frame_Step=45" >>povray.ini
 echo "Work_Threads=$NTHREADS" >>povray.ini
 
 $POVRAY povray.ini 2>/dev/null
-$CONVERT -colorspace RGB -auto-level \( $BUILD_FOLDER/"$PGDIR"_still000\.png  $BUILD_FOLDER/"$PGDIR"_still045\.png +append \)  \( $BUILD_FOLDER/"$PGDIR"_still090\.png  $BUILD_FOLDER/"$PGDIR"_still135\.png +append \) -append  $BUILD_FOLDER/"$PGDIR"_axial_still\.jpeg
+$CONVERT -colorspace RGB -auto-level \( $BUILD_FOLDER/"$PGDIR"_still000\.png  $BUILD_FOLDER/"$PGDIR"_still045\.png +append \)  \( $BUILD_FOLDER/"$PGDIR"_still090\.png  $BUILD_FOLDER/"$PGDIR"_still135\.png +append \) -append  $BUILD_FOLDER/axial_"$PGDIR"\.jpeg
+$CONVERT $BUILD_FOLDER/axial_"$PGDIR"\.jpeg -resize 50% $BUILD_FOLDER/axial_"$PGDIR"_small\.jpeg
 rm -f $BUILD_FOLDER/"$PGDIR"_still*\.png
 rm -f povray.ini
 cd ../

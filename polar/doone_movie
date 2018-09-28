@@ -28,7 +28,7 @@ echo "Frame_Step=$FRAME_STEP" >>povray.ini
 echo "Work_Threads=$NTHREADS" >>povray.ini
 
 $POVRAY povray.ini 2>/dev/null
-$FFMPEG -i $FRAMES_FOLDER/"$PGDIR"_movie%03d.png -y -c:v libx264 -pix_fmt yuv420p $BUILD_FOLDER/"$PGDIR"_polar.mp4 >/dev/null 2>/dev/null
+$FFMPEG -i $FRAMES_FOLDER/"$PGDIR"_movie%03d.png -y -c:v libx264 -pix_fmt yuv420p $BUILD_FOLDER/polar_"$PGDIR".mp4 >/dev/null 2>/dev/null
 
 rm -f $FRAMES_FOLDER/"$PGDIR"_movie*\.png
 rm -f povray.ini
