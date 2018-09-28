@@ -13,6 +13,14 @@ else
 fi
 FILE=pg_"$PGDIR"_movie\.pov
 
+# test to make sure that the requested number of threads is <= the available number
+MAXTHREADS=`sysctl -n hw.ncpu`   # need to check for OS... this one will only work on Mac OS X
+if [ $NTHREADS -gt $MAXTHREADS ]
+  then 
+    NTHREADS="$MAXTHREADS"
+fi
+
+
 
 cd $PGDIR
 

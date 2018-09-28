@@ -1,0 +1,66 @@
+# set to 1 to render raw point group stills 
+DO_RAW=0
+#
+# set to 1 to render scalar point group stills and/or movies
+DO_SCALAR_STILLS=0
+DO_SCALAR_MOVIES=0
+#
+# set to 1 to render pseudoscalar point group stills and/or movies
+DO_PSEUDOSCALAR_STILLS=0
+DO_PSEUDOSCALAR_MOVIES=0
+#
+# set to 1 to render polar point group stills and/or movies
+DO_POLAR_STILLS=0
+DO_POLAR_MOVIES=0
+#
+# set to 1 to render axial point group stills and/or movies
+DO_AXIAL_STILLS=0
+DO_AXIAL_MOVIES=0
+#
+# set to 1 to generate scalar anaglyph stills (red/blue stereo images)
+DO_ANAGLYPHS=0
+#
+# set to 1 to render a single special positions movie for the 4/mmm point group
+DO_SPECIALPOSITIONS=0
+#
+#
+#
+# set the size of the still images (will be STILL_SIZE x STILL_SIZE)
+STILL_SIZE=1280
+#
+# set the size of the montage images (should really be STILL_SIZE/2)
+STILL_SIZE_MONTAGE=640
+#
+# set the movie size (MOVIE_SIZE x MOVIE_SIZE)
+MOVIE_SIZE=800
+#
+# set the number of frames in the movies (starts at 0; so 359 means one complete revolution)
+N_FRAMES=359
+#
+# set the movie frame step size (in degrees)
+FRAME_STEP=1
+#
+# where should the output be placed ?  [full path]
+BUILD_FOLDER=/path/mpgfolder
+#
+# where should the movie frames be stored (temporarily)? [full path]
+FRAMES_FOLDER=/path/mpgfolder/frames
+#
+# temporary folder [full path]
+TMP_FOLDER=/path/mpgfolder/tmp
+#
+# number of threads to be used for rendering
+NTHREADS=10
+#
+# where is the command line POVray program located [full path] (example for Mac OS X)
+POVRAY=/path/PovrayCommandLineMacV2/Povray37UnofficialMacCmd
+#
+# where is the POVray include folder located? [full path]
+POVRAYinclude=/path/PovrayCommandLineMacV2/include
+#
+# where is the ffmpeg program located? [full path]
+FFMPEG=/path/ffmpeg
+#
+# where is the ImageMagick convert program located ? [full path]
+CONVERT=/path/convert
+#
