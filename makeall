@@ -97,7 +97,7 @@ echo "Stills and movies will be built in folder $BUILD_FOLDER using $NTHREADS of
 # write these parameters to a hidden file that can be read by the actual rendering scripts
 RENDER_FILE=.render_parameters
 echo "STILL_SIZE=$STILL_SIZE" >$RENDER_FILE
-echo "STILL_SIZE_MONTAGE=$STILL_SIZE_MONTAGE" >$RENDER_FILE
+echo "STILL_SIZE_MONTAGE=$STILL_SIZE_MONTAGE" >>$RENDER_FILE
 echo "MOVIE_SIZE=$MOVIE_SIZE" >>$RENDER_FILE
 echo "N_FRAMES=$N_FRAMES" >>$RENDER_FILE
 echo "FRAME_STEP=$FRAME_STEP" >>$RENDER_FILE
@@ -115,7 +115,7 @@ echo "Rendering parameters used for this run:"
 cat $RENDER_FILE
 echo ""
 
-exit
+RENDER_FILE=\.\./$RENDER_FILE
 
 ## -------------------------------------------------------
 echo "Starting main point group script"

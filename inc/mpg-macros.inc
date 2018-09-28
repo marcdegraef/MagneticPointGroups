@@ -53,7 +53,7 @@
 // definition of a mirror plane
 #macro mirrorplane()
 	#local MirrorThickness=0.005;
-	box { <-1.0, -MirrorThickness, -1.0>, <1.0, MirrorThickness, 1.0> pigment { color Gray } finish{ reflection 0.75 phong 0.75 } }
+	box { <-1.0, -MirrorThickness, -1.0>, <1.0, MirrorThickness, 1.0> pigment { color Gray } finish{ reflection 0.5 phong 0.75 } }
 #end // macro mirror_plane
 
 //=====================================================
@@ -61,7 +61,7 @@
 #macro hexmirrorplane()
 	#local DiscHeight=0.005;
 	#local s=sqrt(3.0)/2.0;
-	prism { linear_sweep linear_spline -DiscHeight, DiscHeight, 6, <1.0, 0.0>, <0.5,s>, <-0.5,s>, <-1.0, 0.0>, <-0.5, -s>, <0.5, -s> texture{pigment{color Gray} finish{ reflection 0.25  phong 0.75}}}
+	prism { linear_sweep linear_spline -DiscHeight, DiscHeight, 6, <1.0, 0.0>, <0.5,s>, <-0.5,s>, <-1.0, 0.0>, <-0.5, -s>, <0.5, -s> texture{pigment{color Gray} finish{ reflection 0.5  phong 0.75}}}
 #end //macro hexmirrorplane
 
 //=====================================================

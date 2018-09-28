@@ -27,9 +27,16 @@
   }
 
 // light sources and background
+#declare lights=
+union
+{
    light_source {<500,500,-500> color White shadowless}
    light_source {<500,-100,-500> rgb <0.4,0.3,0.3> shadowless}
    light_source {<-500,0,-500> rgb <0.3,0.3,0.4> shadowless}
+}
+
+object { lights rotate y*-ang }
+
    sky_sphere {
       pigment {
          planar
