@@ -2,7 +2,7 @@
 echo "Point group polar vector stills generator starting"
 # -------------------------------------------------------
 # get the script arguments
-RENDER_FILE="$2"
+RENDER_FILE="$1"
 if [ -f $RENDER_FILE ]; then
   . $RENDER_FILE
 else
