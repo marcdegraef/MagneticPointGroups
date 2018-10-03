@@ -40,26 +40,21 @@ union {
 
 #declare sy=2.5*py;
 
+#declare wedge=
+  union {
+	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
+	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> }
+	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> }
+	object {  pmarrow()  rotate z*-theta translate < px, mpz, -sy> }
+  }
  
 object { point_group }
 #declare orbit=
   union {
-	object {  pparrow() rotate z*theta translate < px,  pz,  sy> }
-	object {  mparrow()  rotate z*-theta translate < px, mpz, -sy> }
-	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*90 }
-	object {  pmarrow()  rotate z*-theta translate < px, mpz, -sy> rotate y*90 }
-	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*180 }
-	object {  pmarrow()  rotate z*-theta translate < px, mpz, -sy> rotate y*180 }
-	object {  pparrow() rotate z*theta translate < px,  pz,  sy> rotate y*270 }
-	object {  pmarrow()  rotate z*-theta translate < px, mpz, -sy> rotate y*270 }
-	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> }
-	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> }
-	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> rotate y*90 }
-	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> rotate y*90 }
-	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> rotate y*180 }
-	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> rotate y*180 }
-	object {  mmarrow() rotate z*theta translate < px,  pz, -sy> rotate y*270 }
-	object {  mparrow()  rotate z*-theta translate < px, mpz,  sy> rotate y*270 }
+	object { wedge }
+	object { wedge rotate y*90 }
+	object { wedge rotate y*180 }
+	object { wedge rotate y*270 }
   }
 
 object { orbit }
