@@ -52,8 +52,8 @@ object { point_group }
  	  object {  pparrow() rotate z*theta rotate y*-60  translate <  0.5 * px - 0.866 * py ,  pz,  0.866 * px + 0.5 * py > }
   	  object {  pparrow() rotate z*theta rotate y*-120  translate < -0.5 * px - 0.866 * py ,  pz,  0.866 * px - 0.5 * py > }
 	  object {  pparrow() rotate z*theta rotate y*-180  translate < mpx, pz,  mpy> }
-	  object {  pparrow() rotate z*theta rotate y*-240  translate < -0.5 * px + 0.866 * mpy , pz, -0.866 * px - 0.5 *  py > }
-	  object {  pparrow() rotate z*theta rotate y*-300  translate <  0.5 * px + 0.866 * mpy , pz, -0.866 * px + 0.5 *  py > }
+	  object {  pparrow() rotate z*theta rotate y*-240  translate < -0.5 * px + 0.866 * py , pz, -0.866 * px - 0.5 *  py > }
+	  object {  pparrow() rotate z*theta rotate y*-300  translate <  0.5 * px + 0.866 * py , pz, -0.866 * px + 0.5 *  py > }
         object {  pmarrow()  rotate z*-theta translate < px, mpz, mpy> }
         object {  pmarrow()  rotate z*-theta rotate y*-60 translate <  0.5 * px - 0.866 *mpy , mpz,  0.866 * px + 0.5 *mpy > }
         object {  pmarrow()  rotate z*-theta rotate y*-120 translate < -0.5 * px - 0.866 *mpy , mpz,  0.866 * px - 0.5 *mpy > }
