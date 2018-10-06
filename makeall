@@ -9,6 +9,7 @@
 #
 # ./makeall 
 # nohup ./makeall & >makeall_output.txt
+# nohup ./makeall & >/dev/null
 #
 # All rendering options should be set in the RenderParameters file before running this script.
 # To edit this file, first copy it from the RenderParameters.template file, and then edit the
@@ -171,6 +172,17 @@ if [ $DO_AXIAL_MOVIES = 1 ]; then
   ./doall_movies $RENDER_FILE
   cd $CURDIR
 fi
+
+# final cleanup
+cd $TMP_FOLDER
+rm -f .* * *.* >/dev/null 2>/dev/null
+cd $CURDIR
+rmdir $TMP_FOLDER
+
+cd $FRAMES_FOLDER
+rm -f .* * *.* >/dev/null 2>/dev/null
+cd $CURDIR
+rmdir $FRAMES_FOLDER
 
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 echo "All is well that ends well ..."

@@ -1,16 +1,16 @@
 # Magnetic Point Groups
-This repository contains shell scripts and PoVray input files to generate all the stills and movies of the [mpg.web.cmu.edu](http://mpg.web.cmu.edu) site.
+This repository contains shell scripts and PoVray input files to generate all the stills and movies of the [mpg.web.cmu.edu](http://mpg.web.cmu.edu) site. It has also contains a number of scripts that will generate a complete web site similar to the original one, so you can locally post it.
 
 ## Requirements
 To run the scripts, you will need to install two different packages
 - [Command line PoVray for Mac OS X](http://megapov.inetart.net/povrayunofficial_mac/downloads/PovrayCommandLineMacV2.zip)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 
-The [mpg.web.cmu.edu](http://mpg.web.cmu.edu) site files were generated using the Mac OS X operating system (version 10.13.3) on a 2017 Mac Pro. It is possible that they will also run on a Linux box but this has not been tested. The scripts use basic UNIX commands, including echo, date, cd, tar, gzip, rm, mv, and sed. The scripts should be executed in a bash shell.
+The [mpg.web.cmu.edu](http://mpg.web.cmu.edu) site files were generated using the Mac OS X operating system (version 10.13.3) on a 2017 Mac Pro. *It is possible that they will also run on a Linux box but this has not been tested.* The scripts use basic UNIX commands, including echo, date, cd, tar, gzip, rm, mv, and sed. The scripts should be executed in a bash shell.
 
-The first commit of this package represents the version of the mpg web site before September 2018; the build uses several ImageMagick programs (convert, image2ppm, and ppmtoy4m) along with the mpeg2enc program to generate all the movies. In the current version, we are in the process of replacing those programs with single calls to the ffmpeg program, which is more versatile at creating the necessary movie output files.  The original movie files were in mpeg3 format, the current default format is .mp4.
+The first commit of this package represents the version of the mpg web site before September 2018; the build uses several RayShade and several ImageMagick programs (convert, image2ppm, and ppmtoy4m) along with the mpeg2enc program to generate all the movies. In the current version, we have replaced those programs with POVray and single calls to the ffmpeg program, which is more versatile at creating the necessary movie output files.  The original movie files were in mpeg3 format, the current default format is .mp4.
 
-On Mac OS X, the ImageMagick package is installed by default, and several scripts require it for file conversions and to merge image files together into a single image. On other platforms you will need to install [ImageMagick](https://imagemagick.org/script/download.php), and set the shell script variable to the correct location of the *convert* program.
+On Mac OS X, the ImageMagick package is installed by default, and several scripts require it for file conversions and to merge image files together into a single image. On other platforms you will need to install [ImageMagick](https://imagemagick.org/script/download.php), and set the shell script variable in the RenderParameters file to the correct location of the *convert* program.
 
 ## How to run the scripts
 The top folder of this package contains a *makeall* script that controls the entire build. Before you run the script, you will need to copy the RenderParameters.template file to a file called RenderParameters in the top folder of the package.  Then edit the file and set all the relevant parameters, including the following paths (example given for Mac OS X):
@@ -21,7 +21,7 @@ The top folder of this package contains a *makeall* script that controls the ent
 
 where *path* is the full path to each program. Note that the name of the POVRAY and POVRAYinclude variables may be different on different platforms.
 
-Note that a complete build of all the stills and movies can easily take a full day, so you should run it as follows (in a bash shell):
+Note that a complete build of all the stills and movies can easily take several hours depending on the number of threads you specify, so you should run it as follows (in a bash shell):
 
 bash> ./makeall 
 
@@ -36,7 +36,7 @@ The scripts generate a number of different representations for the 122 magnetic 
 - *polar* [the object is a polar vector]
 - *axial* [the object is an axial vector; available for all 122 magnetic point groups]
 
-Note that the script will generate the left and right eye frames for the anaglyphs, but does not at this time generate the actual anaglyph file; this will need to be done using a package like ImageMagick, or programs such as Adobe Photoshop or the Interactive Data Language (IDL).  Instructions are provided in a separate README-anaglyph file in the anaglyph folder.
+Note that the script will generate the left and right eye frames for the anaglyphs in red-blue anaglyph mode.
 
 For details on the underlying math and physics, please refer to the following paper: M. De Graef, [*Visualization of time-reversal symmetry in magnetic point groups*](https://link.springer.com/article/10.1007/s11661-010-0171-0), Met. Mat. Trans. A, vol. 41, pp.1321-1329 (2010). A similar article was published as [Teaching Pamphlet #23](https://www.iucr.org/education/pamphlets/23) by the International Union of Crystallography.
 
@@ -51,6 +51,7 @@ You are more than welcome to modify some of the rendering settings which are def
 
 ## Things to do
 - implement build on Linux and Windows
+- implement automatic generation of complete Magnetic Point Groups web site
 
 ## Funding acknowledgment
 This material is based upon work initially supported by the National Science Foundation under Grant Nos. **DMR-0809048** and **DMR-1005330**. The current release on GitHub was supported by Grant No. **DMR-1564550**.
