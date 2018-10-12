@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script> 
+        function updatepage(id1){
+            $.get( id1, function( data ) {
+            $("#contentFrame").html(data);
+        })};
+        </script> 
+
+        <script> 
+        $(document).ready(function(){
+            $('#pageNavigation').load("http://mpg.web.cmu.edu/menubar.html");
+            $('#contentFrame').load("http://mpg.web.cmu.edu/html/intro.html");
+        });
+        </script> 
+
+        <style>
+
+            body {
+                font-family: verdana;
+                background-color: #ABC;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                border-bottom: 2px solid #009;
+                margin-bottom: 20px;
+            }
+
+            #header{
+                    height:100px;
+                    background-color:#ABC;
+                    min-width:1000px;
+                    margin: 0 auto;
+            }
+
+            #pageNavigation{
+                    min-height:800px;
+                    margin: 0 auto;
+                    width:200px;
+                    background-color:#ABC;
+                    float:left;
+                    min-width:100px;
+                    display: block;
+                    z-index: 2;
+            }
+
+            #contentFrame{
+                    min-height:800px;
+                    width:80%;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    margin: 0 auto;
+                    background-color:#ABC;
+                    float:left;
+                    display: block;
+                    z-index: -1;
+            }
+
+            p#contentFrame{
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            ul#contentFrame{
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            #content{
+                    margin: 0 auto;
+                    width: 1000px;
+                }
+        </style>
+
+    </head>
+    <body>
+
+        <div id="header">
+            <h1>Magnetic Point Group Renderings</h1>
+        </div>
+        <div id="content">
+            <div id="pageNavigation"></div>
+            <div id="contentFrame"></div>
+        </div>
+
+    </body>
+</html>

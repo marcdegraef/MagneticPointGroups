@@ -1,0 +1,539 @@
+#!/bin/bash
+#
+# run this script as follows:
+#
+# ./mkall >../html/menubar.html
+#
+# to generate the navigation menu with dropdown menus for all stills and movies
+#
+
+cat menu-head.txt
+echo "<body>"
+echo ""
+echo "<ul id=\"navmenu\">"
+echo "	<li><a onclick=\"updatepage('html/intro.html')\">Home</a></li>"
+echo "	<li><a href=\"#\">Still Images</a><span class=\"rarrow\">&#9654;</span>"
+echo "		<ul class=\"sub1\">"
+
+echo "			<li><a href=\"#\">Cubic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline m-3m
+./groupall mbar3m m-3m
+./groupaxial mbar3m1p m-3m1\'
+./groupaxial mbar3mp m-3m\'
+./groupaxial mpbar3pmp m\'-3\'m\'
+./groupaxial mpbar3pm m\'-3\'m
+./closeline
+
+./mainline -43m
+./groupall bar43m -43m
+./groupaxial bar43m1p -43m1\'
+./groupaxial bar4p3mp -4\'3m\'
+./closeline
+
+./mainline 432
+./groupall 432 432
+./groupaxial 4321p 4321\'
+./groupaxial 4p32p 4\'32\'
+./closeline
+
+./mainline m-3
+./groupall mbar3 m-3
+./groupaxial mbar31p m-31\'
+./groupaxial mpbar3p m\'-3\'
+./closeline
+
+./mainline 23
+./groupall 23 23
+./groupaxial 231p 231\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Hexagonal</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline 6/mmm
+./groupall 6overmmm 6/mmm
+./groupaxial 6overmmm1p 6/mmm\'
+./groupaxial 6povermpmmp 6\'/m\'mm\'
+./groupaxial 6overmmpmp 6/mm\'m\'
+./groupaxial 6overmpmpmp 6/m\'m\'m\'
+./groupaxial 6overmpmm 6/m\'mm
+./groupaxial 6povermmmp 6\'/mmm\'
+./closeline
+
+./mainline -6m2
+./groupall bar6m2 -6m2
+./groupaxial bar6m21p -6m21\'
+./groupaxial bar6p2mp -6\'2m\'
+./groupaxial bar6pm2p -6\'m2\'
+./groupaxial bar6mp2p -6m\'2\'
+./closeline
+
+./mainline 6mm
+./groupall 6mm 6mm
+./groupaxial 6mm1p 6mm1\'
+./groupaxial 6pmmp 6\'mm\'
+./groupaxial 6mpmp 6m\'m\'
+./closeline
+
+./mainline 622 
+./groupall 622 622
+./groupaxial 6221p 6221\'
+./groupaxial 6p22p 6\'22\'
+./groupaxial 62p2p 62\'2\'
+./closeline
+
+./mainline 6/m 
+./groupall 6overm 6/m
+./groupaxial 6overm1p 6/m1\'
+./groupaxial 6povermp 6\'/m\'
+./groupaxial 6overmp 6/m\'
+./groupaxial 6poverm 6\'/m
+./closeline
+
+./mainline -6
+./groupall bar6 -6
+./groupaxial bar61p -61\'
+./groupaxial bar6p -6\'
+./closeline
+
+./mainline 6
+./groupall 6 6
+./groupaxial 61p 61\' 
+./groupaxial 6p 6\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Rhombohedral</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline -3m
+./groupall bar3m -3m
+./groupaxial bar3m1p -3m1\'
+./groupaxial bar3mp -3m\'
+./groupaxial bar3pmp -3\'m\'
+./groupaxial bar3pm -3\'m
+./closeline
+
+./mainline 3m
+./groupall 3m 3m
+./groupaxial 3m1p 3m1\'
+./groupaxial 3mp 3m\'
+./closeline
+
+./mainline 32
+./groupall 32 32
+./groupaxial 321p 321\'
+./groupaxial 32p 32\'
+./closeline
+
+./mainline -3
+./groupall bar3 -3
+./groupaxial bar31p -31\'
+./groupaxial bar3p -3\'
+./closeline
+
+./mainline 3
+./groupall 3 3
+./groupaxial 31p 31\' 
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Tetragonal</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline 4/mmm
+./groupall 4overmmm 4/mmm
+./groupaxial 4overmmm1p 4/mmm1\'
+./groupaxial 4povermmmp 4\'/mmm\'
+./groupaxial 4overmmpmp 4/mm\'m\'
+./groupaxial 4overmpmpmp 4/m\'m\'m\'
+./groupaxial 4overmpmm 4/m\'mm
+./groupaxial 4povermpmpm 4\'/m\'m\'m
+./closeline
+
+./mainline -42m
+./groupall bar42m -42m
+./groupaxial bar42m1p -42m1\'
+./groupaxial bar4p2mp -4\'2m\'
+./groupaxial bar4p2pm -4\'2\'m
+./groupaxial bar42pmp -42\'m\'
+./closeline
+
+./mainline 4mm 
+./groupall 4mm 4mm
+./groupaxial 4mm1p 4mm1\'
+./groupaxial 4pmmp 4\'mm\'
+./groupaxial 4mpmp 4m\'m\'
+./closeline
+
+./mainline 422
+./groupall 422 422
+./groupaxial 4221p 4221\'
+./groupaxial 4p22p 4\'22\'
+./groupaxial 42p2p 42\'2\'
+./closeline
+
+./mainline 4/m
+./groupall 4overm 4/m
+./groupaxial 4overm1p 4/m1\'
+./groupaxial 4poverm 4\'/m
+./groupaxial 4overmp 4/m\'
+./groupaxial 4povermp 4\'/m\'
+./closeline
+
+./mainline -4
+./groupall bar4 -4
+./groupaxial bar41p -41\'
+./groupaxial bar4p -4\'
+./closeline
+
+./mainline 4
+./groupall 4 4
+./groupaxial 41p 41\'
+./groupaxial 4p 4\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Orthorhombic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline mmm
+./groupall mmm mmm
+./groupaxial mmm1p mmm1\'
+./groupaxial mmpmp mm\'m\'
+./groupaxial mpmpmp m\'m\'m\'
+./groupaxial mmmp mmm\'
+./closeline
+
+./mainline mm2
+./groupall mm2 mm2
+./groupaxial mm21p mm21\'
+./groupaxial mpmp2 m\'m\'2
+./groupaxial mpm2p m\'m2\'
+./closeline
+
+./mainline 222
+./groupall 222 222
+./groupaxial 2221p 2221\'
+./groupaxial 2p2p2 2\'2\'2
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Monoclinic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline 2/m
+./groupall 2overm 2/m
+./groupaxial 2overm1p 2/m1\'
+./groupaxial 2povermp 2\'/m\'
+./groupaxial 2overmp 2/m\'
+./groupaxial 2poverm 2\'/m
+./closeline
+
+./mainline m
+./groupall m m
+./groupaxial m1p m1\'
+./groupaxial mp m\'
+./closeline
+
+./mainline 2
+./groupall 2 2
+./groupaxial 21p 21\'
+./groupaxial 2p 2\'
+
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Triclinic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./mainline -1
+./groupall bar1 -1
+./groupaxial bar11p -11\'
+./groupaxial bar1p -1\'
+./closeline
+
+./mainline 1
+./groupall 1 1
+./groupaxial 11p 11\' 
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			</li>"
+echo "		</ul>"
+echo "	</li>"
+echo "	<li><a href=\"#\">Movies</a><span class=\"rarrow\">&#9654;</span>"
+echo "		<ul class=\"sub1\">"
+
+echo "			<li><a href=\"#\">Cubic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline m-3m
+./movieall mbar3m m-3m
+./movieaxial mbar3m1p m-3m1\'
+./movieaxial mbar3mp m-3m\'
+./movieaxial mpbar3pmp m\'-3\'m\'
+./movieaxial mpbar3pm m\'-3\'m
+./closeline
+
+./movieline -43m
+./movieall bar43m -43m
+./movieaxial bar43m1p -43m1\'
+./movieaxial bar4p3mp -4\'3m\'
+./closeline
+
+./movieline 432
+./movieall 432 432
+./movieaxial 4321p 4321\'
+./movieaxial 4p32p 4\'32\'
+./closeline
+
+./movieline m-3
+./movieall mbar3 m-3
+./movieaxial mbar31p m-31\'
+./movieaxial mpbar3p m\'-3\'
+./closeline
+
+./movieline 23
+./movieall 23 23
+./movieaxial 231p 231\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Hexagonal</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline 6/mmm
+./movieall 6overmmm 6/mmm
+./movieaxial 6overmmm1p 6/mmm\'
+./movieaxial 6povermpmmp 6\'/m\'mm\'
+./movieaxial 6overmmpmp 6/mm\'m\'
+./movieaxial 6overmpmpmp 6/m\'m\'m\'
+./movieaxial 6overmpmm 6/m\'mm
+./movieaxial 6povermmmp 6\'/mmm\'
+./closeline
+
+./movieline -6m2
+./movieall bar6m2 -6m2
+./movieaxial bar6m21p -6m21\'
+./movieaxial bar6p2mp -6\'2m\'
+./movieaxial bar6pm2p -6\'m2\'
+./movieaxial bar6mp2p -6m\'2\'
+./closeline
+
+./movieline 6mm
+./movieall 6mm 6mm
+./movieaxial 6mm1p 6mm1\'
+./movieaxial 6pmmp 6\'mm\'
+./movieaxial 6mpmp 6m\'m\'
+./closeline
+
+./movieline 622 
+./movieall 622 622
+./movieaxial 6221p 6221\'
+./movieaxial 6p22p 6\'22\'
+./movieaxial 62p2p 62\'2\'
+./closeline
+
+./movieline 6/m 
+./movieall 6overm 6/m
+./movieaxial 6overm1p 6/m1\'
+./movieaxial 6povermp 6\'/m\'
+./movieaxial 6overmp 6/m\'
+./movieaxial 6poverm 6\'/m
+./closeline
+
+./movieline -6
+./movieall bar6 -6
+./movieaxial bar61p -61\'
+./movieaxial bar6p -6\'
+./closeline
+
+./movieline 6
+./movieall 6 6
+./movieaxial 61p 61\' 
+./movieaxial 6p 6\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Rhombohedral</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline -3m
+./movieall bar3m -3m
+./movieaxial bar3m1p -3m1\'
+./movieaxial bar3mp -3m\'
+./movieaxial bar3pmp -3\'m\'
+./movieaxial bar3pm -3\'m
+./closeline
+
+./movieline 3m
+./movieall 3m 3m
+./movieaxial 3m1p 3m1\'
+./movieaxial 3mp 3m\'
+./closeline
+
+./movieline 32
+./movieall 32 32
+./movieaxial 321p 321\'
+./movieaxial 32p 32\'
+./closeline
+
+./movieline -3
+./movieall bar3 -3
+./movieaxial bar31p -31\'
+./movieaxial bar3p -3\'
+./closeline
+
+./movieline 3
+./movieall 3 3
+./movieaxial 31p 31\' 
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Tetragonal</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline 4/mmm
+./movieall 4overmmm 4/mmm
+./movieaxial 4overmmm1p 4/mmm1\'
+./movieaxial 4povermmmp 4\'/mmm\'
+./movieaxial 4overmmpmp 4/mm\'m\'
+./movieaxial 4overmpmpmp 4/m\'m\'m\'
+./movieaxial 4overmpmm 4/m\'mm
+./movieaxial 4povermpmpm 4\'/m\'m\'m
+./closeline
+
+./movieline -42m
+./movieall bar42m -42m
+./movieaxial bar42m1p -42m1\'
+./movieaxial bar4p2mp -4\'2m\'
+./movieaxial bar4p2pm -4\'2\'m
+./movieaxial bar42pmp -42\'m\'
+./closeline
+
+./movieline 4mm 
+./movieall 4mm 4mm
+./movieaxial 4mm1p 4mm1\'
+./movieaxial 4pmmp 4\'mm\'
+./movieaxial 4mpmp 4m\'m\'
+./closeline
+
+./movieline 422
+./movieall 422 422
+./movieaxial 4221p 4221\'
+./movieaxial 4p22p 4\'22\'
+./movieaxial 42p2p 42\'2\'
+./closeline
+
+./movieline 4/m
+./movieall 4overm 4/m
+./movieaxial 4overm1p 4/m1\'
+./movieaxial 4poverm 4\'/m
+./movieaxial 4overmp 4/m\'
+./movieaxial 4povermp 4\'/m\'
+./closeline
+
+./movieline -4
+./movieall bar4 -4
+./movieaxial bar41p -41\'
+./movieaxial bar4p -4\'
+./closeline
+
+./movieline 4
+./movieall 4 4
+./movieaxial 41p 41\'
+./movieaxial 4p 4\'
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Orthorhombic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline mmm
+./movieall mmm mmm
+./movieaxial mmm1p mmm1\'
+./movieaxial mmpmp mm\'m\'
+./movieaxial mpmpmp m\'m\'m\'
+./movieaxial mmmp mmm\'
+./closeline
+
+./movieline mm2
+./movieall mm2 mm2
+./movieaxial mm21p mm21\'
+./movieaxial mpmp2 m\'m\'2
+./movieaxial mpm2p m\'m2\'
+./closeline
+
+./movieline 222
+./movieall 222 222
+./movieaxial 2221p 2221\'
+./movieaxial 2p2p2 2\'2\'2
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Monoclinic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline 2/m
+./movieall 2overm 2/m
+./movieaxial 2overm1p 2/m1\'
+./movieaxial 2povermp 2\'/m\'
+./movieaxial 2overmp 2/m\'
+./movieaxial 2poverm 2\'/m
+./closeline
+
+./movieline m
+./movieall m m
+./movieaxial m1p m1\'
+./movieaxial mp m\'
+./closeline
+
+./movieline 2
+./movieall 2 2
+./movieaxial 21p 21\'
+./movieaxial 2p 2\'
+
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			<li><a href=\"#\">Triclinic</a><span class=\"rarrow\">&#9654;</span>"
+echo "				<ul class=\"sub2\">"
+
+./movieline -1
+./movieall bar1 -1
+./movieaxial bar11p -11\'
+./movieaxial bar1p -1\'
+./closeline
+
+./movieline 1
+./movieall 1 1
+./movieaxial 11p 11\' 
+
+echo "						</ul>"
+echo "					</li>"
+echo "				</ul>"
+echo "			</li>"
+echo "		</ul>"
+echo "	</li>"
+echo "	<li><a onclick=\"updatepage('html/archives.html')\">Archives</a></li>"
+echo "	<li><a onclick=\"updatepage('html/contacts.html')\">Contact</a></li>"
+echo "</ul>"
+echo "</body>"
+echo "</html>"

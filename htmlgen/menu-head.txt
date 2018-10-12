@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magnetic Point Group Renderings</title>
+	<meta charset="utf-8">
+	<meta name="Marc De Graef" content="Magnetic Point Groups">
+
+	<!-- internal styles -->
+	<style type="text/css">
+
+	/* rules for nav menu */
+	/* ================================= */
+
+	ul#navmenu * {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	ul#navmenu {
+		list-style-type: none;
+		font-size: 9pt;
+		width: 129px;
+		position: absolute;
+		z-index: 999;
+	}
+
+	ul#navmenu li {
+		/*border: 1px solid red;*/
+		text-align: center;
+		position: relative;
+		float: top;
+		margin-right: 0px;
+	}
+
+	ul#navmenu a {
+		text-decoration: none;
+		display: block;
+		width: 125px;
+		height: 25px;
+		line-height: 25px;
+		background-color: #FFF;
+		border: 1px solid #CCC;
+		border-radius: 5px;
+	}
+
+	/* submenu level 1 */
+	ul#navmenu .sub1 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 140px;
+	}
+
+	ul#navmenu .sub1 li {
+		/*border: 1px solid green;*/
+		width: 135px;
+	}
+
+	ul#navmenu .sub1 a {
+		margin-top: 0px;
+		width: 135px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub1 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 126px;
+	}
+
+
+	/* submenu level 2 */
+	ul#navmenu .sub2 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 85px;
+	}
+
+	ul#navmenu .sub2 li {
+		/*border: 1px solid blue;*/
+		margin-left: 0px;
+		width: 85px;
+	}
+
+	ul#navmenu .sub2 a {
+		margin-top: 0px;
+		margin-left: 0px;
+		width: 85px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub2 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 135px;
+	}
+
+
+	/* submenu level 3 */
+	ul#navmenu .sub3 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 85px;
+	}
+
+	ul#navmenu .sub3 li {
+		/*border: 1px solid yellow;*/
+		width: 85px;
+	}
+
+	ul#navmenu .sub3 a {
+		margin-left: 0px;
+		width: 85px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub3 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 86px;
+	}
+
+	/* submenu level 4 */
+	ul#navmenu .sub4 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 120px;
+	}
+
+	ul#navmenu .sub4 li {
+		/*border: 1px solid yellow;*/
+		width: 120px;
+	}
+
+	ul#navmenu .sub4 a {
+		margin-left: 0px;
+		width: 120px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub4 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 86px;
+	}
+
+	/* control hover behavior */
+	ul#navmenu li:hover > a {
+		background-color: #CFC;
+	}
+
+	ul#navmenu li:hover a:hover {
+		background-color: #FF0;
+	}
+
+
+	ul#navmenu li:hover .sub1 {
+		display: block;
+	}
+
+	ul#navmenu .sub1 li:hover .sub2 {
+		display: block;
+	}
+
+	ul#navmenu .sub2 li:hover .sub3 {
+		display: block;
+	}
+
+	ul#navmenu .sub3 li:hover .sub4 {
+		display: block;
+	}
+
+	/* define a right arrow for submenus */
+	.rarrow {
+		font-size: 11pt;
+		position: absolute;
+		top: 5px;
+		right: 2px;	
+	}
+
+	</style>
+</head>

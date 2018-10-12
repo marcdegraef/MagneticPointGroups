@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "					<li><a href=\"#\">$1</a><span class=\"rarrow\">&#9654;</span>"
+echo "						<ul class=\"sub3\">"
+echo "							<li><a href=\"#\">$1</a><span class=\"rarrow\">&#9654;</span>"

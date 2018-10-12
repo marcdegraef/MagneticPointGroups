@@ -1,0 +1,7 @@
+#!/bin/bash
+
+./mkgroup raw $1
+./mkgroup anaglyph $1
+./mkgroup scalar $1
+./mkgroup pseudoscalar $1
+./mkall_polar_axial $1

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="generator" content="Adobe GoLive" />
+		<title>Point group image: $1 $2</title>
+		<link href="../css/style-mac.css" type="text/css" rel="stylesheet" media="all" />
+	</head>
+
+	<body>
+		<div style="position:relative;width:800px;height:800px;-adbe-g:p;">
+			<div style="position:absolute;top:0px;left:32px;z-index:2;">
+				<img src="../pglabels/$2.png" alt="" border="2" /></div>
+			<div style="position:absolute;top:0px;left:400px;width:400px;height:32px;text-align:right;z-index:2;-adbe-c:c">
+				<strong>$1_$2.mpg</strong></div>
+			<div style="position:absolute;top:0px;left:0px;width:800px;height:800px;">
+				<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" width="800" height="800" codebase="http://www.apple.com/qtactivex/qtplugin.cab" align="left">
+					<param name="autostart" value="true" />
+					<param name="src" value="../movies/$1/$1_$2.mp4" />
+					<param name="autoplay" value="true" />
+					<param name="controller" value="true" />
+					<param name="loop" value="false" />
+					<video align="left" src="../movies/$1/$1_$2.mp4" width="800" height="800" AUTOPLAY="true" CONTROLLER="true" LOOP="false" pluginspage="http://www.apple.com/quicktime/" autostart="true"> </video> 
+				</object></div>
+		</div>
+	</body>
+
+</html>
+
+
+
+
+

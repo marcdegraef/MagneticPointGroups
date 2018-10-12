@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "								<ul class=\"sub4\">"
+echo "									<li><a onclick=\"updatepage('html/mv_scalar_$1.html')\">scalar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/mv_pseudoscalar_$1.html')\">pseudoscalar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/mv_polar_$1.html')\">polar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/mv_axial_$1.html')\">axial</a></li>"
+echo "								</ul>"
+echo "							</li>"

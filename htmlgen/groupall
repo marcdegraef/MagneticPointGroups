@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "								<ul class=\"sub4\">"
+echo "									<li><a onclick=\"updatepage('html/raw_$1.html')\">raw</a></li>"
+echo "									<li><a onclick=\"updatepage('html/scalar_$1.html')\">scalar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/anaglyph_$1.html')\">anaglyph</a></li>"
+echo "									<li><a onclick=\"updatepage('html/pseudoscalar_$1.html')\">pseudoscalar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/polar_$1.html')\">polar</a></li>"
+echo "									<li><a onclick=\"updatepage('html/axial_$1.html')\">axial</a></li>"
+echo "								</ul>"
+echo "							</li>"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "    Generating all still image html files"
+./mkallstills $1
+
+echo "    Generating all movie html files"
+./mkallmovies $1

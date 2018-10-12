@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="generator" content="Adobe GoLive" />
+		<title>Point group image: $1 $2</title>
+		<!-- <link href="../css/style-mac.css" type="text/css" rel="stylesheet" media="all" /> -->
+	</head>
+
+	<body>
+		<div style="position:relative;width:800px;height:832px;">
+			<div style="position:absolute;top:0px;left:20px;width:800px;height:32px;">
+				Click on the image to download a hires 1600x1600 version (jpeg) into a new window. 
+
+			<div style="position:absolute;top:32px;left:0px;width:800px;height:800px;z-index=-1">
+				<a title="$1_$2.jpeg" href="../stills/$1/$1_$2.jpeg" target="_blank"><img src="../stills/$1/$1_$2_small.jpeg" alt="" height="800" width="800" align="absmiddle" border="0" /></a></div>
+
+			<div style="position:absolute;top:32px;left:40px;z-index=2;display:block;">
+				<img src="../pglabels/$2.png" alt="" border="2" /></div>
+
+			<div style="position:absolute;top:32px;left:550px;width:208px;height:32px;z-index=2;display:block;">
+				<strong>$1_$2.jpeg</strong></div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

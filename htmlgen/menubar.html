@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magnetic Point Group Renderings</title>
+	<meta charset="utf-8">
+	<meta name="Marc De Graef" content="Magnetic Point Groups">
+
+	<!-- internal styles -->
+	<style type="text/css">
+
+	/* rules for nav menu */
+	/* ================================= */
+
+	ul#navmenu * {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	ul#navmenu {
+		list-style-type: none;
+		font-size: 9pt;
+		width: 129px;
+		position: absolute;
+		z-index: 999;
+	}
+
+	ul#navmenu li {
+		/*border: 1px solid red;*/
+		text-align: center;
+		position: relative;
+		float: top;
+		margin-right: 0px;
+	}
+
+	ul#navmenu a {
+		text-decoration: none;
+		display: block;
+		width: 125px;
+		height: 25px;
+		line-height: 25px;
+		background-color: #FFF;
+		border: 1px solid #CCC;
+		border-radius: 5px;
+	}
+
+	/* submenu level 1 */
+	ul#navmenu .sub1 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 140px;
+	}
+
+	ul#navmenu .sub1 li {
+		/*border: 1px solid green;*/
+		width: 135px;
+	}
+
+	ul#navmenu .sub1 a {
+		margin-top: 0px;
+		width: 135px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub1 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 126px;
+	}
+
+
+	/* submenu level 2 */
+	ul#navmenu .sub2 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 85px;
+	}
+
+	ul#navmenu .sub2 li {
+		/*border: 1px solid blue;*/
+		margin-left: 0px;
+		width: 85px;
+	}
+
+	ul#navmenu .sub2 a {
+		margin-top: 0px;
+		margin-left: 0px;
+		width: 85px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub2 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 135px;
+	}
+
+
+	/* submenu level 3 */
+	ul#navmenu .sub3 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 85px;
+	}
+
+	ul#navmenu .sub3 li {
+		/*border: 1px solid yellow;*/
+		width: 85px;
+	}
+
+	ul#navmenu .sub3 a {
+		margin-left: 0px;
+		width: 85px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub3 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 86px;
+	}
+
+	/* submenu level 4 */
+	ul#navmenu .sub4 {
+		list-style-type: none;
+		font-size: 10pt;
+		width: 120px;
+	}
+
+	ul#navmenu .sub4 li {
+		/*border: 1px solid yellow;*/
+		width: 120px;
+	}
+
+	ul#navmenu .sub4 a {
+		margin-left: 0px;
+		width: 120px;
+		height: 25px;
+		line-height: 25px;
+	}
+
+	ul#navmenu ul.sub4 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 86px;
+	}
+
+	/* control hover behavior */
+	ul#navmenu li:hover > a {
+		background-color: #CFC;
+	}
+
+	ul#navmenu li:hover a:hover {
+		background-color: #FF0;
+	}
+
+
+	ul#navmenu li:hover .sub1 {
+		display: block;
+	}
+
+	ul#navmenu .sub1 li:hover .sub2 {
+		display: block;
+	}
+
+	ul#navmenu .sub2 li:hover .sub3 {
+		display: block;
+	}
+
+	ul#navmenu .sub3 li:hover .sub4 {
+		display: block;
+	}
+
+	/* define a right arrow for submenus */
+	.rarrow {
+		font-size: 11pt;
+		position: absolute;
+		top: 5px;
+		right: 2px;	
+	}
+
+	</style>
+</head>
+<body>
+
+<ul id="navmenu">
+	<li><a onclick="updatepage('html/intro.html')">Home</a></li>
+	<li><a href="#">Still Images</a><span class="rarrow">&#9654;</span>
+		<ul class="sub1">
+			<li><a href="#">Cubic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">m-3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m-3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_mbar3m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_mbar3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_mbar3m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_mbar3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_mbar3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_mbar3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_mbar3m1p.html')">m-3m1'</a></li>
+							<li><a onclick="updatepage('html/axial_mbar3mp.html')">m-3m'</a></li>
+							<li><a onclick="updatepage('html/axial_mpbar3pmp.html')">m'-3'm'</a></li>
+							<li><a onclick="updatepage('html/axial_mpbar3pm.html')">m'-3'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-43m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-43m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar43m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar43m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar43m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar43m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar43m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar43m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar43m1p.html')">-43m1'</a></li>
+							<li><a onclick="updatepage('html/axial_bar4p3mp.html')">-4'3m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">432</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">432</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_432.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_432.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_432.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_432.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_432.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_432.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_4321p.html')">4321'</a></li>
+							<li><a onclick="updatepage('html/axial_4p32p.html')">4'32'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">m-3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m-3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_mbar3.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_mbar3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_mbar3.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_mbar3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_mbar3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_mbar3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_mbar31p.html')">m-31'</a></li>
+							<li><a onclick="updatepage('html/axial_mpbar3p.html')">m'-3'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">23</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">23</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_23.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_23.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_23.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_23.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_23.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_23.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_231p.html')">231'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Hexagonal</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">6/mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6/mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_6overmmm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_6overmmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_6overmmm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_6overmmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_6overmmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_6overmmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_6overmmm1p.html')">6/mmm'</a></li>
+							<li><a onclick="updatepage('html/axial_6povermpmmp.html')">6'/m'mm'</a></li>
+							<li><a onclick="updatepage('html/axial_6overmmpmp.html')">6/mm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_6overmpmpmp.html')">6/m'm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_6overmpmm.html')">6/m'mm</a></li>
+							<li><a onclick="updatepage('html/axial_6povermmmp.html')">6'/mmm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-6m2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-6m2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar6m2.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar6m2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar6m2.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar6m2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar6m2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar6m2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar6m21p.html')">-6m21'</a></li>
+							<li><a onclick="updatepage('html/axial_bar6p2mp.html')">-6'2m'</a></li>
+							<li><a onclick="updatepage('html/axial_bar6pm2p.html')">-6'm2'</a></li>
+							<li><a onclick="updatepage('html/axial_bar6mp2p.html')">-6m'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6mm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6mm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_6mm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_6mm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_6mm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_6mm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_6mm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_6mm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_6mm1p.html')">6mm1'</a></li>
+							<li><a onclick="updatepage('html/axial_6pmmp.html')">6'mm'</a></li>
+							<li><a onclick="updatepage('html/axial_6mpmp.html')">6m'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">622</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">622</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_622.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_622.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_622.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_622.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_622.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_622.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_6221p.html')">6221'</a></li>
+							<li><a onclick="updatepage('html/axial_6p22p.html')">6'22'</a></li>
+							<li><a onclick="updatepage('html/axial_62p2p.html')">62'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_6overm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_6overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_6overm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_6overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_6overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_6overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_6overm1p.html')">6/m1'</a></li>
+							<li><a onclick="updatepage('html/axial_6povermp.html')">6'/m'</a></li>
+							<li><a onclick="updatepage('html/axial_6overmp.html')">6/m'</a></li>
+							<li><a onclick="updatepage('html/axial_6poverm.html')">6'/m</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-6</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-6</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar6.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar6.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar6.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar6.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar6.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar6.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar61p.html')">-61'</a></li>
+							<li><a onclick="updatepage('html/axial_bar6p.html')">-6'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_6.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_6.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_6.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_6.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_6.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_6.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_61p.html')">61'</a></li>
+							<li><a onclick="updatepage('html/axial_6p.html')">6'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Rhombohedral</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">-3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar3m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar3m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar3m1p.html')">-3m1'</a></li>
+							<li><a onclick="updatepage('html/axial_bar3mp.html')">-3m'</a></li>
+							<li><a onclick="updatepage('html/axial_bar3pmp.html')">-3'm'</a></li>
+							<li><a onclick="updatepage('html/axial_bar3pm.html')">-3'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_3m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_3m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_3m1p.html')">3m1'</a></li>
+							<li><a onclick="updatepage('html/axial_3mp.html')">3m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">32</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">32</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_32.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_32.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_32.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_32.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_32.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_32.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_321p.html')">321'</a></li>
+							<li><a onclick="updatepage('html/axial_32p.html')">32'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar3.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar3.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar31p.html')">-31'</a></li>
+							<li><a onclick="updatepage('html/axial_bar3p.html')">-3'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_3.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_3.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_31p.html')">31'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Tetragonal</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">4/mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4/mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_4overmmm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_4overmmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_4overmmm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_4overmmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_4overmmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_4overmmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_4overmmm1p.html')">4/mmm1'</a></li>
+							<li><a onclick="updatepage('html/axial_4povermmmp.html')">4'/mmm'</a></li>
+							<li><a onclick="updatepage('html/axial_4overmmpmp.html')">4/mm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_4overmpmpmp.html')">4/m'm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_4overmpmm.html')">4/m'mm</a></li>
+							<li><a onclick="updatepage('html/axial_4povermpmpm.html')">4'/m'm'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-42m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-42m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar42m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar42m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar42m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar42m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar42m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar42m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar42m1p.html')">-42m1'</a></li>
+							<li><a onclick="updatepage('html/axial_bar4p2mp.html')">-4'2m'</a></li>
+							<li><a onclick="updatepage('html/axial_bar4p2pm.html')">-4'2'm</a></li>
+							<li><a onclick="updatepage('html/axial_bar42pmp.html')">-42'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4mm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4mm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_4mm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_4mm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_4mm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_4mm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_4mm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_4mm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_4mm1p.html')">4mm1'</a></li>
+							<li><a onclick="updatepage('html/axial_4pmmp.html')">4'mm'</a></li>
+							<li><a onclick="updatepage('html/axial_4mpmp.html')">4m'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">422</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">422</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_422.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_422.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_422.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_422.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_422.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_422.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_4221p.html')">4221'</a></li>
+							<li><a onclick="updatepage('html/axial_4p22p.html')">4'22'</a></li>
+							<li><a onclick="updatepage('html/axial_42p2p.html')">42'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_4overm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_4overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_4overm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_4overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_4overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_4overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_4overm1p.html')">4/m1'</a></li>
+							<li><a onclick="updatepage('html/axial_4poverm.html')">4'/m</a></li>
+							<li><a onclick="updatepage('html/axial_4overmp.html')">4/m'</a></li>
+							<li><a onclick="updatepage('html/axial_4povermp.html')">4'/m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-4</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-4</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar4.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar4.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar4.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar4.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar4.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar4.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar41p.html')">-41'</a></li>
+							<li><a onclick="updatepage('html/axial_bar4p.html')">-4'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_4.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_4.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_4.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_4.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_4.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_4.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_41p.html')">41'</a></li>
+							<li><a onclick="updatepage('html/axial_4p.html')">4'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Orthorhombic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_mmm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_mmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_mmm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_mmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_mmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_mmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_mmm1p.html')">mmm1'</a></li>
+							<li><a onclick="updatepage('html/axial_mmpmp.html')">mm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_mpmpmp.html')">m'm'm'</a></li>
+							<li><a onclick="updatepage('html/axial_mmmp.html')">mmm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">mm2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">mm2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_mm2.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_mm2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_mm2.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_mm2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_mm2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_mm2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_mm21p.html')">mm21'</a></li>
+							<li><a onclick="updatepage('html/axial_mpmp2.html')">m'm'2</a></li>
+							<li><a onclick="updatepage('html/axial_mpm2p.html')">m'm2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">222</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">222</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_222.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_222.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_222.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_222.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_222.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_222.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_2221p.html')">2221'</a></li>
+							<li><a onclick="updatepage('html/axial_2p2p2.html')">2'2'2</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Monoclinic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">2/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">2/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_2overm.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_2overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_2overm.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_2overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_2overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_2overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_2overm1p.html')">2/m1'</a></li>
+							<li><a onclick="updatepage('html/axial_2povermp.html')">2'/m'</a></li>
+							<li><a onclick="updatepage('html/axial_2overmp.html')">2/m'</a></li>
+							<li><a onclick="updatepage('html/axial_2poverm.html')">2'/m</a></li>
+					</ul>
+				</li>
+					<li><a href="#">m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_m.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_m.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_m1p.html')">m1'</a></li>
+							<li><a onclick="updatepage('html/axial_mp.html')">m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_2.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_2.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_21p.html')">21'</a></li>
+							<li><a onclick="updatepage('html/axial_2p.html')">2'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Triclinic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">-1</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-1</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_bar1.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_bar1.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_bar1.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_bar1.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_bar1.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_bar1.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_bar11p.html')">-11'</a></li>
+							<li><a onclick="updatepage('html/axial_bar1p.html')">-1'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">1</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">1</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/raw_1.html')">raw</a></li>
+									<li><a onclick="updatepage('html/scalar_1.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/anaglyph_1.html')">anaglyph</a></li>
+									<li><a onclick="updatepage('html/pseudoscalar_1.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/polar_1.html')">polar</a></li>
+									<li><a onclick="updatepage('html/axial_1.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/axial_11p.html')">11'</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><a href="#">Movies</a><span class="rarrow">&#9654;</span>
+		<ul class="sub1">
+			<li><a href="#">Cubic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">m-3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m-3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_mbar3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_mbar3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_mbar3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_mbar3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_mbar3m1p.html')">m-3m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mbar3mp.html')">m-3m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpbar3pmp.html')">m'-3'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpbar3pm.html')">m'-3'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-43m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-43m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar43m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar43m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar43m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar43m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar43m1p.html')">-43m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar4p3mp.html')">-4'3m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">432</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">432</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_432.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_432.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_432.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_432.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_4321p.html')">4321'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4p32p.html')">4'32'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">m-3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m-3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_mbar3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_mbar3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_mbar3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_mbar3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_mbar31p.html')">m-31'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpbar3p.html')">m'-3'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">23</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">23</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_23.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_23.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_23.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_23.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_231p.html')">231'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Hexagonal</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">6/mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6/mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_6overmmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_6overmmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_6overmmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_6overmmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_6overmmm1p.html')">6/mmm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6povermpmmp.html')">6'/m'mm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6overmmpmp.html')">6/mm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6overmpmpmp.html')">6/m'm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6overmpmm.html')">6/m'mm</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6povermmmp.html')">6'/mmm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-6m2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-6m2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar6m2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar6m2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar6m2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar6m2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar6m21p.html')">-6m21'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar6p2mp.html')">-6'2m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar6pm2p.html')">-6'm2'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar6mp2p.html')">-6m'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6mm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6mm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_6mm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_6mm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_6mm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_6mm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_6mm1p.html')">6mm1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6pmmp.html')">6'mm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6mpmp.html')">6m'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">622</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">622</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_622.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_622.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_622.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_622.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_6221p.html')">6221'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6p22p.html')">6'22'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_62p2p.html')">62'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_6overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_6overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_6overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_6overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_6overm1p.html')">6/m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6povermp.html')">6'/m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6overmp.html')">6/m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6poverm.html')">6'/m</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-6</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-6</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar6.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar6.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar6.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar6.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar61p.html')">-61'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar6p.html')">-6'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">6</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">6</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_6.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_6.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_6.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_6.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_61p.html')">61'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_6p.html')">6'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Rhombohedral</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">-3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar3m1p.html')">-3m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar3mp.html')">-3m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar3pmp.html')">-3'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar3pm.html')">-3'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">3m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">3m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_3m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_3m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_3m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_3m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_3m1p.html')">3m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_3mp.html')">3m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">32</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">32</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_32.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_32.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_32.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_32.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_321p.html')">321'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_32p.html')">32'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar31p.html')">-31'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar3p.html')">-3'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">3</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">3</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_3.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_3.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_3.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_3.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_31p.html')">31'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Tetragonal</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">4/mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4/mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_4overmmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_4overmmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_4overmmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_4overmmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_4overmmm1p.html')">4/mmm1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4povermmmp.html')">4'/mmm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4overmmpmp.html')">4/mm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4overmpmpmp.html')">4/m'm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4overmpmm.html')">4/m'mm</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4povermpmpm.html')">4'/m'm'm</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-42m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-42m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar42m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar42m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar42m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar42m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar42m1p.html')">-42m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar4p2mp.html')">-4'2m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar4p2pm.html')">-4'2'm</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar42pmp.html')">-42'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4mm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4mm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_4mm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_4mm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_4mm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_4mm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_4mm1p.html')">4mm1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4pmmp.html')">4'mm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4mpmp.html')">4m'm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">422</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">422</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_422.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_422.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_422.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_422.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_4221p.html')">4221'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4p22p.html')">4'22'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_42p2p.html')">42'2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_4overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_4overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_4overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_4overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_4overm1p.html')">4/m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4poverm.html')">4'/m</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4overmp.html')">4/m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4povermp.html')">4'/m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">-4</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-4</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar4.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar4.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar4.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar4.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar41p.html')">-41'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar4p.html')">-4'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">4</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">4</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_4.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_4.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_4.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_4.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_41p.html')">41'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_4p.html')">4'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Orthorhombic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">mmm</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">mmm</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_mmm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_mmm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_mmm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_mmm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_mmm1p.html')">mmm1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mmpmp.html')">mm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpmpmp.html')">m'm'm'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mmmp.html')">mmm'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">mm2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">mm2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_mm2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_mm2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_mm2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_mm2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_mm21p.html')">mm21'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpmp2.html')">m'm'2</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mpm2p.html')">m'm2'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">222</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">222</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_222.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_222.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_222.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_222.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_2221p.html')">2221'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_2p2p2.html')">2'2'2</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Monoclinic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">2/m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">2/m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_2overm.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_2overm.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_2overm.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_2overm.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_2overm1p.html')">2/m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_2povermp.html')">2'/m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_2overmp.html')">2/m'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_2poverm.html')">2'/m</a></li>
+					</ul>
+				</li>
+					<li><a href="#">m</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">m</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_m.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_m.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_m.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_m.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_m1p.html')">m1'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_mp.html')">m'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">2</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">2</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_2.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_2.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_2.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_2.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_21p.html')">21'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_2p.html')">2'</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li><a href="#">Triclinic</a><span class="rarrow">&#9654;</span>
+				<ul class="sub2">
+					<li><a href="#">-1</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">-1</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_bar1.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_bar1.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_bar1.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_bar1.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_bar11p.html')">-11'</a></li>
+							<li><a onclick="updatepage('html/mv_axial_bar1p.html')">-1'</a></li>
+					</ul>
+				</li>
+					<li><a href="#">1</a><span class="rarrow">&#9654;</span>
+						<ul class="sub3">
+							<li><a href="#">1</a><span class="rarrow">&#9654;</span>
+								<ul class="sub4">
+									<li><a onclick="updatepage('html/mv_scalar_1.html')">scalar</a></li>
+									<li><a onclick="updatepage('html/mv_pseudoscalar_1.html')">pseudoscalar</a></li>
+									<li><a onclick="updatepage('html/mv_polar_1.html')">polar</a></li>
+									<li><a onclick="updatepage('html/mv_axial_1.html')">axial</a></li>
+								</ul>
+							</li>
+							<li><a onclick="updatepage('html/mv_axial_11p.html')">11'</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><a onclick="updatepage('html/archives.html')">Archives</a></li>
+	<li><a onclick="updatepage('html/contacts.html')">Contact</a></li>
+</ul>
+</body>
+</html>
