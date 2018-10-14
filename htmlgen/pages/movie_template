@@ -11,25 +11,17 @@
 
 	<body>
 		<div style="position:relative;width:800px;height:800px;-adbe-g:p;">
-			<div style="position:absolute;top:0px;left:32px;z-index:2;">
+			<div style="position:absolute;top:0px;left:120px;z-index:2;">
 				<img src="../pglabels/$2.png" alt="" border="2" /></div>
 			<div style="position:absolute;top:0px;left:400px;width:400px;height:32px;text-align:right;z-index:2;-adbe-c:c">
 				<strong>$1_$2.mpg</strong></div>
 			<div style="position:absolute;top:0px;left:0px;width:800px;height:800px;">
-				<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" width="800" height="800" codebase="http://www.apple.com/qtactivex/qtplugin.cab" align="left">
-					<param name="autostart" value="true" />
-					<param name="src" value="../movies/$1/$1_$2.mp4" />
-					<param name="autoplay" value="true" />
-					<param name="controller" value="true" />
-					<param name="loop" value="false" />
-					<video align="left" src="../movies/$1/$1_$2.mp4" width="800" height="800" AUTOPLAY="true" CONTROLLER="true" LOOP="false" pluginspage="http://www.apple.com/quicktime/" autostart="true"> </video> 
+					<video controls>
+						<source src="../movies/$1/$1_$2.mp4" type="video/mp4">
+ 						 Your browser does not support the video tag for mp4 movies.
+ 					</video>
 				</object></div>
 		</div>
 	</body>
 
 </html>
-
-
-
-
-
