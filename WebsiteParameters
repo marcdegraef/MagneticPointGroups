@@ -1,0 +1,6 @@
+# where should the website be built ?  [full path]
+WEBSITE_FOLDER=/Users/mdg/mpgtestsite
+#
+# where are the stills and movie archives located?  [full path]
+BUILD_FOLDER=/Users/mdg/Files/testfolder
+#

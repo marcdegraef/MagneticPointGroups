@@ -1,0 +1,6 @@
+# where should the website be built ?  [full path]
+WEBSITE_FOLDER=/path/topfolder
+#
+# where are the stills and movie archives located?  [full path]
+BUILD_FOLDER=/path/buildfolder
+#

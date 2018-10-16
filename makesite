@@ -47,12 +47,10 @@ HTML_FOLDER=$WEBSITE_FOLDER/html
 STILLS_FOLDER=$WEBSITE_FOLDER/stills
 MOVIES_FOLDER=$WEBSITE_FOLDER/movies
 ARCHIVE_FOLDER=$WEBSITE_FOLDER/mpgarchive
-LABEL_FOLDER=$WEBSITE_FOLDER/pglabels
 mkdir $HTML_FOLDER
 mkdir $STILLS_FOLDER
 mkdir $MOVIES_FOLDER
 mkdir $ARCHIVE_FOLDER
-mkdir $LABEL_FOLDER
 
 cd htmlgen
 
@@ -72,38 +70,117 @@ cp contacts.html "$HTML_FOLDER"/contacts.html
 echo "Generating $HTML_FOLDER/archives.html"
 cp archives.html "$HTML_FOLDER"/archives.html
 
+# place the FAQ.html file
+echo "Generating $HTML_FOLDER/FAQ.html"
+cp FAQ.html "$HTML_FOLDER"/FAQ.html
+
 # generate the navigation dropdown menus
 echo "Generating navigation dropdown menus in $WEBSITE_FOLDER/menubar.html"
 ./mkall >"$WEBSITE_FOLDER"/menubar.html
 
+echo "copying the point group label png files into the pglabels folder"
+unzip pglabels.zip >/dev/null
+mv pglabels $WEBSITE_FOLDER
+
 ### TO BE WRITTEN:  INITIALIZE THE TEMPLATE FILES FOR THE INDIVIDUAL PAGES WITH THE CORRECT IMAGE DIMENSIONS
+
+echo "Initializing html point group template files with correct image and movie dimensions"
+echo " TO BE IMPLEMENTED"
 
 cd pages
 # generate the still and movie html files for all point groups and representation modes
 echo "Generating all individual stills and movie pages in $HTML_FOLDER"
 ./mkallpages $HTML_FOLDER
 
-cd ..
-
-
-
+cd $CURDIR
 
 # then extract all the archive files into the correct folders
+echo "Unpacking all individual stills $STILLS_FOLDER"
+cd $STILLS_FOLDER
+mkdir anaglyph axial polar scalar raw pseudoscalar 
+
+echo "  --> anaglyphs"
+cd anaglyph
+cp $BUILD_FOLDER/anaglyph.tar.gz .
+gunzip anaglyph.tar.gz
+tar -xf anaglyph.tar 
+rm *.tar
+
+echo "  --> axial"
+cd ../axial
+cp $BUILD_FOLDER/axial_stills.tar.gz .
+gunzip axial_stills.tar.gz
+tar -xf axial_stills.tar 
+rm *.tar
+
+echo "  --> polar"
+cd ../polar
+cp $BUILD_FOLDER/polar_stills.tar.gz .
+gunzip polar_stills.tar.gz
+tar -xf polar_stills.tar 
+rm *.tar
+
+echo "  --> raw"
+cd ../raw
+cp $BUILD_FOLDER/raw_stills.tar.gz .
+gunzip raw_stills.tar.gz
+tar -xf raw_stills.tar 
+rm *.tar
+
+echo "  --> scalar"
+cd ../scalar
+cp $BUILD_FOLDER/scalar_stills.tar.gz .
+gunzip scalar_stills.tar.gz
+tar -xf scalar_stills.tar 
+rm *.tar
+
+echo "  --> pseudoscalar"
+cd ../pseudoscalar
+cp $BUILD_FOLDER/pseudoscalar_stills.tar.gz .
+gunzip pseudoscalar_stills.tar.gz
+tar -xf pseudoscalar_stills.tar 
+rm *.tar
 
 
+echo "Unpacking all individual movies $MOVIES_FOLDER"
+cd $MOVIES_FOLDER
+mkdir axial polar scalar pseudoscalar 
 
-# final cleanup
-cd $TMP_FOLDER
-rm -f .* * *.* >/dev/null 2>/dev/null
+echo "  --> axial"
+cd axial
+cp $BUILD_FOLDER/axial_movies.tar.gz .
+gunzip axial_movies.tar.gz
+tar -xf axial_movies.tar
+mv axial_movies/*.mp4 .
+rmdir axial_movies
+rm *.tar
+
+echo "  --> polar"
+cd ../polar
+cp $BUILD_FOLDER/polar_movies.tar.gz .
+gunzip polar_movies.tar.gz
+tar -xf polar_movies.tar
+mv polar_movies/*.mp4 .
+rmdir polar_movies
+rm *.tar
+
+echo "  --> scalar"
+cd ../scalar
+cp $BUILD_FOLDER/scalar_movies.tar.gz .
+gunzip scalar_movies.tar.gz
+tar -xf scalar_movies.tar
+rm *.tar
+
+echo "  --> pseudoscalar"
+cd ../pseudoscalar
+cp $BUILD_FOLDER/pseudoscalar_movies.tar.gz .
+gunzip pseudoscalar_movies.tar.gz
+tar -xf pseudoscalar_movies.tar
+rm *.tar
+
 cd $CURDIR
-rmdir $TMP_FOLDER
-
-cd $FRAMES_FOLDER
-rm -f .* * *.* >/dev/null 2>/dev/null
-cd $CURDIR
-rmdir $FRAMES_FOLDER
 
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 echo "All is well that ends well ..."
-showdate
+date
 exit
