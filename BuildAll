@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Building all stills and movie files"
+./makeall
+
+echo "Building web site"
+./makesite
+
+exit

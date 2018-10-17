@@ -23,12 +23,25 @@ echo "not work correctly when opening the file from your local drive.  They only
 echo "web server."
 echo ""
 
+
 # -------------------------------------------------------
+# read the web site parameter(s)
 WEB_FILE="WebSiteParameters"
 if [ -f $WEB_FILE ]; then
     . $WEB_FILE
 else
     echo "$WEB_FILE not found; exiting"
+    exit
+fi
+
+# -------------------------------------------------------
+# read the rendering parameters; needed to set the image/movie sizes
+# in the various template files
+RENDER_FILE="RenderParameters"
+if [ -f $RENDER_FILE ]; then
+    . $RENDER_FILE
+else
+    echo "$RENDER_FILE not found; exiting"
     exit
 fi
 
@@ -82,12 +95,22 @@ echo "copying the point group label png files into the pglabels folder"
 unzip pglabels.zip >/dev/null
 mv pglabels $WEBSITE_FOLDER
 
-### TO BE WRITTEN:  INITIALIZE THE TEMPLATE FILES FOR THE INDIVIDUAL PAGES WITH THE CORRECT IMAGE DIMENSIONS
-
+# substitute the image/movie sizes in the html template files
 echo "Initializing html point group template files with correct image and movie dimensions"
-echo " TO BE IMPLEMENTED"
-
 cd pages
+cp still_template.original still_template
+HEIGHTs=$(expr 32 + ${STILL_SIZE_MONTAGE}) 
+sed -i back "s/WIDTH/${STILL_SIZE_MONTAGE}/g" still_template
+sed -i back "s/HEIGHT/${STILL_SIZE_MONTAGE}/g" still_template
+sed -i back "s/HEIGHTs/${HEIGHTs}/g" still_template
+sed -i back "s/HIRESW/${STILL_SIZE}/g" still_template
+rm still_templateback
+
+cp movie_template.original movie_template
+sed -i back "s/\$WIDTH\$/${MOVIE_SIZE}/g" movie_template
+sed -i back "s/\$HEIGHT\$/${MOVIE_SIZE}/g" movie_template
+rm movie_templateback
+
 # generate the still and movie html files for all point groups and representation modes
 echo "Generating all individual stills and movie pages in $HTML_FOLDER"
 ./mkallpages $HTML_FOLDER
