@@ -174,8 +174,6 @@ cd axial
 cp $BUILD_FOLDER/axial_movies.tar.gz .
 gunzip axial_movies.tar.gz
 tar -xf axial_movies.tar
-mv axial_movies/*.mp4 .
-rmdir axial_movies
 rm *.tar
 
 echo "  --> polar"
@@ -183,8 +181,6 @@ cd ../polar
 cp $BUILD_FOLDER/polar_movies.tar.gz .
 gunzip polar_movies.tar.gz
 tar -xf polar_movies.tar
-mv polar_movies/*.mp4 .
-rmdir polar_movies
 rm *.tar
 
 echo "  --> scalar"
@@ -202,6 +198,10 @@ tar -xf pseudoscalar_movies.tar
 rm *.tar
 
 cd $CURDIR
+
+# finally, place all the tar.gz files in the correct folder
+echo "Copying archive tar.gz files to mpgarchive folder"
+cp $BUILD_FOLDER/*.tar.gz $ARCHIVE_FOLDER
 
 echo "- - - - - - - - - - - - - - - - - - - - - - - - - "
 echo "All is well that ends well ..."

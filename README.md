@@ -25,7 +25,7 @@ Note that a complete build of all the stills and movies can easily take several 
 
 bash> ./makeall 
 
-Then go have some coffee... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.
+Then go have some coffee... When the whole thing is complete, you should have a number of tar-ball files (*.tar.gz) in the BUILD_FOLDER, containing all the rendered images and movies. You can also send the command to the background using nohup and &, or run it inside the *screen* program; check the web for information on how to do that.  On a 2013 Mac Pro, running on 8 cores, building the entire package and the web site (using the BuildAll script) took just over 11 hours. 
 
 ## Output types
 The scripts generate a number of different representations for the 122 magnetic point groups:
