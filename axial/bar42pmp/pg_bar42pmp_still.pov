@@ -1,4 +1,4 @@
-// Copyright (c) 2008-2018, Marc De Graef Research Group/Carnegie Mellon University
+// Copyright (c) 2008-2021, Marc De Graef Research Group/Carnegie Mellon University
 // BSD2 license, see license.txt file accompanying this distribution
 
 // Persistence of Vision Ray Tracer Scene Description File

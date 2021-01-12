@@ -1,11 +1,11 @@
-// Copyright (c) 2008-2018, Marc De Graef Research Gro../../Carnegie Mellon University
+// Copyright (c) 2008-2021, Marc De Graef Research Group/Carnegie Mellon University
 // BSD2 license, see license.txt file accompanying this distribution
 
 // Persistence of Vision Ray Tracer Scene Description File
 // File: pg_21p.pov
 // Vers: 3.7
 // Desc: pov file for axial rendering of point group pg_21p
-// Date: ../../19/2018
+// Date: 09/19/2018
 // Auth: Marc De Graef
 #version 3.7;
 global_settings {
