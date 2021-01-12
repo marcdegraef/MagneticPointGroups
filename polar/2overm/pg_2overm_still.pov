@@ -39,8 +39,8 @@ object { point_group }
   union {
 	object {  pparrow() rotate z*theta translate < px, pz,py> } 
 	object {  pparrow() rotate z*-theta translate <mpx,pz,mpy> } 
-	object {  mparrow() scale <1,1,-1> rotate z*theta translate <mpx,mpz,mpy> } 
-	object {  mparrow() scale <1,1,-1> rotate z*-theta translate < px, mpz,py> } 
+	object {  mparrow() scale <1,-1,1> rotate z*theta translate <mpx,mpz,mpy> } 
+	object {  mparrow() scale <1,-1,1> rotate z*-theta translate < px, mpz,py> } 
   }
 
 object { orbit }
