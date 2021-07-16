@@ -54,4 +54,4 @@ You are more than welcome to modify some of the rendering settings which are def
 - implement automatic generation of complete Magnetic Point Groups web site
 
 ## Funding acknowledgment
-This material is based upon work initially supported by the National Science Foundation under Grant Nos. **DMR-0809048** and **DMR-1005330**. The current release on GitHub was supported by Grant No. **DMR-1564550**.
+This material is based upon work initially supported by the National Science Foundation under Grant Nos. **DMR-0809048** and **DMR-1005330**. The current release on GitHub was supported by Grant Nos. **DMR-1564550** and **DMR-1904629**.
